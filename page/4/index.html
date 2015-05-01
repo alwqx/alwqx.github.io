@@ -1,0 +1,1259 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-next">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.0"/>
+
+
+
+
+
+    <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/head.ico?v=0.4.0" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3e10392c5712cd95c67114264a1df7f8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <title> One Day One </title>
+</head>
+
+<body>
+  <div class="container one-column 
+   page-home 
+">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">One Day One</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+            
+          
+
+          <div id="posts" class="posts-expand">
+            
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/01/04/DB-course-design/">
+                数据库课设(一)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-01-03
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/Java/">Java</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/01/04/DB-course-design/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/04/DB-course-design/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="整理一">整理一</h2><ul>
+<li>先看出错的代码</li>
+</ul>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">List</span> getDeptInfo()&#123;</span><br><span class="line">	<span class="built_in">String</span> sql <span class="subst">=</span> <span class="string">"select * from department"</span>;</span><br><span class="line">	PreparedStatement psmt<span class="subst">=</span><span class="built_in">null</span>;</span><br><span class="line">	<span class="built_in">List</span> <span class="built_in">list</span> <span class="subst">=</span> <span class="literal">new</span> ArrayList();</span><br><span class="line">	try &#123;</span><br><span class="line">		psmt <span class="subst">=</span> conn<span class="built_in">.</span>prepareStatement(sql);</span><br><span class="line">		<span class="keyword">ResultSet</span> rs <span class="subst">=</span> psmt<span class="built_in">.</span>executeQuery();</span><br><span class="line">		Department dept <span class="subst">=</span> <span class="built_in">null</span>;</span><br><span class="line">		<span class="keyword">while</span>(rs<span class="built_in">.</span>next())&#123;</span><br><span class="line">			dept<span class="built_in">.</span>setDeptId(rs<span class="built_in">.</span>getInt(<span class="string">"DeptId"</span>));</span><br><span class="line">			dept<span class="built_in">.</span>setDeptName(rs<span class="built_in">.</span>getString(<span class="string">"DeptName"</span>));</span><br><span class="line">			<span class="built_in">list</span><span class="built_in">.</span>add(dept);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e<span class="built_in">.</span>printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/01/04/DB-course-design/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Java/">
+                #Java
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/31/Mysql-basic-sqls-3/">
+                Mysql基本操作(三)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-31
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/数据库/">数据库</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/31/Mysql-basic-sqls-3/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/31/Mysql-basic-sqls-3/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h1 id="基本增删查改">基本增删查改</h1><h2 id="数据查询">数据查询</h2><ul>
+<li>语句结构：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> [<span class="keyword">all</span>|<span class="keyword">distinct</span>]</span><br><span class="line"><span class="keyword">from</span> &lt;表名或视图名&gt;...</span><br><span class="line">[<span class="keyword">where</span> &lt;条件返回逻辑值&gt;]      <span class="comment">---指定查询条件</span></span><br><span class="line">[<span class="keyword">group</span> <span class="keyword">by</span>]                   <span class="comment">---分组</span></span><br><span class="line">[<span class="keyword">having</span> ]					<span class="comment">---	分组过滤条件</span></span><br><span class="line">[<span class="keyword">order</span> <span class="keyword">by</span>]  [<span class="keyword">asc</span>|<span class="keyword">desc</span>]		<span class="comment">---排序</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>e.g.1 as定义列名，limit限制行数</li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="header">mysql&gt; select 商品编号,单价*0.8 as 折扣价, 保质期 from spb limit 2;</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line"><span class="header">| 商品编号     | 折扣价    | 保质期              |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line">| 10010001     |        40 | 2013-12-31 00:00:00 |</span><br><span class="line"><span class="header">| 10010002     |      4.16 | 2013-06-03 00:00:00 |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br></pre></td></tr></table></figure>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2014/12/31/Mysql-basic-sqls-3/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Mysql/">
+                #Mysql
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/28/Mysql-basic-sqls-2/">
+                Mysql基本操作（二）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-28
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/数据库/">数据库</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/28/Mysql-basic-sqls-2/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/28/Mysql-basic-sqls-2/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="查看版本信息">查看版本信息</h2><ul>
+<li>登录后 <code>\s</code></li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; \s</span><br><span class="line">--------------</span><br><span class="line">mysql  Ver <span class="number">14.14</span> Distrib <span class="number">5.6</span>.19, <span class="keyword">for</span> Win64 (x86_64)</span><br><span class="line"></span><br><span class="line">Connection <span class="string">id:</span>          <span class="number">38</span></span><br><span class="line">Current <span class="string">database:</span>       stugradems</span><br><span class="line">Current <span class="string">user:</span>           root<span class="annotation">@localhost</span></span><br><span class="line"><span class="string">SSL:</span>                    Not <span class="keyword">in</span> use</span><br><span class="line">Using <span class="string">delimiter:</span>        ;</span><br><span class="line">Server <span class="string">version:</span>         <span class="number">5.6</span>.19 MySQL Community Server (GPL)</span><br><span class="line">Protocol <span class="string">version:</span>       <span class="number">10</span></span><br><span class="line"><span class="string">Connection:</span>             localhost via TCP/IP</span><br><span class="line">Server <span class="string">characterset:</span>    latin1</span><br><span class="line">Db     <span class="string">characterset:</span>    utf8</span><br><span class="line">Client <span class="string">characterset:</span>    utf8</span><br><span class="line">Conn.  <span class="string">characterset:</span>    utf8</span><br><span class="line">TCP <span class="string">port:</span>               <span class="number">3306</span></span><br><span class="line"><span class="string">Uptime:</span>                 <span class="number">14</span> hours <span class="number">21</span> min <span class="number">16</span> sec</span><br><span class="line"><span class="label"></span><br><span class="line">Threads:</span> <span class="number">1</span>  <span class="string">Questions:</span> <span class="number">355</span>  Slow <span class="string">queries:</span> <span class="number">0</span>  <span class="string">Opens:</span> <span class="number">75</span>  Flush <span class="string">tables:</span> <span class="number">1</span>  Open <span class="string">tables:</span> <span class="number">68</span>  Queries per second <span class="string">avg:</span> <span class="number">0.006</span></span><br></pre></td></tr></table></figure>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2014/12/28/Mysql-basic-sqls-2/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Mysql/">
+                #Mysql
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/27/div-css-layout-1/">
+                div+css布局初步
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-27
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/前端/">前端</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/27/div-css-layout-1/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/27/div-css-layout-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="div+css列式布局">div+css列式布局</h2><ul>
+<li>二列布局、左右分布:利用左右浮动来实现二列横向布局</li>
+</ul>
+<p>1.首先需要一个盒子容器<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"html/css"</span>&gt;</span><span class="css"></span><br><span class="line">			<span class="class">.contain</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">400px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid blue</span></span>;&#125;</span></span><br><span class="line">			<span class="class">.left</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">180px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid red</span></span>;&#125;</span></span><br><span class="line">			<span class="class">.right</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">180px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">float</span>:<span class="value">right</span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid green</span></span>;&#125;</span></span><br><span class="line">		</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"contain"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>三列布局：左右绝对定位，设置好距离左右的margin值。</li>
+</ul>
+<h2 id="div+css高度自适应">div+css高度自适应</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.autohight</span><span class="rules">&#123;<span class="rule"><span class="attribute">min-height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value">auto <span class="important">!important</span></span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果在IE6下</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.autohight</span><span class="rules">&#123;<span class="rule"><span class="attribute">_height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">min-height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value">auto <span class="important">!important</span></span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/网页/">
+                #网页
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/20/Zotero-1/">
+                Zotero初步(1)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-20
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/效率/">效率</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/20/Zotero-1/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/20/Zotero-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="Zotero简介">Zotero简介</h2><ul>
+<li>Zotero [zoh-TAIR-oh] is a free, easy-to-use tool to help you collect, organize, cite, and share your research sources.</li>
+<li>Zotero [zoh-TAIR-oh] 是一款免费、简单易用的文献管理工具. 它帮助您收集, 管理, 引用及分享您的研究资源. 它就在您工作的地方—网页浏览器本身</li>
+<li><p>由安德鲁·w·梅隆基金会，斯隆基金会以及美国博物馆和图书馆服务协会资助开发。</p>
+</li>
+<li><p>Zotero是火狐浏览器(Firefox)的一个文献管理插件。它在火狐浏览器(Firefox    )中运行于自己的面板中,且脱离网页.</p>
+</li>
+<li>支持浏览器插件、win、Mac、Linux平台</li>
+<li>A personal research assistant</li>
+<li>个人研究助理</li>
+</ul>
+<blockquote>
+<p>Zotero is the only research tool that automatically senses content in your web browser, allowing you to add it to your personal library with a single click. Whether you’re searching for a preprint on arXiv.org, a journal article from JSTOR, a news story from the New York Times, or a book from your university library catalog, Zotero has you covered with &gt;support for thousands of sites.</p>
+</blockquote>
+<ul>
+<li>Store anything</li>
+</ul>
+<blockquote>
+<p>Zotero collects all your research in a single, searchable interface. You can add PDFs, images, audio and video files, snapshots of web pages, and really anything else. Zotero automatically indexes the full-text content of your library, enabling you to find exactly &gt;what you’re looking for with just a few keystrokes.</p>
+</blockquote>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2014/12/20/Zotero-1/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/利器/">
+                #利器
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/">
+                Hexo主题优化一：添加百度统计、微博秀
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-18
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/Hexo/">Hexo</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="注册百度统计账号">注册百度统计账号</h2><ul>
+<li><a href="http://tongji.baidu.com/web/8095091/overview/sole?siteId=6029670">点我</a>注册百度注册百度统计账号</li>
+<li>点击页面右上角“网站中心”</li>
+<li>左侧目录树点击“代码获取”</li>
+<li>要求<strong>请将代码添加至网站全部页面的</head>标签前</strong>，由于对Hexo不太了解，当时看到这个觉得很复杂，要加很多页面，今天百度发现不难，因为Hexo的每一个网页分成好几个部分：<strong>header、footer、maincontent</strong>….（这几个次是我自己定义的，和官方可能有差异），只要把代码加载这几个页面其中之一就可以了！！</li>
+<li>打开<strong><code>themes\coney\layout\_partial</code></strong>里的<strong>head.ejs</strong>文件，按照要求把代码加在最后就可以了！</li>
+<li>博客部署后可以在百度统计-&gt;网站中心查看自己的网站是否成功添加了百度统计的代码。</li>
+</ul>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Hexo/">
+                #Hexo
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/13/install-SqlServer-consideration/">
+                帮同学安装SqlServer感悟
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-13
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/数据库/">数据库</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/13/install-SqlServer-consideration/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/13/install-SqlServer-consideration/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="背景">背景</h2><ul>
+<li>安装vs2013之后卸载而且没卸载干净。</li>
+<li>安装vs2012，可以使用。</li>
+<li>安装sqlserver2008R2没成功，系统残留很多文件和没有清理的注册表。</li>
+<li>安装sqlserver2012失败，残留注册表等文件。</li>
+</ul>
+<h2 id="我的做法">我的做法</h2><ul>
+<li>查找方法彻底删除sqlserver残留文件。<a href="http://www.hc400.com/zt19/067.htm">点击查看链接</a></li>
+<li>安装sqlserver2012<a href="http://wenku.baidu.com/link?url=kzOYHEZVZPT4hlYLf11HomWnCXtpMLv4btBUL1ho0JJjc6B0hmi9IBByIY9w9NoH63r2LJU-a4NMZakH9KbhtoJF1yT8dMwnq29r8VH6Fne">安装教程</a></li>
+</ul>
+<h2 id="遇到问题">遇到问题</h2><p><img src="http://7vihfm.com1.z0.glb.clouddn.com/sqlerror.png" alt="神奇的报错：没有权限读取注册表"><br>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2014/12/13/install-SqlServer-consideration/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Mysql/">
+                #Mysql
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/12/duohuo-family-dinner/">
+                多火聚餐，掏心掏肺
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-12
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/多火/">多火</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/12/duohuo-family-dinner/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/12/duohuo-family-dinner/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <ul>
+<li><p>今天学长请多火大家庭吃饭，我们都很开心，吃吃喝喝的，学弟敬学长学姐，学长们之前相互灌酒，很是开心。</p>
+</li>
+<li><p>酒喝多了就开始掏心掏肺，说实话，现在大学能有这样的技术社团已经很少了，对于学技术的同学来说，大学里的课程和工作环境里的使用的技术相差甚远，而且感觉学不到什么。还好有多火社团，里面汇集了整个南信大几乎大部分的技术达人，各种大牛以及对技术感兴趣的人。还有往届已经工作的学长回来分享技术、工作方面的干货。每天讨论的都是当下最新的技术。</p>
+</li>
+<li><p>最后大家轮流发言，秘书、社长、男神、波神….大家都是掏心掏肺。尤其是波神，他关于学习、提高自己方面的分享对我的影响很大。<strong>“永远不要想着去依靠别人，一定要想着靠自己，有些事情没做好只是你没有用心去做，你只要用心去做，就没有什么过不去的坎。比如高数你看不懂，怎么办，那你就把高数书从头看到尾，你一定能学好，（我发现是我们自己努力的不够，而不是没有天赋什么的），你一定要相信自己，没有什么是做不到的！”</strong></p>
+</li>
+<li><p>我只能凭记忆把它记录下来，很喜欢波神这句话，强调独立，强调自立自强。没什么不可能，只是你没有好好努力罢了。别撕逼了，脚踏实地吧。</p>
+</li>
+</ul>
+<ul>
+<li><code>独立</code>、<code>自立</code>、<code>自强</code></li>
+</ul>
+
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Reading-Writing/">
+                #Reading&Writing
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+
+          </div>
+
+          
+            <div class="pagination">
+              <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
+            </div>
+          
+        </div>
+
+        
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="images/dog_arts.jpg" alt="adolphlwq" />
+        <p class="site-author-name">adolphlwq</p>
+      </div>
+      <p class="site-description motion-element"></p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </div>
+        <div class="site-state-item site-state-tags">
+            <span class="site-state-item-count">26</span>
+            <span class="site-state-item-name">标签</span>
+        </div>
+        <div class="site-state-item site-state-pages">
+            <span class="site-state-item-count">5</span>
+            <span class="site-state-item-name">页面</span>
+        </div>
+      </div>
+
+      
+
+      <div class="links-of-author motion-element">
+        
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/adolphlwq/">GitHub</a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="http://weibo.com/adolphlwq">Weibo</a>
+            </span>
+          
+        
+      </div>
+
+      
+      
+
+    </div>
+
+    
+
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">adolphlwq</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"adolphlwq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+  
+</body>
+</html>

@@ -1,0 +1,1070 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-next">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.0"/>
+
+
+
+
+
+    <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/head.ico?v=0.4.0" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3e10392c5712cd95c67114264a1df7f8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <title> Java symmetrical encrypt and decrypt // One Day One </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">One Day One</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+            
+          
+
+          <div id="posts" class="posts-expand">
+            
+  
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              Java symmetrical encrypt and decrypt
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-02-17
+          
+        </span>
+
+        
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/02/17/2015-2-17-java-symmetrical-encrypt-and-decrypt/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/17/2015-2-17-java-symmetrical-encrypt-and-decrypt/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="概述">概述</h2><p>Java主要有4种对称加密算法：DES,3DES,AES,PBE.应用比较广泛的有AES和3DES</p>
+<p>代码中需要的jar包<a href="http://pan.baidu.com/s/1bnjfSdD" target="_blank" rel="external">下载地址</a><br><a id="more"></a><br>DES,3DES,AES工作方式：</p>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-2-17-uml1.JPG" alt=""></p>
+<p>PBE工作方式：</p>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-2-17-uml2.JPG" alt=""></p>
+<h2 id="DES">DES</h2><ul>
+<li>data encrypt standard</li>
+<li>安全性低 </li>
+</ul>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-2-17-des" alt=""></p>
+<p>demo:</p>
+<!--lang:java-->
+<pre><code><span class="keyword">package</span> org.imooc.des;
+
+<span class="keyword">import</span> java.security.Key;
+<span class="keyword">import</span> java.security.NoSuchAlgorithmException;
+
+<span class="keyword">import</span> javax.crypto.Cipher;
+<span class="keyword">import</span> javax.crypto.KeyGenerator;
+<span class="keyword">import</span> javax.crypto.SecretKey;
+<span class="keyword">import</span> javax.crypto.SecretKeyFactory;
+<span class="keyword">import</span> javax.crypto.spec.DESKeySpec;
+
+<span class="keyword">import</span> org.apache.commons.codec.binary.Hex;
+
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImoocDES</span> </span>{
+    <span class="keyword">private</span> <span class="keyword">static</span> String src = <span class="string">"happy new year"</span>;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        jdkDES();
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">jdkDES</span><span class="params">()</span></span>{
+        <span class="keyword">try</span> {
+            <span class="comment">//生成KEY</span>
+            KeyGenerator keyGenerator = KeyGenerator.getInstance(<span class="string">"DES"</span>);
+            keyGenerator.init(<span class="number">56</span>);
+            SecretKey secretKey = keyGenerator.generateKey();
+            <span class="keyword">byte</span>[] bytesKey = secretKey.getEncoded();
+
+            <span class="comment">//KEY转换</span>
+            DESKeySpec desKeySpec = <span class="keyword">new</span> DESKeySpec(bytesKey);
+            SecretKeyFactory factory = SecretKeyFactory.getInstance(<span class="string">"DES"</span>);
+            Key convertSecretKey = factory.generateSecret(desKeySpec);
+
+            <span class="comment">//加密</span>
+            Cipher cipher = Cipher.getInstance(<span class="string">"DES/ECB/PKCS5Padding"</span>);
+            cipher.init(Cipher.ENCRYPT_MODE, convertSecretKey);
+            <span class="keyword">byte</span>[] result = cipher.doFinal(src.getBytes());
+            System.out.println(<span class="string">"jdk encrypt:"</span>+Hex.encodeHexString(result));
+        } <span class="keyword">catch</span> (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h2 id="3DES">3DES</h2><ul>
+<li>triple DES or DESede</li>
+<li>迭代次数、长度增加</li>
+<li>目前使用的比较多，仅次于AES</li>
+</ul>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-2-17-3des.JPG" alt=""></p>
+<p>demo:</p>
+<!--lang:java-->
+<pre><code>package org.imooc.des;
+
+<span class="keyword">import</span> java.security.<span class="type">Key</span>;
+<span class="keyword">import</span> java.security.<span class="type">SecureRandom</span>;
+
+<span class="keyword">import</span> javax.crypto.<span class="type">Cipher</span>;
+<span class="keyword">import</span> javax.crypto.<span class="type">KeyGenerator</span>;
+<span class="keyword">import</span> javax.crypto.<span class="type">SecretKey</span>;
+<span class="keyword">import</span> javax.crypto.<span class="type">SecretKeyFactory</span>;
+<span class="keyword">import</span> javax.crypto.spec.<span class="type">DESKeySpec</span>;
+
+<span class="keyword">import</span> org.apache.commons.codec.binary.<span class="type">Base64</span>;
+<span class="keyword">import</span> org.apache.commons.codec.binary.<span class="type">Hex</span>;
+
+public class <span class="type">Imooc3des</span> {
+
+    private <span class="keyword">static</span> <span class="type">String</span> src = <span class="string">"happy new year"</span>;
+    public <span class="keyword">static</span> <span class="type">void</span> main(<span class="type">String</span>[] args) {
+        jdk3des();
+    }
+
+    public <span class="keyword">static</span> <span class="type">void</span> jdk3des(){
+        <span class="keyword">try</span> {
+            //生成密钥
+            <span class="type">KeyGenerator</span> generator = <span class="type">KeyGenerator</span>.getInstance(<span class="string">"DESede"</span>);
+//            generator.init(<span class="number">168</span>);
+            generator.init(new <span class="type">SecureRandom</span>());//生成默认长度密钥
+            <span class="type">SecretKey</span> secretKey = generator.generateKey();
+            byte[] bytesKey = secretKey.getEncoded();
+
+            //转换密钥
+            <span class="type">DESKeySpec</span> desKeySpec = new <span class="type">DESKeySpec</span>(bytesKey);
+            <span class="type">SecretKeyFactory</span> factory = <span class="type">SecretKeyFactory</span>.getInstance(<span class="string">"DES"</span>);
+            <span class="type">Key</span> convertSecrectKey = factory.generateSecret(desKeySpec);
+
+            //加密
+            <span class="type">Cipher</span> cipher = <span class="type">Cipher</span>.getInstance(<span class="string">"DES/ECB/PKCS5Padding"</span>);
+            cipher.init(<span class="type">Cipher</span>.<span class="type">ENCRYPT_MODE</span>, convertSecrectKey);
+            byte[] <span class="literal">result</span> = cipher.doFinal(src.getBytes());
+            <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="type">Hex</span>.encodeHexString(<span class="literal">result</span>));
+            <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="type">Base64</span>.encodeBase64String(<span class="literal">result</span>));
+
+            //解密
+            cipher.init(<span class="type">Cipher</span>.<span class="type">DECRYPT_MODE</span>, convertSecrectKey);
+            <span class="literal">result</span> = cipher.doFinal(<span class="literal">result</span>);
+            <span class="type">System</span>.<span class="keyword">out</span>.println(new <span class="type">String</span>(<span class="literal">result</span>));
+        } catch (<span class="type">Exception</span> e) {
+            // <span class="type">TODO</span>: handle exception
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h2 id="AES">AES</h2><ul>
+<li>DES有漏洞、3DES效率低</li>
+<li>用于移动通信系统加密、基于SSH协议的软件</li>
+<li>使用广泛，算法高级</li>
+</ul>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-2-17-aes" alt=""></p>
+<p>demo:</p>
+<!--lang:java-->
+<pre><code>package org.imooc.aes;
+
+<span class="keyword">import</span> java.security.<span class="type">Key</span>;
+
+<span class="keyword">import</span> javax.crypto.<span class="type">Cipher</span>;
+<span class="keyword">import</span> javax.crypto.<span class="type">KeyGenerator</span>;
+<span class="keyword">import</span> javax.crypto.<span class="type">SecretKey</span>;
+<span class="keyword">import</span> javax.crypto.spec.<span class="type">SecretKeySpec</span>;
+
+<span class="keyword">import</span> org.apache.commons.codec.binary.<span class="type">Base64</span>;
+
+public class <span class="type">ImoocAES</span> {
+
+    private <span class="keyword">static</span> <span class="type">String</span> src = <span class="string">"happy new yeat"</span>;
+
+    public <span class="keyword">static</span> <span class="type">void</span> main(<span class="type">String</span>[] args) {
+        jdkaes();
+    }
+
+    public <span class="keyword">static</span> <span class="type">void</span> jdkaes(){
+        <span class="keyword">try</span> {
+            //生成密钥
+            <span class="type">KeyGenerator</span> keyGenerator = <span class="type">KeyGenerator</span>.getInstance(<span class="string">"AES"</span>);
+            keyGenerator.init(<span class="number">128</span>);
+            <span class="type">SecretKey</span> secretKey = keyGenerator.generateKey();
+            byte[] bytesKey = secretKey.getEncoded();
+
+            //转换密钥
+            <span class="type">Key</span> key = new <span class="type">SecretKeySpec</span>(bytesKey, <span class="string">"AES"</span>);
+
+            //加密
+            <span class="type">Cipher</span> cipher = <span class="type">Cipher</span>.getInstance(<span class="string">"AES/ECB/PKCS5Padding"</span>);
+            cipher.init(<span class="type">Cipher</span>.<span class="type">ENCRYPT_MODE</span>, key);
+            byte[] <span class="literal">result</span> = cipher.doFinal(src.getBytes());
+            <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="type">Base64</span>.encodeBase64String(<span class="literal">result</span>));
+
+            //解密
+            cipher.init(<span class="type">Cipher</span>.<span class="type">DECRYPT_MODE</span>, key);
+            <span class="literal">result</span> = cipher.doFinal(<span class="literal">result</span>);
+            <span class="type">System</span>.<span class="keyword">out</span>.println(new <span class="type">String</span>(<span class="literal">result</span>));
+        } catch (<span class="type">Exception</span> e) {
+            // <span class="type">TODO</span>: handle exception
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h2 id="PBE">PBE</h2><ul>
+<li>Password Based Encrypt 基于口令加密</li>
+<li>是对已有算法的包装</li>
+<li>PBEWITHMD5andDES算法</li>
+</ul>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-2-17-pbe.JPG" alt=""></p>
+<p>demo:</p>
+<!--lang:java-->
+<pre><code>package org.imooc.pbe;
+
+<span class="keyword">import</span> java.security.<span class="type">Key</span>;
+<span class="keyword">import</span> java.security.<span class="type">NoSuchAlgorithmException</span>;
+<span class="keyword">import</span> java.security.<span class="type">SecureRandom</span>;
+
+<span class="keyword">import</span> javax.crypto.<span class="type">Cipher</span>;
+<span class="keyword">import</span> javax.crypto.<span class="type">SecretKeyFactory</span>;
+<span class="keyword">import</span> javax.crypto.spec.<span class="type">PBEKeySpec</span>;
+<span class="keyword">import</span> javax.crypto.spec.<span class="type">PBEParameterSpec</span>;
+
+<span class="keyword">import</span> org.apache.commons.codec.binary.<span class="type">Base64</span>;
+
+public class <span class="type">ImoocPBE</span> {
+    private <span class="keyword">static</span> <span class="type">String</span> src = <span class="string">"happy new year"</span>;
+    public <span class="keyword">static</span> <span class="type">void</span> main(<span class="type">String</span>[] args) {
+        jdkpbe();
+    }
+
+    public <span class="keyword">static</span> <span class="type">void</span> jdkpbe(){
+        <span class="keyword">try</span> {
+            //初始化盐
+            <span class="type">SecureRandom</span> random = new <span class="type">SecureRandom</span>();
+            byte[] salt = random.generateSeed(<span class="number">8</span>);
+
+            //口令与密钥
+            <span class="type">String</span> password = <span class="string">"imooc"</span>;
+            <span class="type">PBEKeySpec</span> pbeKeySpec = new <span class="type">PBEKeySpec</span>(password.toCharArray());
+            <span class="type">SecretKeyFactory</span> factory = <span class="type">SecretKeyFactory</span>.getInstance(<span class="string">"PBEWITHMD5andDES"</span>);
+            <span class="type">Key</span> key = factory.generateSecret(pbeKeySpec);
+
+            //加密
+            <span class="type">PBEParameterSpec</span> pbeparameterSpec = new <span class="type">PBEParameterSpec</span>(salt, <span class="number">100</span>);
+            <span class="type">Cipher</span> cipher = <span class="type">Cipher</span>.getInstance(<span class="string">"PBEWITHMD5andDES"</span>);
+            cipher.init(<span class="type">Cipher</span>.<span class="type">ENCRYPT_MODE</span>, key, pbeparameterSpec);
+            byte[] <span class="literal">result</span> = cipher.doFinal(src.getBytes());
+            <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="type">Base64</span>.encodeBase64String(<span class="literal">result</span>));
+
+            //解密
+            cipher.init(<span class="type">Cipher</span>.<span class="type">DECRYPT_MODE</span>, key, pbeparameterSpec);
+            <span class="literal">result</span> = cipher.doFinal(<span class="literal">result</span>);
+            <span class="type">System</span>.<span class="keyword">out</span>.println(new <span class="type">String</span>(<span class="literal">result</span>));
+        } catch (<span class="type">Exception</span> e) {
+            // <span class="type">TODO</span> <span class="type">Auto</span>-generated catch <span class="keyword">block</span>
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2015/02/19/2015-2-19-java-asymmetric-encrypt-and-decrypt/">Java asymmetric encrypt and decrypt</a>
+              
+            </div>
+
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2015/02/10/2015-2-10-DuoHuo-URLs-Navigation/">送给有野心的你</a>
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </div>
+    
+  </div>
+
+
+
+  
+    <div class="comments" id="comments">
+      
+        <div class="ds-thread" data-thread-key="2015/02/17/2015-2-17-java-symmetrical-encrypt-and-decrypt/"
+             data-title="Java symmetrical encrypt and decrypt" data-url="http://yoursite.com/2015/02/17/2015-2-17-java-symmetrical-encrypt-and-decrypt/">
+        </div>
+
+      
+    </div>
+  
+
+          </div>
+
+          
+        </div>
+
+        
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview">
+          站点概览
+        </li>
+      </ul>
+    
+
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="images/dog_arts.jpg" alt="adolphlwq" />
+        <p class="site-author-name">adolphlwq</p>
+      </div>
+      <p class="site-description motion-element"></p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </div>
+        <div class="site-state-item site-state-tags">
+            <span class="site-state-item-count">26</span>
+            <span class="site-state-item-name">标签</span>
+        </div>
+        <div class="site-state-item site-state-pages">
+            <span class="site-state-item-count">5</span>
+            <span class="site-state-item-name">页面</span>
+        </div>
+      </div>
+
+      
+
+      <div class="links-of-author motion-element">
+        
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/adolphlwq/">GitHub</a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="http://weibo.com/adolphlwq">Weibo</a>
+            </span>
+          
+        
+      </div>
+
+      
+      
+
+    </div>
+
+    
+      <div class="post-toc-wrap sidebar-panel-active">
+        <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <div class="post-toc">
+          
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DES"><span class="nav-number">2.</span> <span class="nav-text">DES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3DES"><span class="nav-number">3.</span> <span class="nav-text">3DES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AES"><span class="nav-number">4.</span> <span class="nav-text">AES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PBE"><span class="nav-number">5.</span> <span class="nav-text">PBE</span></a></li></ol></div>
+          
+        </div>
+        <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+      </div>
+    
+
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">adolphlwq</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"adolphlwq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+  
+</body>
+</html>

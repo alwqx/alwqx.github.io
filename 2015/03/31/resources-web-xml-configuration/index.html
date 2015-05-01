@@ -1,0 +1,925 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-next">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.0"/>
+
+
+
+
+	<meta name="keywords" content="resources,web.xml," />
+
+  <title> web.xml-configuration(版本:2.3) // One Day One </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">One Day One</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+            
+          
+
+          <div id="posts" class="posts-expand">
+            
+  
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              web.xml-configuration(版本:2.3)
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-03-31
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/resources/">resources</a>
+
+                
+                
+                  ， 
+                
+
+              
+                <a href="/categories/resources/web/">web</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/03/31/resources-web-xml-configuration/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/31/resources-web-xml-configuration/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-3-31-apache-logo.gif" alt=""></p>
+<a id="more"></a>
+<h2 id="概览">概览</h2><p>部署描述符实际上是一个 XML 文件,包含了很多描述 servlet/JSP 应用的各个方面的元素,如 servlet 注册、servlet 映射以及监听器注册。部署描述符从下面的 XML 头开始:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这个头指定了 XML 的版本号以及所使用的编码。头的下面是 DOCTYPE 声明:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这段代码指定文件类型定义(DTD),可以通过它检查 XML 文档的有效性。下面显示的<code>&lt;!DOCTYPE&gt;</code>元素有几个特性,这些特性告诉我们关于 DTD 的信息:</p>
+<ul>
+<li>web-app 定义该文档(部署描述符,不是 DTD 文件)的根元素</li>
+<li>PUBLIC 意味着 DTD 文件可以被公开使用</li>
+<li>“-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN”意味着 DTD 由 Sun Microsystems, Inc.维护。</li>
+</ul>
+<p>该信息也表示它描述的文档类型是 DTD Web Application 2.3,而且 DTD 用英文书写的。URL:<code>http://java.sun.com/dtd/web-app_2_3.dtd</code>表示 D 文件的位置。</p>
+<p>注意:在部署描述符中, <!--„-->用于注释。<br>部署描述符的根元素是 web-app。DTD 文件规定,web-app 元素的子元素的语法如下:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">web-app</span> (<span class="attribute">icon</span>?, <span class="attribute">display-name</span>?, <span class="attribute">description</span>?,</span><br><span class="line"><span class="attribute">distributable</span>?, <span class="attribute">context-param</span>*, <span class="attribute">filter</span>*, <span class="attribute">filter-mapping</span>*,</span><br><span class="line"><span class="attribute">listener</span>*, <span class="attribute">servlet</span>*, <span class="attribute">servlet-mapping</span>*, <span class="attribute">session-config</span>?,</span><br><span class="line"><span class="attribute">mime-mapping</span>*, <span class="attribute">welcome-file-list</span>?,</span><br><span class="line"><span class="attribute">error-page</span>*, <span class="attribute">taglib</span>*, <span class="attribute">resource-env-ref</span>*, <span class="attribute">resource-ref</span>*,</span><br><span class="line"><span class="attribute">security-constraint</span>*, <span class="attribute">login-config</span>?, <span class="attribute">security-role</span>*,<span class="attribute">env-entry</span>*,</span><br><span class="line"><span class="attribute">ejb-ref</span>*, <span class="attribute">ejb-local-ref</span>*)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>正如我们所看到的,这个元素含有 23 个子元素,而且子元素都是可选的。问号(?)表示子元素是可选的,而且只能出现一次。星号(*)表示子元素可在部署描述符中出现零次或多次。有些子元素还可以有它们自己的子元素。<br>web.xml 文件中 web-app 元素声明的是下面每个子元素的声明。下面的章节讲述部署描述符中可能包含的所有子元素。</p>
+<p>注意:在 Servlet 2.3 中,子元素必须按照 DTD 文件语法描述中指定的顺序出现。比如,如果部署描述符中的 web-app 元素有 servlet 和 servlet- mapping 两个子元素,则 servlet 子元素必须出现在 servlet-mapping 子元素之前。在Servlet 2.4 中,顺序并不重要。下面对 web.xml 文件各元素进行详解</p>
+<h2 id="元素详解">元素详解</h2><h4 id="icon_元素">icon 元素</h4><p>icon 元素用来指定 GIF 格式或 JPEG 格式的小图标(16×16)或大图标(32×32)的文件名。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">icon</span> (<span class="attribute">small-icon</span>?, <span class="attribute">large-icon</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">small-icon</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">large-icon</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>icon 元素包括两个可选的子元素:small-icon 子元素和 large-icon 子元素。文件名是 Web应用归档文件(WAR)的根的相对路径。部署描述符并没有使用 icon 元素。但是,如果使用 XML 工具编辑部署描述符,XML 编辑器可以使用 icon 元素。</p>
+<h4 id="display-name_元素">display-name 元素</h4><p>如果使用工具编辑部署描述符,display-name 元素包含的就是 XML 编辑器显示的名称。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">display-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line">   下面是一个含有 display-name 元素的部署描述符:</span><br><span class="line">   <span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br><span class="line">   <span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">   PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">   "http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">display-name</span>&gt;</span>Online Store Application<span class="tag">&lt;/<span class="title">display-name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="description_元素">description 元素</h4><p>可以使用 description 元素来提供有关部署描述符的信息。XML 编辑器可以使用 description元素的值。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="distributable_元素">distributable 元素</h4><p>可以使用 distributable 元素来告诉 servlet/JSP 容器,编写将在分布式 Web 容器中部署的应用:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">distributable</span> <span class="attribute">EMPTY</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>例如,下面是一个含有 distributable 元素的部署描述符的例子:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">distributable</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="context-param_元素">context-param 元素</h4><p>context-param 元素含有一对参数名和参数值,用作应用的 servlet 上下文初始化参数。参数名在整个 Web 应用中必须是惟一的。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">context-param</span> (<span class="attribute">param-name</span>, <span class="attribute">param-value</span>, <span class="attribute">description</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">param-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">param-value</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>param-name 子元素包含有参数名,而 param-value 子元素包含的是参数值。作为选择,可用 description 子元素来描述参数。下面是一个含有 context-param 元素的有效部署描述符:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">param-name</span>&gt;</span>jdbcDriver<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">param-value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">context-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="filter_元素">filter 元素</h4><p>filter 元素用于指定 Web 容器中的过滤器。在请求和响应对象被 servlet 处理之前或之后,可以使用过滤器对这两个对象进行操作。利用下一节介绍 的 filter-mapping 元素,过滤器被映射到一个 servlet 或一个 URL 模式。这个过滤器的 filter 元素和 filter-mapping 元素必须具有相同的名称。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">filter</span> (<span class="attribute">icon</span>?, <span class="attribute">filter-name</span>, <span class="attribute">display-name</span>?, <span class="attribute">description</span>?,</span><br><span class="line"><span class="attribute">filter-class</span>, <span class="attribute">init-param</span>*)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">filter-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">filter-class</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>icon、display-name 和 description 元素的用法和上一节介绍的用法相同。init-param 元素与 context- param 元素具有相同的元素描述符。filter-name 元素用来定义过滤器的名称,该名称在整个应用中都必须是惟一的。filter-class 元素指定过滤 器类的完全限定的名称。下面是一个使用 filter 元素的部署描述符的例子:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>Encryption Filter<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">filter-class</span>&gt;</span>com.branysoftware.EncryptionFilter<span class="tag">&lt;/<span class="title">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="filter-mapping_元素">filter-mapping 元素</h4><p>filter-mapping 元素用来声明 Web 应用中的过滤器映射。过滤器可被映射到一个 servlet<br>或一个 URL 模式。将过滤器映射到一个 servlet 中会造成过滤器作用于 servlet 上。将过<br>滤器映射到一个 URL 模式中则可以将过滤器应用于任何资源,只要该资源的 URL 与 URL 模式<br>匹 配。过滤是按照部署描述符的 filter-mapping 元素出现的顺序执行的。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">filter-mapping</span> (<span class="attribute">filter-name</span>, (<span class="attribute">url-pattern</span> | <span class="attribute">servlet-name</span>))&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">filter-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">url-pattern</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">servlet-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>filter-name 值必须对应 filter 元素中声明的其中一个过滤器名称。下面是一个含有filter-mapping 元素的部署描述符:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"&gt;</span><br><span class="line">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span><br><span class="line">&lt;web-app&gt;</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">&lt;filter-name&gt;Encryption Filter&lt;/filter-name&gt;</span><br><span class="line">&lt;filter-class&gt;com.brainysoftware.EncryptionFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;filter-mapping&gt;&lt;filter-name&gt;Encryption Filter&lt;/filter-name&gt;</span><br><span class="line">&lt;servlet-name&gt;EncryptionFilteredServlet&lt;/servlet-name&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br><span class="line">&lt;/web-app&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="listener_元素">listener 元素</h4><p>listener 元素用来注册一个监听器类,可以在 Web 应用中包含该类。使用 listener 元素,可以收到事件什么时候发生以及用什么作为响应的通知。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">listener</span> (<span class="attribute">listener-class</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">listener-class</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>下面是一个含有 listener 元素的有效部署描述符:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">listener</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">listener-class</span>&gt;</span>MyAppListener<span class="tag">&lt;/<span class="title">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">listener</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="servlet_元素。servlet_元素用来声明一个_servlet。">servlet 元素。servlet 元素用来声明一个 servlet。</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">servlet</span> (<span class="attribute">icon</span>?, <span class="attribute">servlet-name</span>, <span class="attribute">display-name</span>?, <span class="attribute">description</span>?,</span><br><span class="line">(<span class="attribute">servlet-class</span>|<span class="attribute">jsp-file</span>), <span class="attribute">init-param</span>*, <span class="attribute">load-on-startup</span>?, <span class="attribute">run-as</span>?,</span><br><span class="line"><span class="attribute">security-role-ref</span>*)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">servlet-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">servlet-class</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">jsp-file</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">init-param</span> (<span class="attribute">param-name</span>, <span class="attribute">param-value</span>, <span class="attribute">description</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">load-on-startup</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">run-as</span> (<span class="attribute">description</span>?, <span class="attribute">role-name</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">role-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure>
+<p>icon、display-name 和 description 元素的用法和上一节介绍的用法相同。init-param 元素与 context-param 元素具有相同的元素描述符。可以使用 init-param 子元素将初始化参数名和参数值传递给 servlet。<br>(1) servlet-name、servlet-class、jsp-file元素和heservlet 元素必须含有 、servlet-name 元素和 servlet-class 元素,或者 servlet-name 元素和 jsp-file 元素。描述如下:<br>● servlet-name 元素用来定义 servlet 的名称,该名称在整个应用中必须是惟一的。<br>● servlet-class 元素用来指定 servlet 的完全限定的名称。<br>● jsp-file 元素用来指定应用中 JSP 文件的完整路径。这个完整路径必须由<code>/</code>开始。<br>(2) load-on-startup 元素<br>当启动 Web 容器时,用 load-on-startup 元素自动将 servlet 加入内存。加载 servlet 就意味着实例化这个 servlet, 并调用 它的 init 方法。可以使用这个元素来避免第一个 servlet请求的响应因为 servlet 载入内存所导致的任何延迟。如果 load-on- startup 元素存在,而且也指定了 jsp-file 元素,则 JSP 文件会被重新编译成 servlet,同时产生的 servlet也被载入内存。<br>load-on-startup 元素的内容可以为空,或者是一个整数。这个值表示由 Web 容器载入内存的顺序。举个例子,如果有两个servlet 元素都 含有 load-on-startup 子元素,则load-on-startup 子元素值较小的 servlet 将先被加载。如果load-on- startup 子元素值为空或负值,则由 Web 容器决定什么时候加载 servlet。如果两个 servlet 的load-on-startup 子元素值相 同,则由 Web 容器决定先加载哪一个 servlet。<br>(3) run-as 元素<br>如果定义了 run-as 元素,它会重写用于调用 Web 应用中 servlet 所设定的 EnterpriseJavaBean(EJB)的安全身份。Role-name 是为当前 Web 应用定义的一个安全角色的名称。<br>(4) security-role-ref 元素<br>security-role-ref 元素定义一个映射,该映射在 servlet 中用 isUserInRole (String name)调用的角色名与为 Web 应用定义的安全角色名之间进行。security-role-ref 元素的描述如下:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">security-role-ref</span> (<span class="attribute">description</span>?, <span class="attribute">role-name</span>, <span class="attribute">role-link</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">role-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">role-link</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>role-link 元素用来将安全角色引用链接到已定义的安全角色。role-link 元素必须含有已经在 security-role 元素中定义的一个安全角色的名称。<br>(5) Faces Servlet 的 servlet 元素<br>在 JSF 应用中,需要为 Faces Servlet 定义一个 servlet 元素,如下所示:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE web-app PUBLIC</span><br><span class="line">"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN""http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Faces Servlet --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Faces Servlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>javax.faces.webapp.FacesServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">load-on-startup</span>&gt;</span> 1 <span class="tag">&lt;/<span class="title">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Faces Servlet Mapping --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>Faces Servlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/faces/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="seervlet-mapping_元素">seervlet-mapping 元素</h4><p>seervlet-mapping 元素将 URL 模式映射到某个 servlet。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">servlet-mapping</span> (<span class="attribute">servlet-name</span>, <span class="attribute">url-pattern</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">servlet-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">url-pattern</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在前面的“servlet 元素”一节中已经介绍了使用 servlet-mapping 元素的例子。</p>
+<h4 id="session-config_元素">session-config 元素</h4><p>session-config 元素为 Web 应用中的 javax.servlet.http.HttpSession 对象定义参数。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">session-config</span> (<span class="attribute">session-timeout</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">session-timeout</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>session-timeout 元素用来指定默认的会话超时时间间隔,以分钟为单位。<code>该元素值必须为整数</code>。如果 session-timeout 元素的值为零或负数,则表示会话将永远不会超时。下面是一个部署描述符,在用户最近访问 HttpSession 对象 30 分钟后,HttpSession 对象默认为无效:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">session-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">session-timeout</span>&gt;</span>30<span class="tag">&lt;/<span class="title">session-timeout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">session-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="mime-mapping_元素">mime-mapping 元素</h4><p>mime-mapping 元素将 mime 类型映射到扩展名。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">mime-mapping</span> (<span class="attribute">extension</span>, <span class="attribute">mime-type</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">extension</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">mime-type</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>extension 元素用来描述扩展名。mime-type 元素则为 MIME 类型。举个例子,下面的部署描述符将扩展名 txt 映射为 text/plain:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">mime-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">extension</span>&gt;</span>txt<span class="tag">&lt;/<span class="title">extension</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">mime-type</span>&gt;</span>text/plain<span class="tag">&lt;/<span class="title">mime-type</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">mime-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="welcome-file-list_元素">welcome-file-list 元素</h4><p>当用户在浏览器中输入的 URL 不包含某个 servlet 名或 JSP 页面时,welcome-file-list 元素可指定显示的默认文件。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">welcome-file-list</span> (<span class="attribute">welcome-file</span>+)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">welcome-file</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>举个例子说明,假设用户在浏览器的地址框中输入 <a href="http://www.mycompany.com/appName/等地址。如果在" target="_blank" rel="external">http://www.mycompany.com/appName/等地址。如果在</a> Web 应用的部署描述符中指定 welcome-file-list 元素,用户就会看到一个权限错误消息,或者是应用目录下的文件和目录列表。如果定义了 welcome-file-list 元素,用户就能看到由该元素指定的具体文件。welcome-file 子元素用于指定默认文件的名称。 welcome-file-list 元素可以包含一个或多个 welcome-file 子元素。如果在第一个 welcome-file 元素中没有找到指定的文件,Web 容器就会尝试显示第二个,以此类推。下面是一个包含 welcome-file-list 元素的部署描述符。该元素包含两个 welcome-file 元素:第一个指定应用目录中的 main.html 文件,第二个定义 jsp 目录下的 welcom.jsp 文件,jsp 目录也在应用目录下。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">welcome-file-list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>main.html<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>jsp/welcome.jsp<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">welcome-file-list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果用户键入的 URL 不包含 servlet 名称、JSP 页面或其他资源,则不会在应用目录中找到main.html 文件,这时就会显示 jsp 目录下的 welcome.jsp 文件。</p>
+<h4 id="error-page_元素">error-page 元素</h4><p>error-page 元素用于将一段错误代码或一个异常类型映射到 Web 应用中的资源路径,从而在产生特殊的 HTTP 错误或指定的 Java 异常时,将显示相关的资源。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">error-page</span> ((<span class="attribute">error-code</span> | <span class="attribute">exception-type</span>), <span class="attribute">location</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">error-code</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">exception-type</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">location</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>error-code 元素包含 HTTP 错误代码。 exception-type 是 Java 异常类型的完全限定的名称。location 元素是 Web 应用中的资源相对于应用目录的路径。location 的值必须从 <code>/</code>开始。举个例子,每次产生 HTTP 404 错误代码时,下面的部署描述符可使 Web 容器显示error404.html 页面:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE web-app</span><br><span class="line">PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span><br><span class="line">"http://java.sun.com/dtd/web-app_2_3.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">error-page</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">error-code</span>&gt;</span>404<span class="tag">&lt;/<span class="title">error-code</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">location</span>&gt;</span>/error404.html<span class="tag">&lt;/<span class="title">location</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">error-page</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="taglib_元素taglib_元素描述_JSP_定制标记库。">taglib 元素taglib 元素描述 JSP 定制标记库。</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">taglib</span> (<span class="attribute">taglib-uri</span>, <span class="attribute">taglib-location</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">taglib-uri</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">taglib-location</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure>
+<p>taglib-uri 元素是用于 Web 应用中的标记库的 URI。taglib-uri 元素的值与 WEB-INF 目录相对应。taglib-location 元素包含一个位置,其中可以找到标记库的标记库描述符(TLD)文件。</p>
+<h4 id="resource-env-ref_元素">resource-env-ref 元素</h4><p>可以使用 resource-env-ref 元素来指定对管理对象的 servlet 引用的声明,该对象与servlet 环境中的资源相关联。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">resource-env-ref</span> (<span class="attribute">description</span>?, <span class="attribute">resource-env-ref-name</span>,</span><br><span class="line"><span class="attribute">resource-env-ref-type</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">resource-env-ref-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">resource-env-ref-type</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>resource-env-ref-name 元素是资源环境引用的名称,其值为 servlet 代码中使用的环境的入口名称。该名称是一个与 java:comp/env 相对应的 Java 命名和目录接口(JNDI)名称,该名称在整个 Web 应用中必须是惟一的。</p>
+<h4 id="resource-ref_元素">resource-ref 元素</h4><p>resource-ref 元素用于指定对外部资源的 servlet 引用的声明。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">resource-ref</span> (<span class="attribute">description</span>?, <span class="attribute">res-ref-name</span>,<span class="attribute">res-type</span>,<span class="attribute">res-auth</span>, <span class="attribute">res-sharing-scope</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">res-ref-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">res-type</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">res-auth</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">res-sharing-scope</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>resource-ref 子元素的描述如下:<br>● res-ref-name 是资源工厂引用名的名称。该名称是一个与 java:comp/env 上下文相对应的 JNDI 名称,并且在整个 Web 应用中必须是惟一的。<br>● res-auth 表明:servlet 代码通过编程注册到资源管理器,或者是容器将代表 servlet注册到资源管理器。该元素的值必须为 Application 或 Container。<br>● res-sharing-scope 表明:是否可以共享通过给定资源管理器连接工厂引用获得的连接。该元素的值必须为 Shareable(默认值)或 Unshareable。</p>
+<ol>
+<li>security-constraint 元素部署描述符中的 security-constraint 元素允许不通过编程就可以限制对某个资源的访问。<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">security-constraint</span> (<span class="attribute">display-name</span>?,<span class="attribute">web-resource-collection</span>+,<span class="attribute">auth-constraint</span>?, <span class="attribute">user-data-constraint</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">display-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">web-resource-collection</span> (<span class="attribute">web-resource-name</span>, <span class="attribute">description</span>?,</span><br><span class="line"><span class="attribute">url-pattern</span>*, <span class="attribute">http-method</span>*)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">auth-constraint</span> (<span class="attribute">description</span>?, <span class="attribute">role-name</span>*)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">user-data-constraint</span> (<span class="attribute">description</span>?, <span class="attribute">transport-guarantee</span>)&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>(1) web-resource-collection 元素<br>web-resource-collection 元素标识需要限制访问的资源子集。在web-resource-collection 元素中,可以定义 URL 模式和 HTTP 方法。如果不存在 HTTP 方法,就将安全约束应用于所有的方法。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">web-resource-collection</span> (<span class="attribute">web-resource-name</span>, <span class="attribute">description</span>?,</span><br><span class="line"><span class="attribute">url-pattern</span>*, <span class="attribute">http-method</span>*)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">web-resource-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">url-pattern</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">http-method</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>web-resource-name 是与受保护资源相关联的名称。http-method 元素可被赋予一个 HTTP方法,比如 GET 和 POST。<br>(2) auth-constraint 元素<br>auth-constraint 元素用于指定可以访问该资源集合的用户角色。如果没有指定auth-constraint 元素,就将安全约束应用于所有角色。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">auth-constraint</span> (<span class="attribute">description</span>?, <span class="attribute">role-name</span>*)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">role-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>role-name 元素包含安全角色的名称。<br>(3) user-data-constraint 元素<br>user-data-constraint 元素用来显示怎样保护在客户端和 Web 容器之间传递的数据。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">user-data-constraint</span> (<span class="attribute">description</span>?, <span class="attribute">transport-guarantee</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">transport-guarantee</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>transport-guarantee 元素必须具有如下的某个值:<br>● NONE,这意味着应用不需要传输保证。<br>● INTEGRAL,意味着服务器和客户端之间的数据必须以某种方式发送,而且在传送中不能<br>改变。<br>● CONFIDENTIAL,这意味着传输的数据必须是加密的数据。<br>在大多数情况下,安全套接字层(SSL)用于 INTEGRAL 或 CONFIDENTIAL。</p>
+<h4 id="login-config_元素">login-config 元素</h4><p>login-config 元素用来指定所使用的验证方法、领域名和表单验证机制所需的特性。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">login-config</span> (<span class="attribute">auth-method</span>?, <span class="attribute">realm-name</span>?,<span class="attribute">form-login-config</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">auth-method</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">realm-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">form-login-config</span> (<span class="attribute">form-login-page</span>, <span class="attribute">form-error-page</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>login-config 子元素的描述如下:<br>● auth-method 指定验证方法。它的值为下面的一个: BASIC、 DIGEST、 FORM 或 CLIENT-CERT<br>● realm-name 指定 HTTP Basic 验证中使用的领域名。<br>● form- login-config 指定基于表单的登录中应该使用的登录页面和出错页面。如果没有使用基于表单的验证,则忽略这些元素。这个元素的定义如下,其中 form-login-page 用于指定显示登录页面的资源路径, form-error-page 则用于指定用户登录失败时显示出错页面的资源路径。<br>这两个页面路径都必须以 <code>/</code>开始,并与应用目录相对应。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">form-login-config</span> (<span class="attribute">form-login-page</span>, <span class="attribute">form-error-page</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">form-login-page</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">form-error-page</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="security-role_元素">security-role 元素</h4><p>security-role 元素指定用于安全约束中的安全角色的声明。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">security-role</span> (<span class="attribute">description</span>?, <span class="attribute">role-name</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">role-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="env-entry_元素">env-entry 元素</h4><p>env-entry 元素用于指定应用环境入口。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">env-entry</span> (<span class="attribute">description</span>?, <span class="attribute">env-entry-name</span>, <span class="attribute">env-entry-value</span>?,<span class="attribute">env-entry-type</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">env-entry-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">env-entry-value</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">env-entry-type</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>env-entry-name 元素包含 Web 应用环境入口的名称。该名称是一个与 java:comp/env 相对应的 JNDI 名称,并且在整个应用中必须是惟一的。<br>env-entry-value 元素包含 Web 应用环境入口的值。该值必须是一个字符串类型的值,并且对于指定类型的构造函数是有效的,该函数获得一个 String 参数;或者对于java.lang.Character 是有效的,java.lang.Character 对象是一个字符。<br>env-entry-type 元素包含环境入口值的完全限定的 Java 类型,该环境入口值是 Web 应用代码所期望的。这个 env-entry-type 元素的值必须是如下之一:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">java.lang.Boolean</span><br><span class="line">java.lang.Byte</span><br><span class="line">java.lang.Character</span><br><span class="line">java.lang.String</span><br><span class="line">java.lang.Short</span><br><span class="line">java.lang.Integer</span><br><span class="line">java.lang.Long</span><br><span class="line">java.lang.Float</span><br><span class="line">java.lang.Double</span><br></pre></td></tr></table></figure></p>
+<h4 id="ejb-ref_元素">ejb-ref 元素</h4><p>ejb-ref 元素用于指定 EJB 的 home 接口的引用。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">ejb-ref</span> (<span class="attribute">description</span>?, <span class="attribute">ejb-ref-name</span>, <span class="attribute">ejb-ref-type</span>, <span class="attribute">home</span>,<span class="attribute">remote</span>, <span class="attribute">ejb-link</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">ejb-ref-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">ejb-ref-type</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">home</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">remote</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">ejb-link</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>ejb-ref-name 包含 EJB 引用的名称。EJB 引用是 servlet 环境中的一个入口,它与java:comp/env 相对应。这个名称在 Web 应用中必须是惟一的。为求一致性,推荐您的ejb-ref-name 元素名称以 ejb/开始。ejb-ref-name 元素包含引用的 EJB 的期望类型。这个值必须是 Entity 或 Session。home 元素包含 EJB 的 home 接口的完全限定的名称。remote 元素包含 EJB 的 remote 接口的完全限定的名称。ejb-ref 或 ejb-local-ref 元素中用到的 ejb-link 元素可指定 EJB 引用被链接到另一个EJB。Ejb-link 元素的值必须是同一个 J2EE 应用单元中某个 EJB 的 ejb-name。Ejb-link 元素中的名称可以由 指定 ejb-jar 的路径名组成,该 ejb-jar 包含引用的 EJB。目标 bean 的名称添加在后面,用字符 a# 与路径名分隔。路径名与包含引用 EJB 的 Web 应用的 WAR 相对应。这就允许我们惟一标识具有相同 ejb-name 的多个企业 bean。</p>
+<ol>
+<li>ejb-local-ref 元素<br>ejb-local-ref 元素用于声明对 EJB 的本地 home 的引用。<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">ejb-local-ref</span> (<span class="attribute">description</span>?, <span class="attribute">ejb-ref-name</span>, <span class="attribute">ejb-ref-type</span>,<span class="attribute">local-home</span>, <span class="attribute">local</span>, <span class="attribute">ejb-link</span>?)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">description</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">ejb-ref-name</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">ejb-ref-type</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">local-home</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">local</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">!ELEMENT</span> <span class="attribute">ejb-link</span> (#<span class="attribute">PCDATA</span>)&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>local 元素包含 EJB 本地接口的完全限定的名称。Local-home 元素包含 EJB 本地 home 接口<br>的完全限定的名称。</p>
+<h2 id="配置struts">配置struts</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">display-name</span>&gt;</span>Struts Blank Application<span class="tag">&lt;/<span class="title">display-name</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>action<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span>          </span><br><span class="line">        <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>org.apache.struts.action.ActionServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">init-param</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>detail<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>2<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">init-param</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>debug<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span>              </span><br><span class="line">            <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>2<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span>          </span><br><span class="line">        <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span>          </span><br><span class="line">        <span class="tag">&lt;<span class="title">init-param</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>config<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>/WEB-INF/struts-config.xml<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">init-param</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>application<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>ApplicationResources<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">init-param</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">load-on-startup</span>&gt;</span>2<span class="tag">&lt;/<span class="title">load-on-startup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">servlet</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>action<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span>          </span><br><span class="line">        <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>*.do<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span>      </span><br><span class="line">    <span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span>      </span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file-list</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span>      </span><br><span class="line">    <span class="tag">&lt;/<span class="title">welcome-file-list</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- Struts Tag Library Descriptors --&gt;</span>      </span><br><span class="line">    <span class="tag">&lt;<span class="title">taglib</span>&gt;</span>           </span><br><span class="line">    	<span class="tag">&lt;<span class="title">taglib-uri</span>&gt;</span>struts-bean<span class="tag">&lt;/<span class="title">taglib-uri</span>&gt;</span>           </span><br><span class="line">   		<span class="tag">&lt;<span class="title">taglib-location</span>&gt;</span>/WEB-INF/tld/struts-bean.tld<span class="tag">&lt;/<span class="title">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">taglib</span>&gt;</span>      </span><br><span class="line">  	<span class="tag">&lt;<span class="title">taglib</span>&gt;</span>         </span><br><span class="line"> 	  <span class="tag">&lt;<span class="title">taglib-uri</span>&gt;</span>struts-html<span class="tag">&lt;/<span class="title">taglib-uri</span>&gt;</span>     </span><br><span class="line">      <span class="tag">&lt;<span class="title">taglib-location</span>&gt;</span>/WEB-INF/tld/struts-html.tld<span class="tag">&lt;/<span class="title">taglib-location</span>&gt;</span>      </span><br><span class="line">    <span class="tag">&lt;/<span class="title">taglib</span>&gt;</span>      </span><br><span class="line">   	<span class="tag">&lt;<span class="title">taglib</span>&gt;</span>       </span><br><span class="line">		<span class="tag">&lt;<span class="title">taglib-uri</span>&gt;</span>struts-nested<span class="tag">&lt;/<span class="title">taglib-uri</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">taglib-location</span>&gt;</span>/WEB-INF/tld/struts-nested.tld<span class="tag">&lt;/<span class="title">taglib-location</span>&gt;</span>      </span><br><span class="line">    <span class="tag">&lt;/<span class="title">taglib</span>&gt;</span>     </span><br><span class="line">  	<span class="tag">&lt;<span class="title">taglib</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">taglib-uri</span>&gt;</span>struts-logic<span class="tag">&lt;/<span class="title">taglib-uri</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">taglib-location</span>&gt;</span>/WEB-INF/tld/struts-logic.tld<span class="tag">&lt;/<span class="title">taglib-location</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="title">taglib</span>&gt;</span>     </span><br><span class="line">    <span class="tag">&lt;<span class="title">taglib</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">taglib-uri</span>&gt;</span>struts-tiles<span class="tag">&lt;/<span class="title">taglib-uri</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">taglib-location</span>&gt;</span>/WEB-INF/tld/struts-tiles.tld<span class="tag">&lt;/<span class="title">taglib-location</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="title">taglib</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置Spring">配置Spring</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 指定spring配置文件位置 --&gt;</span>     </span><br><span class="line"><span class="tag">&lt;<span class="title">context-param</span>&gt;</span>  </span><br><span class="line">    	<span class="tag">&lt;<span class="title">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span>       </span><br><span class="line">       <span class="tag">&lt;<span class="title">param-value</span>&gt;</span>  </span><br><span class="line">       		<span class="comment">&lt;!--加载多个spring配置文件 --&gt;</span>  </span><br><span class="line">        	/WEB-INF/applicationContext.xml, /WEB-INF/action-servlet.xml        </span><br><span class="line">       <span class="tag">&lt;/<span class="title">param-value</span>&gt;</span>     </span><br><span class="line">   <span class="tag">&lt;/<span class="title">context-param</span>&gt;</span>   </span><br><span class="line">    <span class="comment">&lt;!-- 定义SPRING监听器，加载spring --&gt;</span>   </span><br><span class="line">   <span class="tag">&lt;<span class="title">listener</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="title">listener-class</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;/<span class="title">listener</span>&gt;</span>   </span><br><span class="line">   <span class="tag">&lt;<span class="title">listener</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">listener-class</span>&gt;</span> </span><br><span class="line">          org.springframework.web.context.request.RequestContextListener    </span><br><span class="line">        <span class="tag">&lt;/<span class="title">listener-class</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;/<span class="title">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/resources/">
+                #resources
+              </a>
+            
+              <a href="/tags/web-xml/">
+                #web.xml
+              </a>
+            
+          </div>
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2015/04/01/2015-4-1-ubuntu-custom-command/">ubuntu custom command</a>
+              
+            </div>
+
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2015/03/30/summary-on-projects-2/">summary-on-projects-2</a>
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </div>
+    
+  </div>
+
+
+
+  
+    <div class="comments" id="comments">
+      
+        <div class="ds-thread" data-thread-key="2015/03/31/resources-web-xml-configuration/"
+             data-title="web.xml-configuration(版本:2.3)" data-url="http://yoursite.com/2015/03/31/resources-web-xml-configuration/">
+        </div>
+
+      
+    </div>
+  
+
+          </div>
+
+          
+        </div>
+
+        
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview">
+          站点概览
+        </li>
+      </ul>
+    
+
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="images/dog_arts.jpg" alt="adolphlwq" />
+        <p class="site-author-name">adolphlwq</p>
+      </div>
+      <p class="site-description motion-element"></p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </div>
+        <div class="site-state-item site-state-tags">
+            <span class="site-state-item-count">26</span>
+            <span class="site-state-item-name">标签</span>
+        </div>
+        <div class="site-state-item site-state-pages">
+            <span class="site-state-item-count">5</span>
+            <span class="site-state-item-name">页面</span>
+        </div>
+      </div>
+
+      
+
+      <div class="links-of-author motion-element">
+        
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/adolphlwq/">GitHub</a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="http://weibo.com/adolphlwq">Weibo</a>
+            </span>
+          
+        
+      </div>
+
+      
+      
+
+    </div>
+
+    
+      <div class="post-toc-wrap sidebar-panel-active">
+        <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <div class="post-toc">
+          
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素详解"><span class="nav-number">2.</span> <span class="nav-text">元素详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#icon_元素"><span class="nav-number">2.0.1.</span> <span class="nav-text">icon 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#display-name_元素"><span class="nav-number">2.0.2.</span> <span class="nav-text">display-name 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#description_元素"><span class="nav-number">2.0.3.</span> <span class="nav-text">description 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#distributable_元素"><span class="nav-number">2.0.4.</span> <span class="nav-text">distributable 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#context-param_元素"><span class="nav-number">2.0.5.</span> <span class="nav-text">context-param 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter_元素"><span class="nav-number">2.0.6.</span> <span class="nav-text">filter 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter-mapping_元素"><span class="nav-number">2.0.7.</span> <span class="nav-text">filter-mapping 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#listener_元素"><span class="nav-number">2.0.8.</span> <span class="nav-text">listener 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet_元素。servlet_元素用来声明一个_servlet。"><span class="nav-number">2.0.9.</span> <span class="nav-text">servlet 元素。servlet 元素用来声明一个 servlet。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#seervlet-mapping_元素"><span class="nav-number">2.0.10.</span> <span class="nav-text">seervlet-mapping 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#session-config_元素"><span class="nav-number">2.0.11.</span> <span class="nav-text">session-config 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mime-mapping_元素"><span class="nav-number">2.0.12.</span> <span class="nav-text">mime-mapping 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#welcome-file-list_元素"><span class="nav-number">2.0.13.</span> <span class="nav-text">welcome-file-list 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error-page_元素"><span class="nav-number">2.0.14.</span> <span class="nav-text">error-page 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#taglib_元素taglib_元素描述_JSP_定制标记库。"><span class="nav-number">2.0.15.</span> <span class="nav-text">taglib 元素taglib 元素描述 JSP 定制标记库。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resource-env-ref_元素"><span class="nav-number">2.0.16.</span> <span class="nav-text">resource-env-ref 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resource-ref_元素"><span class="nav-number">2.0.17.</span> <span class="nav-text">resource-ref 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#login-config_元素"><span class="nav-number">2.0.18.</span> <span class="nav-text">login-config 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#security-role_元素"><span class="nav-number">2.0.19.</span> <span class="nav-text">security-role 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#env-entry_元素"><span class="nav-number">2.0.20.</span> <span class="nav-text">env-entry 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ejb-ref_元素"><span class="nav-number">2.0.21.</span> <span class="nav-text">ejb-ref 元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置struts"><span class="nav-number">3.</span> <span class="nav-text">配置struts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Spring"><span class="nav-number">4.</span> <span class="nav-text">配置Spring</span></a></li></ol></div>
+          
+        </div>
+        <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+      </div>
+    
+
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">adolphlwq</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"adolphlwq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+  
+</body>
+</html>

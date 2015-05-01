@@ -1,0 +1,1026 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-next">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.0"/>
+
+
+
+
+	<meta name="keywords" content="CSS," />
+
+  <title> CSS-Selecter // One Day One </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">One Day One</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+            
+          
+
+          <div id="posts" class="posts-expand">
+            
+  
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              CSS-Selecter
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-02-04
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/前端/">前端</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/02/04/CSS-Selecter/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/04/CSS-Selecter/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="pre-knowlege">pre-knowlege</h2><h3 id="HTML">HTML</h3><ul>
+<li>HTML 是用来描述网页的一种语言</li>
+<li>HTML 指的是超文本标记语言 (Hyper Text Markup Language)</li>
+<li>HTML 不是一种编程语言，而是一种标记语言 (markup language)</li>
+<li>标记语言是一套标记标签 (markup tag)</li>
+<li>HTML 使用标记标签来描述网页</li>
+</ul>
+<h3 id="CSS">CSS</h3><ul>
+<li>Cascading[kæ’skeɪdɪŋ] Style Sheets：层叠样式表、级联样式表</li>
+<li>样式定义如何显示 HTML 元素、优化网页的表现形式</li>
+<li>样式通常存储在样式表中</li>
+<li>把样式添加到 HTML 4.0 中，是为了解决内容与表现分离的问题</li>
+<li>外部样式表通常存储在 CSS 文件中</li>
+</ul>
+<h3 id="XML">XML</h3><ul>
+<li>XML 指可扩展标记语言（EXtensible Markup Language）</li>
+<li>XML 是一种标记语言，很类似 HTML</li>
+<li>XML 的设计宗旨是传输数据，而非显示数据</li>
+<li>XML 标签没有被预定义。您需要自行定义标签。</li>
+<li>XML 被设计为具有自我描述性。</li>
+<li>XML 是 W3C 的推荐标准</li>
+</ul>
+<a id="more"></a>
+<h2 id="选择器">选择器</h2><h3 id="类型选择器（type_selecter）">类型选择器（type selecter）</h3><p>今天的学习刷新了我对css的认识，以前只以为css只能渲染html的内容，但是没想到它还能渲染xml的内容。其实xml和html本质上是一样的，它们都是一种树形结构，而且html算是XML的子集。</p>
+<p>css渲染xml和html是通过类型选择器实现的</p>
+<ul>
+<li>在html中，类型指的是html的<code>标签名</code>，没有的话通过<code>class</code>添加属性</li>
+<li>xml中属性指的是xml的标签名，不能自己添加<code>class</code>，因为xml可以自己定义标签，不会出先标签不够用要自己添加class</li>
+<li>选择属性之后，通过标准的语法来<code>声明</code>它们的表现形式</li>
+</ul>
+<p>我们看下面的xml-css.xml文件(<code>注意第二行引入css的格式</code>)：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="pi">&lt;?xml-stylesheet type="text/css" href="note.css"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">note</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">to</span>&gt;</span>George<span class="tag">&lt;/<span class="title">to</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">from</span>&gt;</span>Lwq<span class="tag">&lt;/<span class="title">from</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">head</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">body</span>&gt;</span>Dont forget the meeting<span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">note</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>浏览器打开xml是以树状结构来解析的，这里的<note><to><from><head></head><body>是节点，也可以理解为<em>类</em>，css的类选择器就是<strong>选中结构里的类名</strong>，然后添加类的<code>样式</code></body></from></to></note></p>
+<p>我们看note.css里的样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">note</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-family</span>:<span class="value">Verdana, Arial</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">30px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">to</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">28px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">display</span>:<span class="value">block</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">from</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">28px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">display</span>:<span class="value">block</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">head</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">60px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">display</span>:<span class="value">block</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">color</span>:<span class="value">red</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">body</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">35px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">display</span>:<span class="value">block</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>里面的<code>to</code>,<code>from</code>等就是选中的类名。</p>
+<p>我们看网页里的实现效果：</p>
+<div style="font-family:Verdana, Arial;margin-left:30px;"><br><div style="font-size:28px;">George</div><br><div style="font-size:28px;">Lwq</div>Reminder</div><br><div style="font-size:35px;color:blue;">Dont forget the meeting</div><br>
+
+<h4 id="选择器分组">选择器分组</h4><p>有许多类有相同的属相时，我们将它们的类放在一起添加样式：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* no grouping */</span></span><br><span class="line"><span class="tag">h1</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h2</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h3</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h4</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h5</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h6</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* grouping */</span></span><br><span class="line"><span class="tag">h1</span>, <span class="tag">h2</span>, <span class="tag">h3</span>, <span class="tag">h4</span>, <span class="tag">h5</span>, <span class="tag">h6</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="声明分组">声明分组</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">h1</span> <span class="rules">&#123;<span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">28px</span> Verdana</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h1</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h1</span> <span class="rules">&#123;<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h1</span> <span class="rules">&#123;<span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">28px</span> Verdana</span></span>; <span class="rule"><span class="attribute">color</span>:<span class="value"> white</span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> black</span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="一类多用">一类多用</h4><p>自定义的属性，通过绑定标签名来区别<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span><span class="class">.important</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">red</span></span>;&#125;</span></span><br><span class="line"><span class="tag">h1</span><span class="class">.important</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">blue</span></span>;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>html代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"important"</span>&gt;</span>This heading is very important.<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"important"</span>&gt;</span>This paragraph is very important.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><div style="color:blue;font-size:1.5em">This heading is very important.</div></p>
+<p style="display:inline;color:red;">This paragraph is very important.</p><br><p style="display:inline;">This is a paragraph.</p><br><p style="display:inline;">This is a paragraph.</p><br><p style="display:inline;">This is a paragraph.</p>
+
+<h4 id="多类选择器(multiple_type_selecter)">多类选择器(multiple type selecter)</h4><p>先看例子：<code>&lt;p class=&quot;important warning&quot;&gt;</code></p>
+<p><strong>重点来了：选择器分组&amp;多类选择器</strong><br>测试代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;p class="important"&gt;This paragraph is very important.&lt;/p&gt;</span><br><span class="line">&lt;p class="warning"&gt;This is a warning.&lt;/p&gt;</span><br><span class="line">&lt;p class="important warning"&gt;This paragraph is a very important warning.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;This is a paragraph.&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
+<p>多类选择器,只有同时至少选择<code>important</code>和<code>warning</code>（class=”important warning …”）才有效果<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.important</span> <span class="rules">&#123;<span class="rule"><span class="attribute">font-weight</span>:<span class="value">bold</span></span>;&#125;</span></span><br><span class="line"><span class="class">.warning</span> <span class="rules">&#123;<span class="rule"><span class="attribute">font-style</span>:<span class="value">italic</span></span>;&#125;</span></span><br><span class="line"><span class="class">.important</span><span class="class">.warning</span> <span class="rules">&#123;<span class="rule"><span class="attribute">background</span>:<span class="value">silver</span></span>;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果：</p>
+<p><div style="font-weight:bold;">This paragraph is very important.</div></p>
+<p><div style="font-style:italic;">This is a warning.</div></p>
+<p><div style="background:silver;">This paragraph is a very important warning.</div></p>
+<p><div>This is a paragraph.</div></p><br>选择器分组（<strong>只比上面多了一个<code>,</code>号</strong>），important和.warning都渲染了<code>background:silver;</code>属性<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.important</span> <span class="rules">&#123;<span class="rule"><span class="attribute">font-weight</span>:<span class="value">bold</span></span>;&#125;</span></span><br><span class="line"><span class="class">.warning</span> <span class="rules">&#123;<span class="rule"><span class="attribute">font-style</span>:<span class="value">italic</span></span>;&#125;</span></span><br><span class="line"><span class="class">.important</span>，<span class="class">.warning</span> <span class="rules">&#123;<span class="rule"><span class="attribute">background</span>:<span class="value">silver</span></span>;&#125;</span></span><br></pre></td></tr></table></figure><p></p>
+<p>效果：</p>
+<p><div style="font-weight:bold;background:silver;">This paragraph is very important.</div></p>
+<p><div style="font-style:italic;background:silver;">This is a warning.</div></p>
+<p><div style="background:silver;">This paragraph is a very important warning.</div></p>
+<p><div>This is a paragraph.</div></p><p></p>
+<h3 id="id选择器">id选择器</h3><p>类选择器 VS ID选择器(<strong>HTML 和 XHTML 将类和 ID 值定义为区分大小写</strong>)</p>
+<ul>
+<li>区别 1：只能在文档中使用一次与类不同，在一个 HTML 文档中，ID 选择器会使用一次，而且仅一次。</li>
+<li>区别 2：不能使用 ID 词列表:不同于类选择器，ID 选择器不能结合使用，因为 ID 属性不允许有以空格分隔的词列表。</li>
+<li>区别 3：ID 能包含更多含义</li>
+</ul>
+<h3 id="属性选择器"><span style="color:red;">属性选择器</span></h3><p>标签是用来标记内容的，在html的标签中，不同的标签都有自己的属性，比如<code>&lt;a&gt;</code>标签可以有<code>href</code>,<code>title</code>,<code>target</code>等属性，属性选择器就是通过标签的属性来进一步选择。<br>demo:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span><span class="attr_selector">[href]</span><span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">red</span></span>;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>只有具备<code>href</code>属性的a标才会变成红色<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span><span class="attr_selector">[href]</span><span class="attr_selector">[name]</span><span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value">red</span></span>;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>同时具备<code>href</code>和<code>name</code>属性的a标签才会变成红色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span><span class="attr_selector">[href="http://www.w3school.com.cn/"]</span><span class="attr_selector">[title="W3School"]</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>只有具备<code>href</code>和    <code>title</code>且href=”<a href="http://www.w3school.com.cn/&quot;,title=&quot;W3School&quot;的标签才会变成红色。" target="_blank" rel="external">http://www.w3school.com.cn/&quot;,title=&quot;W3School&quot;的标签才会变成红色。</a><br><strong>需要注意的是：属性和属性值必须完全匹配</strong><br><strong>p.important 和 p[class=”important”]等价</strong></p>
+<h4 id="部分属性选择器">部分属性选择器</h4><p><code>p[class~=&quot;important&quot;] {color: red;}</code><br>只要属性中包含<code>important</code>，就选择。<br> “~=” 属性选择器能用于任何属性，而不只是 class(ID)</p>
+<h4 id="子串匹配属性选择器"><span style="color:red;">子串匹配属性选择器</span></h4><p>更高级的选择器模块,它是 CSS2 完成之后发布的。简单总结：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">type</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">abc^=”def”]</td>
+<td style="text-align:center">选择 abc 属性值以 “def” 开头的所有元素</td>
+</tr>
+<tr>
+<td style="text-align:left">abc$=”def”]</td>
+<td style="text-align:center">选择 abc 属性值以 “def” 结尾的所有元素</td>
+</tr>
+<tr>
+<td style="text-align:left">abc*=”def”]</td>
+<td style="text-align:center">选择 abc 属性值中包含子串 “def” 的所有元素</td>
+</tr>
+</tbody>
+</table>
+<p>举例来说，如果希望对指向 W3School 的所有链接应用样式，不必为所有这些链接指定 class，再根据这个类编写样式，而只需编写以下规则：</p>
+<p><code>a[href*=&quot;w3school.com.cn&quot;] {color: red;}</code></p>
+<h3 id="后代选择器">后代选择器</h3><p><code>h1 em{color:red;}</code><br>选择h1后包含的所有em属性，中间必须有一个空格</p>
+<h3 id="子元素选择器">子元素选择器</h3><p><code>h1 &gt; strong {color:red;}</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;</span><br><span class="line">	&lt;strong&gt;</span><br><span class="line">		选择这个adolphlwq</span><br><span class="line">	&lt;/strong&gt;</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;strong&gt;</span><br><span class="line">			不会选择这个adolphlwq</span><br><span class="line">		&lt;/strong&gt;</span><br><span class="line">	&lt;/span&gt;</span><br><span class="line">&lt;/h1&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="相邻兄弟选择器">相邻兄弟选择器</h3><p>要求：</p>
+<ul>
+<li>要选择的元素紧接在另一个元素后的元素</li>
+<li>而且二者有相同的父元素</li>
+</ul>
+<p><code>h1 + p {margin-top:50px;}</code><br><strong>请记住，用一个结合符只能选择两个相邻兄弟中的第二个元素</strong></p>
+<h3 id="伪类（pseudo-classes)"><span style="color:red;">伪类（pseudo-classes)</span></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:right">描述</th>
+<th style="text-align:center">CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:link</td>
+<td style="text-align:right">向未被访问的链接添加样式。</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">:visited</td>
+<td style="text-align:right">向已被访问的链接添加样式</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">:hover</td>
+<td style="text-align:right">当鼠标悬浮在元素上方时，向元素添加样式</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">:active</td>
+<td style="text-align:right">向被激活的元素添加样式</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">:foucs</td>
+<td style="text-align:right">向拥有键盘输入焦点的元素添加样式</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:left">:first-child</td>
+<td style="text-align:right">向元素的第一个子元素添加样式</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:left">:lang</td>
+<td style="text-align:right">向带有指定 lang 属性的元素添加样式</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="伪元素（pseudo-elements)"><span style="color:red;">伪元素（pseudo-elements)</span></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:right">描述</th>
+<th style="text-align:center">CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:first-line</td>
+<td style="text-align:right">向文本的第一个字母添加特殊样式</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">:first-letter</td>
+<td style="text-align:right">向文本的首行添加特殊样式</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:left">:before</td>
+<td style="text-align:right">在元素之前添加内容</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:left">:after</td>
+<td style="text-align:right">在元素之后添加内容</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/">
+                #CSS
+              </a>
+            
+          </div>
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2015/02/06/Spring-day-1/">Spring-day-1</a>
+              
+            </div>
+
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2015/01/29/windows-optimization-1/">windows系统优化-1</a>
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </div>
+    
+  </div>
+
+
+
+  
+    <div class="comments" id="comments">
+      
+        <div class="ds-thread" data-thread-key="2015/02/04/CSS-Selecter/"
+             data-title="CSS-Selecter" data-url="http://yoursite.com/2015/02/04/CSS-Selecter/">
+        </div>
+
+      
+    </div>
+  
+
+          </div>
+
+          
+        </div>
+
+        
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview">
+          站点概览
+        </li>
+      </ul>
+    
+
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="images/dog_arts.jpg" alt="adolphlwq" />
+        <p class="site-author-name">adolphlwq</p>
+      </div>
+      <p class="site-description motion-element"></p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </div>
+        <div class="site-state-item site-state-tags">
+            <span class="site-state-item-count">26</span>
+            <span class="site-state-item-name">标签</span>
+        </div>
+        <div class="site-state-item site-state-pages">
+            <span class="site-state-item-count">5</span>
+            <span class="site-state-item-name">页面</span>
+        </div>
+      </div>
+
+      
+
+      <div class="links-of-author motion-element">
+        
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/adolphlwq/">GitHub</a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="http://weibo.com/adolphlwq">Weibo</a>
+            </span>
+          
+        
+      </div>
+
+      
+      
+
+    </div>
+
+    
+      <div class="post-toc-wrap sidebar-panel-active">
+        <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <div class="post-toc">
+          
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pre-knowlege"><span class="nav-number">1.</span> <span class="nav-text">pre-knowlege</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">1.3.</span> <span class="nav-text">XML</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">2.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型选择器（type_selecter）"><span class="nav-number">2.1.</span> <span class="nav-text">类型选择器（type selecter）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器分组"><span class="nav-number">2.1.1.</span> <span class="nav-text">选择器分组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#声明分组"><span class="nav-number">2.1.2.</span> <span class="nav-text">声明分组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一类多用"><span class="nav-number">2.1.3.</span> <span class="nav-text">一类多用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多类选择器(multiple_type_selecter)"><span class="nav-number">2.1.4.</span> <span class="nav-text">多类选择器(multiple type selecter)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id选择器"><span class="nav-number">2.2.</span> <span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-number">2.3.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#部分属性选择器"><span class="nav-number">2.3.1.</span> <span class="nav-text">部分属性选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子串匹配属性选择器"><span class="nav-number">2.3.2.</span> <span class="nav-text">子串匹配属性选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后代选择器"><span class="nav-number">2.4.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子元素选择器"><span class="nav-number">2.5.</span> <span class="nav-text">子元素选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相邻兄弟选择器"><span class="nav-number">2.6.</span> <span class="nav-text">相邻兄弟选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类（pseudo-classes)"><span class="nav-number">2.7.</span> <span class="nav-text">伪类（pseudo-classes)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素（pseudo-elements)"><span class="nav-number">2.8.</span> <span class="nav-text">伪元素（pseudo-elements)</span></a></li></ol></li></ol></div>
+          
+        </div>
+        <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+      </div>
+    
+
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">adolphlwq</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"adolphlwq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+  
+</body>
+</html>
