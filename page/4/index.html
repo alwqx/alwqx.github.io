@@ -124,6 +124,214 @@
           
           
             
+              <a class="post-title-link" href="/2015/01/15/tomcat1/">
+                Tomcat初步
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-01-15
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/Java/">Java</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/01/15/tomcat1/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/15/tomcat1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="安装">安装</h2><p>tomcat是apache软件基金组织的一款开源项目，去apache官网<a href="http://apache.org/">http://apache.org/</a>找就可以找到，主要有安装和解压版，推荐使用解压版，解压好之后自己配置端口、用户名和密码等信息。</p>
+<h2 id="tomcat的文件目录">tomcat的文件目录</h2><ol>
+<li><code>/bin</code> Startup, shutdown, and other scripts. The <em>.sh files (for Unix systems) are functional duplicates of the </em>.bat files (for Windows systems). Since the Win32 command-line lacks certain functionality, there are some additional files in here.(启动、关闭和其他脚本。.sh脚本适用于unix系统，.bat脚本适用于windows系统，他们的功能相同。由于com32的命令行缺少某功能，bin目录增加了额外的文件)</li>
+<li><code>/conf</code> - Configuration files and related DTDs. The most important file in here is server.xml. It is the main configuration file for the container.(配置文件和相关的dtd文件，最重要的是<strong>server.xml</strong>文件，它是容器的主要配置文件)</li>
+<li><code>/logs</code> - Log files are here by default.（日志文件，tomcat运行报错或者部署的项目报错时，这个文件夹是必须看的。）</li>
+<li><code>/webapps</code> - This is where your webapps go.(你web应用部署的文件夹)</li>
+<li><code>/lib</code> tomcat用到的库</li>
+<li><code>/work</code> tomcat解析部署项目时的缓存文件</li>
+</ol>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/01/15/tomcat1/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/tomcat/">
+                #tomcat
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/01/06/sqlserver-sqls-1/">
+                sqlserver 增删查改练习(一)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-01-06
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/数据库/">数据库</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/01/06/sqlserver-sqls-1/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/06/sqlserver-sqls-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <ul>
+<li><p><a href="http://pan.baidu.com/s/1hqzj6o0">数据库文件下载</a></p>
+<h2 id="链接查询">链接查询</h2></li>
+<li><p>查询khb中姓名相同的人的信息<strong>可以使用自链接</strong></p>
+</li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">select * </span><br><span class="line"><span class="built_in">from</span> khb <span class="operator">a</span></span><br><span class="line">where <span class="operator">a</span>.客户姓名 <span class="operator">in</span> (select b.客户姓名</span><br><span class="line">						<span class="built_in">from</span> khb b</span><br><span class="line">						where b.客户编号!=<span class="operator">a</span>.客户编号)</span><br><span class="line"></span><br><span class="line">select * </span><br><span class="line"><span class="built_in">from</span> khb <span class="operator">a</span>,khb b</span><br><span class="line">where <span class="operator">a</span>.客户姓名=b.客户姓名 <span class="operator">and</span> <span class="operator">a</span>.客户编号!=b.客户编号</span><br></pre></td></tr></table></figure>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/01/06/sqlserver-sqls-1/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Mysql/">
+                #Mysql
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/01/04/DB-course-design/">
                 数据库课设(一)
               </a>
@@ -741,218 +949,6 @@
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/12/13/install-SqlServer-consideration/">
-                帮同学安装SqlServer感悟
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-12-13
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/数据库/">数据库</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/12/13/install-SqlServer-consideration/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/13/install-SqlServer-consideration/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h2 id="背景">背景</h2><ul>
-<li>安装vs2013之后卸载而且没卸载干净。</li>
-<li>安装vs2012，可以使用。</li>
-<li>安装sqlserver2008R2没成功，系统残留很多文件和没有清理的注册表。</li>
-<li>安装sqlserver2012失败，残留注册表等文件。</li>
-</ul>
-<h2 id="我的做法">我的做法</h2><ul>
-<li>查找方法彻底删除sqlserver残留文件。<a href="http://www.hc400.com/zt19/067.htm">点击查看链接</a></li>
-<li>安装sqlserver2012<a href="http://wenku.baidu.com/link?url=kzOYHEZVZPT4hlYLf11HomWnCXtpMLv4btBUL1ho0JJjc6B0hmi9IBByIY9w9NoH63r2LJU-a4NMZakH9KbhtoJF1yT8dMwnq29r8VH6Fne">安装教程</a></li>
-</ul>
-<h2 id="遇到问题">遇到问题</h2><p><img src="http://7vihfm.com1.z0.glb.clouddn.com/sqlerror.png" alt="神奇的报错：没有权限读取注册表"><br>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2014/12/13/install-SqlServer-consideration/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Mysql/">
-                #Mysql
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/12/12/duohuo-family-dinner/">
-                多火聚餐，掏心掏肺
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-12-12
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/多火/">多火</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/12/12/duohuo-family-dinner/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/12/duohuo-family-dinner/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <ul>
-<li><p>今天学长请多火大家庭吃饭，我们都很开心，吃吃喝喝的，学弟敬学长学姐，学长们之前相互灌酒，很是开心。</p>
-</li>
-<li><p>酒喝多了就开始掏心掏肺，说实话，现在大学能有这样的技术社团已经很少了，对于学技术的同学来说，大学里的课程和工作环境里的使用的技术相差甚远，而且感觉学不到什么。还好有多火社团，里面汇集了整个南信大几乎大部分的技术达人，各种大牛以及对技术感兴趣的人。还有往届已经工作的学长回来分享技术、工作方面的干货。每天讨论的都是当下最新的技术。</p>
-</li>
-<li><p>最后大家轮流发言，秘书、社长、男神、波神….大家都是掏心掏肺。尤其是波神，他关于学习、提高自己方面的分享对我的影响很大。<strong>“永远不要想着去依靠别人，一定要想着靠自己，有些事情没做好只是你没有用心去做，你只要用心去做，就没有什么过不去的坎。比如高数你看不懂，怎么办，那你就把高数书从头看到尾，你一定能学好，（我发现是我们自己努力的不够，而不是没有天赋什么的），你一定要相信自己，没有什么是做不到的！”</strong></p>
-</li>
-<li><p>我只能凭记忆把它记录下来，很喜欢波神这句话，强调独立，强调自立自强。没什么不可能，只是你没有好好努力罢了。别撕逼了，脚踏实地吧。</p>
-</li>
-</ul>
-<ul>
-<li><code>独立</code>、<code>自立</code>、<code>自强</code></li>
-</ul>
-
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Reading-Writing/">
-                #Reading&Writing
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
@@ -985,11 +981,11 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">26</span>
+            <span class="site-state-item-count">28</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
