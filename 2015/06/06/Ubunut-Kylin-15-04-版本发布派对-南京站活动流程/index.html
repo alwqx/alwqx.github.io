@@ -18,9 +18,9 @@
 
 
 
-	<meta name="keywords" content="Java," />
+	<meta name="keywords" content="activity," />
 
-  <title> 数据库课设(一) // One Day One </title>
+  <title> Ubunut Kylin 15.04 版本发布派对-南京站活动流程 // One Day One </title>
 </head>
 
 <body>
@@ -101,7 +101,7 @@
           
           
             
-              数据库课设(一)
+              Ubunut Kylin 15.04 版本发布派对-南京站活动流程
             
           
         </h1>
@@ -110,22 +110,11 @@
       <div class="post-meta">
         <span class="post-time">
           
-            发表于 2015-01-03
+            发表于 2015-06-06
           
         </span>
 
         
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/Java/">Java</a>
-
-                
-                
-
-              
-            </span>
           
         
 
@@ -133,8 +122,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/01/04/DB-course-design/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/04/DB-course-design/"></span>
+            <a href="/2015/06/06/Ubunut-Kylin-15-04-版本发布派对-南京站活动流程/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/06/Ubunut-Kylin-15-04-版本发布派对-南京站活动流程/"></span>
             </a>
           </span>
           
@@ -149,25 +138,27 @@
         
 
         
-          <h2 id="整理一">整理一</h2><ul>
-<li>先看出错的代码</li>
+          <h3 id="暖场音乐">暖场音乐</h3><ul>
+<li>音乐：GALA 《追梦赤子心》 发放Ubuntu Kylin 15.04的系统光盘</li>
 </ul>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">List</span> getDeptInfo()&#123;</span><br><span class="line">	<span class="built_in">String</span> sql <span class="subst">=</span> <span class="string">"select * from department"</span>;</span><br><span class="line">	PreparedStatement psmt<span class="subst">=</span><span class="built_in">null</span>;</span><br><span class="line">	<span class="built_in">List</span> <span class="built_in">list</span> <span class="subst">=</span> <span class="literal">new</span> ArrayList();</span><br><span class="line">	try &#123;</span><br><span class="line">		psmt <span class="subst">=</span> conn<span class="built_in">.</span>prepareStatement(sql);</span><br><span class="line">		<span class="keyword">ResultSet</span> rs <span class="subst">=</span> psmt<span class="built_in">.</span>executeQuery();</span><br><span class="line">		Department dept <span class="subst">=</span> <span class="built_in">null</span>;</span><br><span class="line">		<span class="keyword">while</span>(rs<span class="built_in">.</span>next())&#123;</span><br><span class="line">			dept<span class="built_in">.</span>setDeptId(rs<span class="built_in">.</span>getInt(<span class="string">"DeptId"</span>));</span><br><span class="line">			dept<span class="built_in">.</span>setDeptName(rs<span class="built_in">.</span>getString(<span class="string">"DeptName"</span>));</span><br><span class="line">			<span class="built_in">list</span><span class="built_in">.</span>add(dept);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e<span class="built_in">.</span>printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>做数据库课设，有段逻辑代码是通用的，在好几个了业务中用同样的思路来处理，可是一直报空指针错误！调试也没看出来错误。后来才发现问题出在<code>while(rs.next())</code>里面。</p>
-<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">因为每一次循环都要把dept放到<span class="built_in">list</span>里面，也就是<span class="built_in">list</span>.add(dept);</span><br><span class="line">所以每次循环开始都要新实例化一个dept,dept = <span class="keyword">new</span> <span class="type">Department</span><span class="literal">()</span>;这样就不会报空指针错误了。</span><br></pre></td></tr></table></figure>
+<h3 id="主持人致辞并主持">主持人致辞并主持</h3><ul>
+<li><p>计软院副书记季赛老师致辞（感谢季赛老师和计软院对本次活动的大力支持）</p>
+</li>
+<li><p>刘明 《Ubuntu Kylin 15.04 版本特性介绍》   </p>
+</li>
+</ul>
+<p><code>微信摇一摇抽奖</code></p>
 <ul>
-<li>正确的代码：</li>
+<li><p>七牛何李石 @ikbear 《通往架构师之路—不想成为架构师的程序员不是好Leader》＆　Q&amp;A（2个问题）</p>
+</li>
+<li><p>李剑峰  《Unity8最新进展和贡献》  ＆　Q&amp;A（2个问题）</p>
+</li>
 </ul>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">List</span> getDeptInfo()&#123;</span><br><span class="line">	<span class="built_in">String</span> sql <span class="subst">=</span> <span class="string">"select * from department"</span>;</span><br><span class="line">	PreparedStatement psmt<span class="subst">=</span><span class="built_in">null</span>;</span><br><span class="line">	<span class="built_in">List</span> <span class="built_in">list</span> <span class="subst">=</span> <span class="literal">new</span> ArrayList();</span><br><span class="line">	try &#123;</span><br><span class="line">		psmt <span class="subst">=</span> conn<span class="built_in">.</span>prepareStatement(sql);</span><br><span class="line">		<span class="keyword">ResultSet</span> rs <span class="subst">=</span> psmt<span class="built_in">.</span>executeQuery();</span><br><span class="line">		Department dept;</span><br><span class="line">		<span class="keyword">while</span>(rs<span class="built_in">.</span>next())&#123;</span><br><span class="line">			dept <span class="subst">=</span> <span class="literal">new</span> Department();</span><br><span class="line">			dept<span class="built_in">.</span>setDeptId(rs<span class="built_in">.</span>getInt(<span class="string">"DeptId"</span>));</span><br><span class="line">			dept<span class="built_in">.</span>setDeptName(rs<span class="built_in">.</span>getString(<span class="string">"DeptName"</span>));</span><br><span class="line">			<span class="built_in">list</span><span class="built_in">.</span>add(dept);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e<span class="built_in">.</span>printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="整理二">整理二</h2><ul>
-<li>jsp页面中利用jstl标签判断后显示结果</li>
+<p><code>微信摇一摇抽奖</code></p>
+<ul>
+<li>徐新坤 《Dockerfile与Docker构建流程解读》＆　Q&amp;A（2个问题）</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">%@</span> <span class="attribute">taglib</span> <span class="attribute">prefix</span>=<span class="value">"c"</span> <span class="attribute">uri</span>=<span class="value">"http://java.sun.com/jsp/jstl/core"</span><span class="value">%</span>&gt;</span></span><br><span class="line">**jsp页面中一定要引入jstl标签库，指明的prefix在后面使用**</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"inputdiv"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"inputleft"</span>&gt;</span>性别:<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">select</span> <span class="attribute">name</span>=<span class="value">"emSex"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">c:choose</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">c:when</span> <span class="attribute">test</span>=<span class="value">"$&#123;preem.emSex == '男'&#125;"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">option</span> <span class="attribute">selected</span> = "<span class="attribute">selected</span>"&gt;</span>男<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">option</span>&gt;</span>女<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">c:when</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">c:otherwise</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">option</span>&gt;</span>男<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">option</span> <span class="attribute">selected</span> = "<span class="attribute">selected</span>"&gt;</span>女<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">			    <span class="tag">&lt;/<span class="title">c:otherwise</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;/<span class="title">c:choose</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>通过标签库判断性别显示不同的性别</p>
-</blockquote>
-
+<h3 id="大合影">大合影</h3>
         
       </div>
     
@@ -177,8 +168,8 @@
         
           <div class="post-tags">
             
-              <a href="/tags/Java/">
-                #Java
+              <a href="/tags/activity/">
+                #activity
               </a>
             
           </div>
@@ -188,13 +179,11 @@
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/01/06/sqlserver-sqls-1/">sqlserver 增删查改练习(一)</a>
-              
             </div>
 
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2014/12/31/Mysql-basic-sqls-3/">Mysql基本操作(三)</a>
+                <a href="/2015/05/03/2015-5-2-jdbcTemeplate-queryForObject/">jdbcTemeplate-queryForObject</a>
               
             </div>
           </div>
@@ -211,8 +200,8 @@
   
     <div class="comments" id="comments">
       
-        <div class="ds-thread" data-thread-key="2015/01/04/DB-course-design/"
-             data-title="数据库课设(一)" data-url="http://yoursite.com/2015/01/04/DB-course-design/">
+        <div class="ds-thread" data-thread-key="2015/06/06/Ubunut-Kylin-15-04-版本发布派对-南京站活动流程/"
+             data-title="Ubunut Kylin 15.04 版本发布派对-南京站活动流程" data-url="http://yoursite.com/2015/06/06/Ubunut-Kylin-15-04-版本发布派对-南京站活动流程/">
         </div>
 
       
@@ -295,7 +284,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#整理一"><span class="nav-number">1.</span> <span class="nav-text">整理一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整理二"><span class="nav-number">2.</span> <span class="nav-text">整理二</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#暖场音乐"><span class="nav-number">1.</span> <span class="nav-text">暖场音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主持人致辞并主持"><span class="nav-number">2.</span> <span class="nav-text">主持人致辞并主持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大合影"><span class="nav-number">3.</span> <span class="nav-text">大合影</span></a></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>

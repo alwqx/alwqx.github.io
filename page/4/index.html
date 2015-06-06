@@ -124,6 +124,118 @@
           
           
             
+              <a class="post-title-link" href="/2015/01/20/tomcat2/">
+                tomcat2
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-01-20
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/Java/">Java</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/01/20/tomcat2/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/20/tomcat2/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="WEB-INF文件夹">WEB-INF文件夹</h2><ol>
+<li>WEB-INF文件夹是在tomcat中部署web应用必须的文件夹，没有它web应用无法运行。</li>
+<li>它是一个安全目录，即只有服务端才可以访问，客户端无法访问。</li>
+<li>web.xml:非常重要的文件，里面可以配置应用的默认首页，不同业务逻辑调用的不同接口（浏览器浏览器点击登录，后台决定哪个代码负责处理）等。</li>
+</ol>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br><span class="line">	&lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.jsp&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">&lt;/welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>lib:存放java代码需要的jar包</li>
+<li>classes:存放编译好的.class文件</li>
+</ol>
+<h2 id="myeclipse下更改项目虚拟目录">myeclipse下更改项目虚拟目录</h2><ol>
+<li>右击项目名</li>
+<li>preperties</li>
+<li>myecipse-web</li>
+<li>会出来项目的虚拟目录，这时可以修改</li>
+</ol>
+
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/OneDayOne/">
+                #OneDayOne
+              </a>
+            
+              <a href="/tags/tomcat/">
+                #tomcat
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/01/15/tomcat1/">
                 Tomcat初步
               </a>
@@ -845,110 +957,6 @@
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/">
-                Hexo主题优化一：添加百度统计、微博秀
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-12-18
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/Hexo/">Hexo</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h2 id="注册百度统计账号">注册百度统计账号</h2><ul>
-<li><a href="http://tongji.baidu.com/web/8095091/overview/sole?siteId=6029670">点我</a>注册百度注册百度统计账号</li>
-<li>点击页面右上角“网站中心”</li>
-<li>左侧目录树点击“代码获取”</li>
-<li>要求<strong>请将代码添加至网站全部页面的</head>标签前</strong>，由于对Hexo不太了解，当时看到这个觉得很复杂，要加很多页面，今天百度发现不难，因为Hexo的每一个网页分成好几个部分：<strong>header、footer、maincontent</strong>….（这几个次是我自己定义的，和官方可能有差异），只要把代码加载这几个页面其中之一就可以了！！</li>
-<li>打开<strong><code>themes\coney\layout\_partial</code></strong>里的<strong>head.ejs</strong>文件，按照要求把代码加在最后就可以了！</li>
-<li>博客部署后可以在百度统计-&gt;网站中心查看自己的网站是否成功添加了百度统计的代码。</li>
-</ul>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Hexo/">
-                #Hexo
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
@@ -981,11 +989,11 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">28</span>
+            <span class="site-state-item-count">29</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
