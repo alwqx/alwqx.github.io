@@ -272,19 +272,12 @@
 
         
           
-            <h2 id="workbench批量处理保护：">workbench批量处理保护：</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">update</span> youth.article <span class="keyword">set</span> deleteflag = <span class="number">0</span></span></span><br></pre></td></tr></table></figure>
-<p>报错：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update youth.article set deleteflag = 0 where id&#9;Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, toggle the option in Preferences -&#62; SQL Editor and reconnect.&#9;0.00042 sec</span><br></pre></td></tr></table></figure></p>
-<p>解决方法：</p>
-<ol>
-<li>打开Workbench的菜单[Edit]-&gt;[Preferences…]</li>
-<li>切换到[SQL Editor]页面</li>
-<li>把[Forbid UPDATE and DELETE statements without a WHERE clause (safe updates)]之前的对勾去掉<br>点击[OK]按钮</li>
-<li>最后一步记得要重启一下Workbench，否则你仍然会得到这个错误提示。</li>
-</ol>
-<h2 id="linux_tomcat端口占用">linux tomcat端口占用</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux|grep tomcat&#10;netstat -apn|grep 8080</span><br></pre></td></tr></table></figure>
-<h2 id="表名冲突">表名冲突</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#39;column&#39; at line 1&#9;0.00022 sec</span><br></pre></td></tr></table></figure>
-<p><code>column</code>和系统关键字冲突！<strong>修改表名</strong></p>
-
+            <p><img src="https://static.pexels.com/photos/5742/man-beach-love-sand.jpg" alt=""></p>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/06/15/2015-6-15-base-cms-develop-log/">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
         
       </div>
