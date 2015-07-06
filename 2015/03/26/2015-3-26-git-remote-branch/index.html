@@ -154,7 +154,7 @@
 <p>假设的情景：我的计算机的仓库<br><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-03-26-git-branch-1.png" alt=""><br>github官网和自己计算机对应的远程仓库<br><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-03-26-git-branch-2.png" alt=""></p>
 <p>别人的仓库分支：<br><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-03-26-git-branch-4.png" alt=""></p>
 <p><span style="color:red;">Look Out！</span>本地仓库是本地仓库，远程仓库是远程仓库，如果两者不关联，那他们之间没什么关系。</p>
-<p><code>git clone https://github.com/adolphlwq/sushems.git</code> 默认在当前文件夹克隆项目的仓库,生成<strong>sushems</strong>文件夹，项目的所有信息在sushems中。使用git clone,本地仓库和远程仓库是对应的，且本地分支默认为<code>master</code>,远程分支默认为<code>origin</code>.</p>
+<p><code>git clone https://github.com/adolphlwq/sushems.git</code> 默认在当前文件夹克隆项目的仓库,生成<strong>sushems</strong>文件夹，项目的所有信息在sushems中。使用git clone,本地仓库和远程仓库是对应的，且本地分支默认为<code>master</code>,远程分支默认为<code>origin</code>.并且本地分支<code>master</code>默认跟踪远程<code>master</code>分支。</p>
 <p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-03-26-git-branch-3.png" alt=""></p>
 <h4 id="branch命令（直接从manual复制过来的我会乱说！manual_is_your_best_frend!）">branch命令（直接从manual复制过来的我会乱说！manual is your best frend!）</h4><p>用法：</p>
 <pre><code>git branch [选项] [-r | -a] [--merged | --no-merged]
@@ -190,13 +190,13 @@
 <p>我之前纠结的地方在于本地分支和远程分支在修改、提交的关系，现在说说我的理解</p>
 <ul>
 <li>远程分支是不能在本地实时编辑同步的</li>
-<li>只能在本地分支开发代码</li>
+<li>只能开发提交代码到本地分支</li>
 <li><span style="color:red;">本地分支可以push到远程分支，这是他们建立联系的地方</span></li>
 <li><span style="color:red;">git branch remote-name/branch-name来新建远程分支</span><ul>
 <li>git branch origin/dev</li>
 </ul>
 </li>
-<li>git branch branch-name<ul>
+<li>git branch branch-name新建本地分支<ul>
 <li>git branch dev   </li>
 </ul>
 </li>
@@ -210,6 +210,20 @@
 <li>git branch —set-upstream dev origin/dev</li>
 </ul>
 </li>
+</ul>
+<h4 id="更新命令">更新命令</h4><ul>
+<li>git merge origin/serverfix…[将远程分支合并到当前分支]</li>
+<li>git checkout -b dev origin/dev…[这会切换到新建的 serverfix 本地分支，其内容同远程分支 origin/serverfix 一致]</li>
+<li>git checkout —track origin/dev…[同上]</li>
+</ul>
+<blockquote>
+<p>从远程分支 checkout 出来的本地分支，称为 跟踪分支 (tracking branch)。跟踪分支是一种和某个远程分支有直接联系的本地分支。在跟踪分支里输入 git push，Git 会自行推断应该向哪个服务器的哪个分支推送数据。同样，在这些分支里运行 git pull 会获取所有远程索引，并把它们的数据都合并到本地分支中来。</p>
+</blockquote>
+<ul>
+<li>git push origin :[remote branch name]…[删除远程分支名]</li>
+</ul>
+<h4 id="参考">参考</h4><ul>
+<li><a href="http://git-scm.com/book/zh/ch3-5.html" target="_blank" rel="external">官方关于远程分支的介绍</a></li>
 </ul>
 
         
@@ -299,11 +313,11 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">29</span>
+            <span class="site-state-item-count">28</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
@@ -339,7 +353,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#branch"><span class="nav-number">1.</span> <span class="nav-text">branch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#preiew_knowlege"><span class="nav-number">1.0.1.</span> <span class="nav-text">preiew knowlege</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remote_branch"><span class="nav-number">1.0.2.</span> <span class="nav-text">remote branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#branch命令（直接从manual复制过来的我会乱说！manual_is_your_best_frend!）"><span class="nav-number">1.0.3.</span> <span class="nav-text">branch命令（直接从manual复制过来的我会乱说！manual is your best frend!）</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#branch"><span class="nav-number">1.</span> <span class="nav-text">branch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#preiew_knowlege"><span class="nav-number">1.0.1.</span> <span class="nav-text">preiew knowlege</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remote_branch"><span class="nav-number">1.0.2.</span> <span class="nav-text">remote branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#branch命令（直接从manual复制过来的我会乱说！manual_is_your_best_frend!）"><span class="nav-number">1.0.3.</span> <span class="nav-text">branch命令（直接从manual复制过来的我会乱说！manual is your best frend!）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新命令"><span class="nav-number">1.0.4.</span> <span class="nav-text">更新命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">1.0.5.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>

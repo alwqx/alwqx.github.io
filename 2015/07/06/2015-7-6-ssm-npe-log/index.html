@@ -1,0 +1,894 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-next">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.0"/>
+
+
+
+
+
+    <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/head.ico?v=0.4.0" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3e10392c5712cd95c67114264a1df7f8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <title> Spring SSM 整合报空指针异常 // One Day One </title>
+</head>
+
+<body>
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">One Day One</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+            
+          
+
+          <div id="posts" class="posts-expand">
+            
+  
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              Spring SSM 整合报空指针异常
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-07-06
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/开发栈/">开发栈</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/06/2015-7-6-ssm-npe-log/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/06/2015-7-6-ssm-npe-log/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <p><img src="https://static.pexels.com/photos/6851/man-love-woman-kiss.jpg" alt=""></p>
+<a id="more"></a>
+<h2 id="经验和教训">经验和教训</h2><blockquote>
+<p>如何处理和调试NPE</p>
+</blockquote>
+<p>一般IDE会直接定位到出现空指针异常的代码行,设置断点<code>debug</code>不一定能找到原因,因为使用框架的时候有些代码是封装在包里的,无法看到里面的内容,我用了一下方法:</p>
+<ul>
+<li><p>输出空指针涉及的实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(userServiceImpl);</span><br><span class="line">System.out.println(<span class="keyword">this</span>.userMapper);</span><br><span class="line">System.out.println(user);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>仔细,认真查看报错日志</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#25253;&#38169;&#26085;&#24535;&#26377;100+&#34892;,&#22312;IDE&#30340;console&#37324;&#25490;&#29256;&#20063;&#24456;&#19981;&#22909;,&#35835;&#36215;&#26469;&#24456;&#19981;&#26041;&#20415;,&#36215;&#21021;&#25105;&#27809;&#26377;&#20180;&#32454;&#35835;&#10;&#21518;&#26469;&#19987;&#38376;&#25226;&#26085;&#24535;&#22797;&#21046;&#29992;markdown&#35821;&#27861;&#32534;&#36753;&#10;&#20180;&#32454;&#30475;&#20102;&#19981;&#21040;&#19968;&#21322;&#23601;&#25214;&#21040;&#38382;&#39064;&#30340;&#21407;&#22240;&#20102;,&#36824;&#21152;&#28145;&#20102;&#23545;spring&#26694;&#26550;&#37197;&#32622;&#30340;&#29702;&#35299;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="spring_springMVC_Mybatis整合">spring springMVC Mybatis整合</h2><p><a href="http://blog.csdn.net/zhshulin/article/details/37956105" target="_blank" rel="external">先看这个参考:ssm整合例子</a></p>
+<blockquote>
+<p>下面都是个人的理解了,如有错误,虚心接受指正</p>
+</blockquote>
+<ol>
+<li>java中的web项目在初始化时需要一个重要文件<code>web.xml</code>,web(tomcat等)容器会先读取web.xml中的内容,然后根据配置来实例化,初始化相关的类.</li>
+<li>我们使用spring,springmvc,mybatis这些框架,它们的初始化都在读取<code>web.xml</code>的过程中完成.要想正确完成初始化,需要下面两点:<ul>
+<li>正确配置spring,mybatis这些框架的配置文件</li>
+<li>正确引入配置文件</li>
+</ul>
+</li>
+</ol>
+<h3 id="正确配置文件">正确配置文件</h3><p>这个在上面的连接中已经讲解得很详细了,我记录下我觉得重要的点</p>
+<ol>
+<li>transaction manager(事务管理) bean类的定义要放在最后</li>
+<li><code>&lt;context:component-scan base-package=&quot;com.cn.hnust&quot; /&gt;</code>自动扫描注入.涉及数据持久化的类会放在同一个包里.需要注入数据源时如果每个bean都在<code>xml文件</code>配置一次的话,会重复操作.所以spring加入了<code>component-scan</code>和<code>annotation</code>来实现自动注入,免去繁琐的配置.<span style="color:red">需要注意的是:</span><strong>每一个需要注入的类都要注解并且注解正确</strong>.个人因为有个类没有注解导致<code>空指针</code>异常.<br>demo:<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"><span class="comment">&lt;!-- 自动扫描 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"com.dh.youth.service"</span> /&gt;</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="正确引入配置文件">正确引入配置文件</h3><blockquote>
+<p>web.xml中引入错误也无法正确引入框架</p>
+</blockquote>
+<h4 id="在&lt;context-param&gt;标签内引入mybatis的配置文件">在<code>&lt;context-param&gt;</code>标签内引入mybatis的配置文件</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;context-param&#62;&#10;&#9;&#60;param-name&#62;contextConfigLocation&#60;/param-name&#62;&#10;&#9;&#60;param-value&#62;&#10;&#9;&#9;classpath:config/spring-mybatis.xml,&#10;&#9;&#9;/WEB-INF/spring/root-context.xml&#10;&#9;&#60;/param-value&#62;&#10;&#60;/context-param&#62;</span><br></pre></td></tr></table></figure>
+<p>java web项目的结构很特殊,<code>src</code>里面放的是后端的java代码,编译后src中的文件都会编译成<code>.class</code>文件放到<code>webapp-&gt;classes</code>目录中.这样我们在src中的配置文件如何引入到web.xml中呢?我们使用<code>classpath</code>来表示配置文件编译后的位置即classpath表示<code>webapp-classes</code>中的目录<br><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-07-06-tree.png" alt=""><br>上图中<code>src/main/resources/config</code>中的<code>spring-mybatis</code>正确的表示为:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath:config/spring-mybatis.xml</span><br></pre></td></tr></table></figure></p>
+<p><code>classpath*</code>:不仅包含class路径，还包括jar文件中(class路径)进行查找.</p>
+<h4 id="springmvc配置">springmvc配置</h4><p>需要配置<code>Spring分发器:DispatcherServlet</code>路径,指定路径有DispatcherServlet来管理<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;!-- Processes application requests --&#62;&#10;&#60;servlet&#62;&#10;&#9;&#60;servlet-name&#62;appServlet&#60;/servlet-name&#62;&#10;&#9;&#60;servlet-class&#62;org.springframework.web.servlet.DispatcherServlet&#60;/servlet-class&#62;&#10;&#9;&#60;init-param&#62;&#10;&#9;&#9;&#60;param-name&#62;contextConfigLocation&#60;/param-name&#62;&#10;&#9;&#9;&#60;param-value&#62;/WEB-INF/spring/appServlet/servlet-context.xml&#60;/param-value&#62;&#10;&#9;&#60;/init-param&#62;&#10;&#9;&#60;load-on-startup&#62;1&#60;/load-on-startup&#62;&#10;&#60;/servlet&#62;</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>&lt;param-value&gt;</code>中配置文件同上一条.</p>
+
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2015/06/15/2015-6-15-base-cms-develop-log/">simple cms develop log</a>
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </div>
+    
+  </div>
+
+
+
+  
+    <div class="comments" id="comments">
+      
+        <div class="ds-thread" data-thread-key="2015/07/06/2015-7-6-ssm-npe-log/"
+             data-title="Spring SSM 整合报空指针异常" data-url="http://yoursite.com/2015/07/06/2015-7-6-ssm-npe-log/">
+        </div>
+
+      
+    </div>
+  
+
+          </div>
+
+          
+        </div>
+
+        
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview">
+          站点概览
+        </li>
+      </ul>
+    
+
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="images/dog_arts.jpg" alt="adolphlwq" />
+        <p class="site-author-name">adolphlwq</p>
+      </div>
+      <p class="site-description motion-element"></p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </div>
+        <div class="site-state-item site-state-tags">
+            <span class="site-state-item-count">28</span>
+            <span class="site-state-item-name">标签</span>
+        </div>
+        <div class="site-state-item site-state-pages">
+            <span class="site-state-item-count">5</span>
+            <span class="site-state-item-name">页面</span>
+        </div>
+      </div>
+
+      
+
+      <div class="links-of-author motion-element">
+        
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/adolphlwq/">GitHub</a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="http://weibo.com/adolphlwq">Weibo</a>
+            </span>
+          
+        
+      </div>
+
+      
+      
+
+    </div>
+
+    
+      <div class="post-toc-wrap sidebar-panel-active">
+        <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <div class="post-toc">
+          
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经验和教训"><span class="nav-number">1.</span> <span class="nav-text">经验和教训</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring_springMVC_Mybatis整合"><span class="nav-number">2.</span> <span class="nav-text">spring springMVC Mybatis整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正确配置文件"><span class="nav-number">2.1.</span> <span class="nav-text">正确配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确引入配置文件"><span class="nav-number">2.2.</span> <span class="nav-text">正确引入配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在<context-param>标签内引入mybatis的配置文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">在<context-param>标签内引入mybatis的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#springmvc配置"><span class="nav-number">2.2.2.</span> <span class="nav-text">springmvc配置</span></a></li></ol></li></ol></li></ol></div>
+          
+        </div>
+        <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+      </div>
+    
+
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">adolphlwq</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
+
+  <script type="text/javascript">
+  function hasMobileUA () {
+    var nav = window.navigator;
+    var ua = nav.userAgent;
+    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+
+    return pa.test(ua);
+  }
+
+  function isDesktop () {
+    return screen.width > 991 && !hasMobileUA();
+  }
+
+  function isTablet () {
+    return screen.width < 992 && screen.width > 767 && hasMobileUA();
+  }
+
+  function isMobile () {
+    return screen.width < 767 && hasMobileUA();
+  }
+
+  function escapeSelector (selector) {
+    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
+  }
+</script>
+
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" id="motion.global">
+  $(document).ready(function () {
+    var body = $('body');
+    var isSidebarVisible = false;
+    var sidebarToggle = $('.sidebar-toggle');
+    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
+    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
+    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
+    var sidebar = $('.sidebar');
+
+    var SIDEBAR_WIDTH = '320px';
+    var SIDEBAR_DISPLAY_DURATION = 300;
+
+    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
+
+    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
+    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
+
+    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
+    var sidebarToogleLine2ndStatusClose = {opacity: 0};
+
+    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
+    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
+    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
+
+    LogoAndMenuMotion();
+    sidebatToggleMotion();
+    postsListMotion();
+    backToTopMotion();
+
+
+    $(document)
+      .on('sidebar.isShowing', function () {
+        isDesktop() && body.velocity(
+          {paddingRight: SIDEBAR_WIDTH},
+          SIDEBAR_DISPLAY_DURATION
+        );
+        sidebarContentMotion();
+      })
+      .on('sidebar.isHiding', function () {});
+
+    function LogoAndMenuMotion() {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    }
+
+
+    function backToTopMotion () {
+      var b2top = $('.back-to-top');
+      b2top.on('click', function () {
+        body.velocity('scroll');
+      });
+    }
+
+    function sidebarShowMotion () {
+
+      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
+      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
+      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
+
+      sidebar.velocity({width: SIDEBAR_WIDTH}, {
+        display: 'block',
+        duration: SIDEBAR_DISPLAY_DURATION,
+        complete: function () {
+          sidebar.addClass('sidebar-active');
+          sidebar.trigger('sidebar.didShow');
+        }
+      });
+      sidebar.trigger('sidebar.isShowing');
+    }
+
+    function sidebarHideMotion () {
+      isDesktop() && body.velocity({paddingRight: 0});
+      sidebar.velocity('reverse');
+
+      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
+      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
+      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
+
+      sidebar.removeClass('sidebar-active');
+      sidebar.trigger('sidebar.isHiding');
+    };
+
+    function sidebarContentMotion () {
+      $('.sidebar .motion-element').velocity(
+        'transition.slideRightIn',
+        {stagger: 50, drag: true}
+      );
+    }
+
+    function postsListMotion () {
+      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      $('.post').velocity('transition.slideDownIn', postMotionOptions);
+    }
+
+    function sidebatToggleMotion () {
+      sidebarToggle.on('click', function () {
+        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
+        isSidebarVisible = !isSidebarVisible;
+      });
+
+      sidebarToggle.hover(function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
+      }, function () {
+        if (isSidebarVisible) {return}
+        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
+        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
+        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+  
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"adolphlwq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+  
+</body>
+</html>

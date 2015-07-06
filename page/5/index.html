@@ -124,6 +124,226 @@
           
           
             
+              <a class="post-title-link" href="/2014/12/27/div-css-layout-1/">
+                div+css布局初步
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-27
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/前端/">前端</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/27/div-css-layout-1/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/27/div-css-layout-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="div+css列式布局">div+css列式布局</h2><ul>
+<li>二列布局、左右分布:利用左右浮动来实现二列横向布局</li>
+</ul>
+<p>1.首先需要一个盒子容器<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"html/css"</span>&gt;</span><span class="css"></span><br><span class="line">			<span class="class">.contain</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">400px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid blue</span></span>;&#125;</span></span><br><span class="line">			<span class="class">.left</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">180px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid red</span></span>;&#125;</span></span><br><span class="line">			<span class="class">.right</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">180px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">float</span>:<span class="value">right</span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid green</span></span>;&#125;</span></span><br><span class="line">		</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"contain"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>三列布局：左右绝对定位，设置好距离左右的margin值。</li>
+</ul>
+<h2 id="div+css高度自适应">div+css高度自适应</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.autohight</span><span class="rules">&#123;<span class="rule"><span class="attribute">min-height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value">auto <span class="important">!important</span></span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果在IE6下</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.autohight</span><span class="rules">&#123;<span class="rule"><span class="attribute">_height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">min-height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value">auto <span class="important">!important</span></span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/网页/">
+                #网页
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/20/Zotero-1/">
+                Zotero初步(1)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-20
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/效率/">效率</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/20/Zotero-1/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/20/Zotero-1/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="Zotero简介">Zotero简介</h2><ul>
+<li>Zotero [zoh-TAIR-oh] is a free, easy-to-use tool to help you collect, organize, cite, and share your research sources.</li>
+<li>Zotero [zoh-TAIR-oh] 是一款免费、简单易用的文献管理工具. 它帮助您收集, 管理, 引用及分享您的研究资源. 它就在您工作的地方—网页浏览器本身</li>
+<li><p>由安德鲁·w·梅隆基金会，斯隆基金会以及美国博物馆和图书馆服务协会资助开发。</p>
+</li>
+<li><p>Zotero是火狐浏览器(Firefox)的一个文献管理插件。它在火狐浏览器(Firefox    )中运行于自己的面板中,且脱离网页.</p>
+</li>
+<li>支持浏览器插件、win、Mac、Linux平台</li>
+<li>A personal research assistant</li>
+<li>个人研究助理</li>
+</ul>
+<blockquote>
+<p>Zotero is the only research tool that automatically senses content in your web browser, allowing you to add it to your personal library with a single click. Whether you’re searching for a preprint on arXiv.org, a journal article from JSTOR, a news story from the New York Times, or a book from your university library catalog, Zotero has you covered with &gt;support for thousands of sites.</p>
+</blockquote>
+<ul>
+<li>Store anything</li>
+</ul>
+<blockquote>
+<p>Zotero collects all your research in a single, searchable interface. You can add PDFs, images, audio and video files, snapshots of web pages, and really anything else. Zotero automatically indexes the full-text content of your library, enabling you to find exactly &gt;what you’re looking for with just a few keystrokes.</p>
+</blockquote>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2014/12/20/Zotero-1/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/利器/">
+                #利器
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/12/18/Hexo-optimization-1-baidu-analysis-and-weibo-show/">
                 Hexo主题优化一：添加百度统计、微博秀
               </a>
@@ -746,206 +966,12 @@ yum -y <span class="keyword">install</span> libXext-devel
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/11/28/Mysql-basic-sqls-1/">
-                MySql基本操作(一)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-11-27
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/数据库/">数据库</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/11/28/Mysql-basic-sqls-1/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/28/Mysql-basic-sqls-1/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h1 id="MySql基本操作">MySql基本操作</h1><p>本实例是在windows平台下命令行操作。<br>首先要在mysql数据库中新建一个超级管理员账号，结果登录mysql报错。<br>先总结一下mysql的基本操作（mysql根目录下的bin目录中操作）</p>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2014/11/28/Mysql-basic-sqls-1/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Mysql/">
-                #Mysql
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/11/26/good-Hexo-themes/">
-                优秀Hexo主题
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-11-26
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/Hexo/">Hexo</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/11/26/good-Hexo-themes/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/26/good-Hexo-themes/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h2 id="pacman">pacman</h2><p>很著名的Hexo主题，扁平化、响应式设计<br>github网址：<a href="https://github.com/A-limon/pacman">pacman</a><br>            <a href="http://yangjian.me/pacman/">Demo</a><br><img src="http://7vihfm.com1.z0.glb.clouddn.com/pacman.gif" alt="效果图"></p>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2014/11/26/good-Hexo-themes/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Hexo/">
-                #Hexo
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
           
             <div class="pagination">
-              <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+              <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">&raquo;</a>
             </div>
           
         </div>
@@ -972,11 +998,11 @@ yum -y <span class="keyword">install</span> libXext-devel
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">29</span>
+            <span class="site-state-item-count">28</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
