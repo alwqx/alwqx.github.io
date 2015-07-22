@@ -40,7 +40,7 @@
   </script>
 
 
-  <title> 2015-7-14-base-cms-log-2 // One Day One </title>
+  <title> summary on youth developments log 5 // One Day One </title>
 </head>
 
 <body>
@@ -121,7 +121,7 @@
           
           
             
-              2015-7-14-base-cms-log-2
+              summary on youth developments log 5
             
           
         </h1>
@@ -169,7 +169,9 @@
         
 
         
-          <h2 id="不正确引入脚本文件导致网页不显示">不正确引入脚本文件导致网页不显示</h2><ul>
+          <p><img src="https://static.pexels.com/photos/6678/sunglasses-summer-model-happy-large.jpg" alt=""></p>
+<a id="more"></a>
+<h2 id="不正确引入脚本文件导致网页不显示">不正确引入脚本文件导致网页不显示</h2><ul>
 <li><p>正确:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script  src=<span class="string">"http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 </li>
@@ -188,6 +190,16 @@
 <p>报错:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught <span class="built_in">ReferenceError</span>:XXXX is not defined</span><br></pre></td></tr></table></figure></p>
 <p>原因:<br>js函数的第二个参数是字符串,要加引号.<a href="https://cnodejs.org/topic/53ca6f612df7453a44092862" target="_blank" rel="external">参考连接</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getUserInfoToModal(&#60;c:out value=&#39;$&#123;userList.id &#125;&#39;&#62;&#60;/c:out&#62;, &#60;c:out value=&#39;$&#123;userList.loginname &#125;&#39;&#62;&#60;/c:out&#62;);&#34;</span><br></pre></td></tr></table></figure></p>
 <p>正确写法:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"btn btn-primary"</span> <span class="attribute">data-toggle</span>=<span class="value">"modal"</span> </span><br><span class="line">	                                    	<span class="attribute">data-target</span>=<span class="value">"#myModal"</span> <span class="attribute">onclick</span>=<span class="value">"getUserInfoToModal(&lt;c:out value='$&#123;userList.id &#125;'&gt;&lt;/c:out&gt;, '&lt;c:out value='$&#123;userList.loginname &#125;'&gt;&lt;/c:out&gt;');"</span>&gt;</span>编辑<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="收获">收获</h2><ol>
+<li>了解,熟悉ajax与后端的交互方法</li>
+<li>js操纵dom,多查阅w3c上关于DOM的文档就会了解怎么操作和使用对象的方法和属性</li>
+<li>js删除table某行,修改DOM等操作</li>
+<li>查看bootstrap中文文档搭建常见的组件</li>
+</ol>
+<h2 id="存在的问题">存在的问题</h2><ol>
+<li>写代码粗心,js中获取对象的id经常写错,带来不必要的debug</li>
+<li>修改某个地方时,相关联的地方忘记修改</li>
+</ol>
 
         
       </div>
@@ -223,7 +235,7 @@
     <div class="comments" id="comments">
       
         <div class="ds-thread" data-thread-key="2015/07/14/2015-7-14-base-cms-log-2/"
-             data-title="2015-7-14-base-cms-log-2" data-url="http://yoursite.com/2015/07/14/2015-7-14-base-cms-log-2/">
+             data-title="summary on youth developments log 5" data-url="http://yoursite.com/2015/07/14/2015-7-14-base-cms-log-2/">
         </div>
 
       
@@ -306,7 +318,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#不正确引入脚本文件导致网页不显示"><span class="nav-number">1.</span> <span class="nav-text">不正确引入脚本文件导致网页不显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js括号不匹配"><span class="nav-number">2.</span> <span class="nav-text">js括号不匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js函数参数引号问题"><span class="nav-number">3.</span> <span class="nav-text">js函数参数引号问题</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#不正确引入脚本文件导致网页不显示"><span class="nav-number">1.</span> <span class="nav-text">不正确引入脚本文件导致网页不显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js括号不匹配"><span class="nav-number">2.</span> <span class="nav-text">js括号不匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js函数参数引号问题"><span class="nav-number">3.</span> <span class="nav-text">js函数参数引号问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收获"><span class="nav-number">4.</span> <span class="nav-text">收获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在的问题"><span class="nav-number">5.</span> <span class="nav-text">存在的问题</span></a></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>
