@@ -124,6 +124,109 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/14/2015-7-14-base-cms-log-2/">
+                2015-7-14-base-cms-log-2
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-07-14
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/开发栈/">开发栈</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/14/2015-7-14-base-cms-log-2/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/14/2015-7-14-base-cms-log-2/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="不正确引入脚本文件导致网页不显示">不正确引入脚本文件导致网页不显示</h2><ul>
+<li><p>正确:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script  src=<span class="string">"http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正确:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=<span class="string">"javascript"</span> src=<span class="string">"http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="js括号不匹配">js括号不匹配</h2><blockquote>
+<p>js代码括号不匹配会报茂名其妙的错</p>
+</blockquote>
+<ul>
+<li>某函数没有定义(括号不匹配)</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught SyntaxError: Unexpected end of input</span><br></pre></td></tr></table></figure>
+<h2 id="js函数参数引号问题">js函数参数引号问题</h2><p>错误代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"btn btn-primary"</span> <span class="attribute">data-toggle</span>=<span class="value">"modal"</span> <span class="attribute">data-target</span>=<span class="value">"#myModal"</span> </span><br><span class="line">	<span class="attribute">onclick</span>=<span class="value">"getUserInfoToModal(&lt;c:out value='$&#123;userList.id &#125;'&gt;&lt;/c:out&gt;, &lt;c:out value='$&#123;userList.loginname &#125;'&gt;&lt;/c:out&gt;);"</span>&gt;</span>编辑<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>报错:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught <span class="built_in">ReferenceError</span>:XXXX is not defined</span><br></pre></td></tr></table></figure></p>
+<p>原因:<br>js函数的第二个参数是字符串,要加引号<img src="https://cnodejs.org/topic/53ca6f612df7453a44092862" alt="参考连接"><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getUserInfoToModal(&#60;c:out value=&#39;$&#123;userList.id &#125;&#39;&#62;&#60;/c:out&#62;, &#60;c:out value=&#39;$&#123;userList.loginname &#125;&#39;&#62;&#60;/c:out&#62;);&#34;</span><br></pre></td></tr></table></figure></p>
+<p>正确写法:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"btn btn-primary"</span> <span class="attribute">data-toggle</span>=<span class="value">"modal"</span> </span><br><span class="line">	                                    	<span class="attribute">data-target</span>=<span class="value">"#myModal"</span> <span class="attribute">onclick</span>=<span class="value">"getUserInfoToModal(&lt;c:out value='$&#123;userList.id &#125;'&gt;&lt;/c:out&gt;, '&lt;c:out value='$&#123;userList.loginname &#125;'&gt;&lt;/c:out&gt;');"</span>&gt;</span>编辑<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/11/2015-7-11-null/">
                 null
               </a>
@@ -783,107 +886,6 @@
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/03/duohuo-technology-weekly-2/">
-                duohuo-technology-weekly-2
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2015-04-03
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/技术周报/">技术周报</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/04/03/duohuo-technology-weekly-2/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/03/duohuo-technology-weekly-2/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <p><img src="http://7vihfm.com1.z0.glb.clouddn.com/2015-3-29-weekly-newspaper-1-banner.jpg" alt=""><br>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2015/04/03/duohuo-technology-weekly-2/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/周报/">
-                #周报
-              </a>
-            
-              <a href="/tags/资源整合/">
-                #资源整合
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
@@ -916,7 +918,7 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">

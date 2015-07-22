@@ -124,6 +124,110 @@
           
           
             
+              <a class="post-title-link" href="/2014/12/31/Mysql-basic-sqls-3/">
+                Mysql基本操作(三)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-31
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/数据库/">数据库</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/31/Mysql-basic-sqls-3/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/31/Mysql-basic-sqls-3/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h1 id="基本增删查改">基本增删查改</h1><h2 id="数据查询">数据查询</h2><ul>
+<li>语句结构：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> [<span class="keyword">all</span>|<span class="keyword">distinct</span>]</span><br><span class="line"><span class="keyword">from</span> &lt;表名或视图名&gt;...</span><br><span class="line">[<span class="keyword">where</span> &lt;条件返回逻辑值&gt;]      <span class="comment">---指定查询条件</span></span><br><span class="line">[<span class="keyword">group</span> <span class="keyword">by</span>]                   <span class="comment">---分组</span></span><br><span class="line">[<span class="keyword">having</span> ]					<span class="comment">---	分组过滤条件</span></span><br><span class="line">[<span class="keyword">order</span> <span class="keyword">by</span>]  [<span class="keyword">asc</span>|<span class="keyword">desc</span>]		<span class="comment">---排序</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>e.g.1 as定义列名，limit限制行数</li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="header">mysql&gt; select 商品编号,单价*0.8 as 折扣价, 保质期 from spb limit 2;</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line"><span class="header">| 商品编号     | 折扣价    | 保质期              |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line">| 10010001     |        40 | 2013-12-31 00:00:00 |</span><br><span class="line"><span class="header">| 10010002     |      4.16 | 2013-06-03 00:00:00 |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br></pre></td></tr></table></figure>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2014/12/31/Mysql-basic-sqls-3/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Mysql/">
+                #Mysql
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/12/28/Mysql-basic-sqls-2/">
                 Mysql基本操作（二）
               </a>
@@ -871,105 +975,6 @@ yum -y <span class="keyword">install</span> libXext-devel
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/12/10/encourage/">
-                时常看看激励自己
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-12-09
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/读书/">读书</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/12/10/encourage/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/10/encourage/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <p><code>当下大部分人的努力程度，还远远没到拼天赋的时候</code></p>
-<p><code>要么孤独，要么庸俗</code></p>
-<p><code>当你觉得已经晚了的时候，那恰恰是最早的时候</code></p>
-<p><code>想要就要去争取，不要在事后埋怨自己</code></p>
-<p><code>很多人的生活都不如你，不要抱怨</code></p>
-<p><code>提高效率、节约时间、充实生活</code></p>
-<p>很激励人的视频，分享给大家，父母安好，友人珍重。</p>
-<iframe height="498" width="510" src="http://player.youku.com/embed/XODQ1MTUzNzAw" frameborder="0" allowfullscreen></iframe>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Reading-Writing/">
-                #Reading&Writing
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
@@ -1002,7 +1007,7 @@ yum -y <span class="keyword">install</span> libXext-devel
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
