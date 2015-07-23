@@ -18,9 +18,29 @@
 
 
 
-	<meta name="keywords" content="activity,ubuntu," />
 
-  <title> Ubunut Kylin 15.04 版本发布派对-南京站活动流程 // One Day One </title>
+    <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/head.ico?v=0.4.0" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3e10392c5712cd95c67114264a1df7f8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <title> summary on youth developments log 6 // One Day One </title>
 </head>
 
 <body>
@@ -101,7 +121,7 @@
           
           
             
-              Ubunut Kylin 15.04 版本发布派对-南京站活动流程
+              summary on youth developments log 6
             
           
         </h1>
@@ -110,11 +130,22 @@
       <div class="post-meta">
         <span class="post-time">
           
-            发表于 2015-06-06
+            发表于 2015-07-23
           
         </span>
 
         
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/开发栈/">开发栈</a>
+
+                
+                
+
+              
+            </span>
           
         
 
@@ -122,8 +153,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/06/06/2015-6-6-ubuntu-kylin-publish-flow/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/06/2015-6-6-ubuntu-kylin-publish-flow/"></span>
+            <a href="/2015/07/23/2015-7-23-base-cms-log-6/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/23/2015-7-23-base-cms-log-6/"></span>
             </a>
           </span>
           
@@ -138,25 +169,35 @@
         
 
         
-          <p><img src="http://7qna7i.com1.z0.glb.clouddn.com/6.6%E5%90%88%E7%85%A7.jpg" alt=""></p>
+          <p><img src="https://static.pexels.com/photos/6972/summer-office-student-work-large.jpg" alt=""></p>
 <a id="more"></a>
-<h2 id="暖场音乐">暖场音乐</h2><p>音乐：GALA 《追梦赤子心》 发放Ubuntu Kylin 15.04的系统光盘</p>
-<h2 id="主持人致辞并主持">主持人致辞并主持</h2><ul>
-<li><p>计软院副书记季赛老师致辞（感谢季赛老师和计软院对本次活动的大力支持）</p>
+<h2 id="SpringMVC拦截器实现简单权限控制">SpringMVC拦截器实现简单权限控制</h2><h3 id="xml配置">xml配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置拦截器, 多个拦截器,顺序执行 --&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="title">mvc:interceptors</span>&gt;</span>    </span><br><span class="line">	    <span class="tag">&lt;<span class="title">mvc:interceptor</span>&gt;</span>    </span><br><span class="line">	        <span class="comment">&lt;!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller --&gt;</span>  </span><br><span class="line">	        <span class="tag">&lt;<span class="title">mvc:mapping</span> <span class="attribute">path</span>=<span class="value">"/admin/**"</span> /&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="title">beans:bean</span> <span class="attribute">class</span>=<span class="value">"com.dh.youth.interceptor.CommonInterceptor"</span> /&gt;</span>    </span><br><span class="line">	    <span class="tag">&lt;/<span class="title">mvc:interceptor</span>&gt;</span>  </span><br><span class="line">	    <span class="comment">&lt;!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 --&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="title">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="需要注意的地方有">需要注意的地方有</h4><ul>
+<li>xml文件要引入<code>mvc</code>的名称空间地址和验证地址</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">beans:beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/mvc"</span></span><br><span class="line">	<span class="attribute">xmlns:mvc</span>=<span class="value">"http://www.springframework.org/schema/mvc"</span></span><br><span class="line">	<span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd"</span>&gt;</span></span><br><span class="line">[省略了其他的配置]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;mvc:mapping path=&quot;/admin/**&quot; /&gt;</code><ul>
+<li>path指被拦截的路径,我的是javaweb项目,contextPath:<code>youth</code></li>
+<li>起初我写的是<code>/youth/admin/**</code>,结果不能拦截,debug后发现这样写就可以了</li>
+</ul>
 </li>
-<li><p>刘明 《Ubuntu Kylin 15.04 版本特性介绍》</p>
+<li><code>/*</code> 与 <code>/**</code>的区别<ul>
+<li><code>/admin/*</code>指拦截<code>admin</code>路径下的映射,<code>拦截路径深度</code>为1,比如<code>/admin/user</code>,这样<code>/admin/user/toadd</code>就不能拦截</li>
+<li><code>/admin/**</code>拦截所有子目录</li>
+</ul>
 </li>
 </ul>
-<h3 id="微信摇一摇抽奖">微信摇一摇抽奖</h3><ul>
-<li><p>七牛何李石 @ikbear 《通往架构师之路—不想成为架构师的程序员不是好Leader》＆　Q&amp;A（2个问题）</p>
+<h3 id="代码实现">代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dh.youth.interceptor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.HandlerInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.dh.youth.beans.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CommonInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(CommonInterceptor.class);</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest arg0,</span><br><span class="line">			HttpServletResponse arg1, Object arg2, Exception arg3)</span></span><br><span class="line">			<span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest arg0, HttpServletResponse arg1,</span><br><span class="line">			Object arg2, ModelAndView arg3)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><code>preHandle</code>：预处理回调方法，实现处理器的预处理（如登录检查），第三个参数为响应的处理器（如我们上一章的Controller实现）；<br>  返回值：true表示继续流程（如调用下一个拦截器或处理器）；<br>  false表示流程中断（如登录检查失败），不会继续调用其他的拦截器或处理器，此时我们需要通过response来产生响应；</p>
 </li>
-<li><p>李剑峰 《Unity8最新进展和贡献》 ＆　Q&amp;A（2个问题）</p>
+<li><p><code>postHandle</code>：后处理回调方法，实现处理器的后处理（但在渲染视图之前），此时我们可以通过modelAndView（模型和视图对象）对模型数据进行处理或对视图进行处理，modelAndView也可能为null。</p>
 </li>
-</ul>
-<h3 id="微信摇一摇抽奖-1">微信摇一摇抽奖</h3><ul>
-<li>徐新坤 《Dockerfile与Docker构建流程解读》＆　Q&amp;A（2个问题）</li>
-</ul>
-<h2 id="大合影">大合影</h2>
+<li><p><code>afterCompletion</code>：整个请求处理完毕回调方法，即在视图渲染完毕时回调，如性能监控中我们可以在此记录结束时间并输出消耗时间，还可以进行一些资源清理，类似于try-catch-finally中的finally，但仅调用处理器执行链中preHandle返回true的拦截器的afterCompletion。</p>
+</li>
+</ol>
+
         
       </div>
     
@@ -164,30 +205,16 @@
     
       <div class="post-footer">
         
-          <div class="post-tags">
-            
-              <a href="/tags/activity/">
-                #activity
-              </a>
-            
-              <a href="/tags/ubuntu/">
-                #ubuntu
-              </a>
-            
-          </div>
-        
 
         
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/06/15/2015-6-15-base-cms-develop-log/">summary on youth developments log 4</a>
-              
             </div>
 
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2015/05/03/2015-5-2-jdbcTemeplate-queryForObject/">jdbcTemeplate-queryForObject</a>
+                <a href="/2015/07/14/2015-7-14-base-cms-log-2/">summary on youth developments log 5</a>
               
             </div>
           </div>
@@ -204,8 +231,8 @@
   
     <div class="comments" id="comments">
       
-        <div class="ds-thread" data-thread-key="2015/06/06/2015-6-6-ubuntu-kylin-publish-flow/"
-             data-title="Ubunut Kylin 15.04 版本发布派对-南京站活动流程" data-url="http://yoursite.com/2015/06/06/2015-6-6-ubuntu-kylin-publish-flow/">
+        <div class="ds-thread" data-thread-key="2015/07/23/2015-7-23-base-cms-log-6/"
+             data-title="summary on youth developments log 6" data-url="http://yoursite.com/2015/07/23/2015-7-23-base-cms-log-6/">
         </div>
 
       
@@ -288,7 +315,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#暖场音乐"><span class="nav-number">1.</span> <span class="nav-text">暖场音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主持人致辞并主持"><span class="nav-number">2.</span> <span class="nav-text">主持人致辞并主持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微信摇一摇抽奖"><span class="nav-number">2.1.</span> <span class="nav-text">微信摇一摇抽奖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信摇一摇抽奖-1"><span class="nav-number">2.2.</span> <span class="nav-text">微信摇一摇抽奖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大合影"><span class="nav-number">3.</span> <span class="nav-text">大合影</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC拦截器实现简单权限控制"><span class="nav-number">1.</span> <span class="nav-text">SpringMVC拦截器实现简单权限控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#xml配置"><span class="nav-number">1.1.</span> <span class="nav-text">xml配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需要注意的地方有"><span class="nav-number">1.1.1.</span> <span class="nav-text">需要注意的地方有</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>

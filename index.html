@@ -124,6 +124,95 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/23/2015-7-23-base-cms-log-6/">
+                summary on youth developments log 6
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-07-23
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/开发栈/">开发栈</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/23/2015-7-23-base-cms-log-6/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/23/2015-7-23-base-cms-log-6/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <p><img src="https://static.pexels.com/photos/6972/summer-office-student-work-large.jpg" alt=""></p>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/07/23/2015-7-23-base-cms-log-6/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/14/2015-7-14-base-cms-log-2/">
                 summary on youth developments log 5
               </a>
@@ -757,121 +846,6 @@
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/11/2015-4-10-summary-on-projects-3-pyzx/">
-                summary on youth developments log 3
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2015-04-11
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/Spring/">Spring</a>
-
-                
-                
-                  ， 
-                
-
-              
-                <a href="/categories/Spring/projects/">projects</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/04/11/2015-4-10-summary-on-projects-3-pyzx/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/11/2015-4-10-summary-on-projects-3-pyzx/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h2 id="Spring中配置xml的路径关系">Spring中配置xml的路径关系</h2><p>Spring中的Di为程序间的解耦提供了便捷的途径,Spring中可以在xml中配置来实现依赖注入.我在学习Spring的过程中一直不明白xml配置文件如何导入.今天明白了一点点,这里记录下来:</p>
-<h4 id="配置数据库的连接信息">配置数据库的连接信息</h4><p>xml中是这样的,一般新建applicationContext-jdbc.xml,在这个文件中配置数据库的驱动类,用户名和密码等信息.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">	<span class="attribute">xmlns:tx</span>=<span class="value">"http://www.springframework.org/schema/tx"</span> <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">	<span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></span><br><span class="line">	<span class="attribute">xsi:schemaLocation</span>=<span class="value">"</span><br><span class="line">http://www.springframework.org/schema/beans</span><br><span class="line">http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">http://www.springframework.org/schema/tx</span><br><span class="line">http://www.springframework.org/schema/tx/spring-tx-4.1.xsd</span><br><span class="line">http://www.springframework.org/schema/context</span><br><span class="line">http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 加载数据源 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"dataSource"</span></span><br><span class="line">		<span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"driverClassName"</span> <span class="attribute">value</span>=<span class="value">"com.mysql.jdbc.Driver"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"url"</span> <span class="attribute">value</span>=<span class="value">"jdbc:mysql:localhost:3306/test"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"username"</span> <span class="attribute">value</span>=<span class="value">"test"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"password"</span> <span class="attribute">value</span>=<span class="value">"test"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- JDBC模板操作对象 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"jdbcTemplate"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.core.JdbcTemplate"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"dataSource"</span> <span class="attribute">ref</span>=<span class="value">"dataSource"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 自动扫描包 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">context:component-scan</span> <span class="attribute">base-package</span>=<span class="value">"test.impl"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 事务配置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span></span><br><span class="line">		<span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"dataSource"</span> <span class="attribute">ref</span>=<span class="value">"dataSource"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 使用annotation定义事务 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">tx:annotation-driven</span> <span class="attribute">transaction-manager</span>=<span class="value">"transactionManager"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>这个文件中配置了数据源,事务管理,以及要扫描的包.扫描的包是指web容器在初始化项目时会读web.xml文件来完成初始化工作.在读到这个<code>applicationContext-jdbc.xml</code>中的内容时会根据指定的包来自动装配包(这里是<code>test.impl</code>)路径下面的类,自动装配里面的Bean.</p>
-<p>xml中前几行有很多引入文件的路径.如<code>xmlns=&quot;http://www.springframework.org/schema/beans</code>等,它们的作用是什么呢,下面介绍下我的理解:</p>
-<ul>
-<li>beans —— xml文件的根节点</li>
-<li>在文档中定义一个或多个可供选择的命名空间,xmlns ——是XML NameSpace的缩写，因为XML文件的标签名称都是自定义的，自己写的和其他人定义的标签很有可能会重复命名，而功能却不一样，所以需要加上一个namespace来区分这个xml文件和其他的xml文件，类似于java中的package。</li>
-<li>xmlns:xsi ——是指xml文件遵守xml规范，xsi全名：xml schema instance</li>
-<li>xsi:schemaLocation——是指具体用到的schema资源（不要看相关中文资料，看了就不明白了，schema就是schema~你把他翻译成对文档的限制就行了。你可能会说，dtd才是，实际上xsd和dtd是一样的</li>
-<li>XSD是指XML结构定义 ( XML Schemas Definition ),可以用一个指定的XML Schema来验证某个XML文档，以检查该XML文档是否符合其要求</li>
-</ul>
-
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Mysql/">
-                #Mysql
-              </a>
-            
-              <a href="/tags/xml/">
-                #xml
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
@@ -904,7 +878,7 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
