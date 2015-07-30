@@ -124,313 +124,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/01/06/sqlserver-sqls-1/">
-                sqlserver 增删查改练习(一)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2015-01-06
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/数据库/">数据库</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/01/06/sqlserver-sqls-1/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/06/sqlserver-sqls-1/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <ul>
-<li><p><a href="http://pan.baidu.com/s/1hqzj6o0">数据库文件下载</a></p>
-<h2 id="链接查询">链接查询</h2></li>
-<li><p>查询khb中姓名相同的人的信息<strong>可以使用自链接</strong></p>
-</li>
-</ul>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">select * </span><br><span class="line"><span class="built_in">from</span> khb <span class="operator">a</span></span><br><span class="line">where <span class="operator">a</span>.客户姓名 <span class="operator">in</span> (select b.客户姓名</span><br><span class="line">						<span class="built_in">from</span> khb b</span><br><span class="line">						where b.客户编号!=<span class="operator">a</span>.客户编号)</span><br><span class="line"></span><br><span class="line">select * </span><br><span class="line"><span class="built_in">from</span> khb <span class="operator">a</span>,khb b</span><br><span class="line">where <span class="operator">a</span>.客户姓名=b.客户姓名 <span class="operator">and</span> <span class="operator">a</span>.客户编号!=b.客户编号</span><br></pre></td></tr></table></figure>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2015/01/06/sqlserver-sqls-1/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Mysql/">
-                #Mysql
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/01/04/DB-course-design/">
-                数据库课设(一)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2015-01-03
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/Java/">Java</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/01/04/DB-course-design/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/04/DB-course-design/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h2 id="整理一">整理一</h2><ul>
-<li>先看出错的代码</li>
-</ul>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">List</span> getDeptInfo()&#123;</span><br><span class="line">	<span class="built_in">String</span> sql <span class="subst">=</span> <span class="string">"select * from department"</span>;</span><br><span class="line">	PreparedStatement psmt<span class="subst">=</span><span class="built_in">null</span>;</span><br><span class="line">	<span class="built_in">List</span> <span class="built_in">list</span> <span class="subst">=</span> <span class="literal">new</span> ArrayList();</span><br><span class="line">	try &#123;</span><br><span class="line">		psmt <span class="subst">=</span> conn<span class="built_in">.</span>prepareStatement(sql);</span><br><span class="line">		<span class="keyword">ResultSet</span> rs <span class="subst">=</span> psmt<span class="built_in">.</span>executeQuery();</span><br><span class="line">		Department dept <span class="subst">=</span> <span class="built_in">null</span>;</span><br><span class="line">		<span class="keyword">while</span>(rs<span class="built_in">.</span>next())&#123;</span><br><span class="line">			dept<span class="built_in">.</span>setDeptId(rs<span class="built_in">.</span>getInt(<span class="string">"DeptId"</span>));</span><br><span class="line">			dept<span class="built_in">.</span>setDeptName(rs<span class="built_in">.</span>getString(<span class="string">"DeptName"</span>));</span><br><span class="line">			<span class="built_in">list</span><span class="built_in">.</span>add(dept);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e<span class="built_in">.</span>printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2015/01/04/DB-course-design/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Java/">
-                #Java
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/12/31/Mysql-basic-sqls-3/">
-                Mysql基本操作(三)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-12-31
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/数据库/">数据库</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/12/31/Mysql-basic-sqls-3/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/31/Mysql-basic-sqls-3/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h1 id="基本增删查改">基本增删查改</h1><h2 id="数据查询">数据查询</h2><ul>
-<li>语句结构：</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> [<span class="keyword">all</span>|<span class="keyword">distinct</span>]</span><br><span class="line"><span class="keyword">from</span> &lt;表名或视图名&gt;...</span><br><span class="line">[<span class="keyword">where</span> &lt;条件返回逻辑值&gt;]      <span class="comment">---指定查询条件</span></span><br><span class="line">[<span class="keyword">group</span> <span class="keyword">by</span>]                   <span class="comment">---分组</span></span><br><span class="line">[<span class="keyword">having</span> ]					<span class="comment">---	分组过滤条件</span></span><br><span class="line">[<span class="keyword">order</span> <span class="keyword">by</span>]  [<span class="keyword">asc</span>|<span class="keyword">desc</span>]		<span class="comment">---排序</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>e.g.1 as定义列名，limit限制行数</li>
-</ul>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="header">mysql&gt; select 商品编号,单价*0.8 as 折扣价, 保质期 from spb limit 2;</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line"><span class="header">| 商品编号     | 折扣价    | 保质期              |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line">| 10010001     |        40 | 2013-12-31 00:00:00 |</span><br><span class="line"><span class="header">| 10010002     |      4.16 | 2013-06-03 00:00:00 |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br></pre></td></tr></table></figure>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2014/12/31/Mysql-basic-sqls-3/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Mysql/">
-                #Mysql
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
               <a class="post-title-link" href="/2014/12/28/Mysql-basic-sqls-2/">
                 Mysql基本操作（二）
               </a>
@@ -451,7 +144,7 @@
             <span class="post-category">
               &nbsp; | &nbsp; 分类于
               
-                <a href="/categories/数据库/">数据库</a>
+                <a href="/categories/database/">database</a>
 
                 
                 
@@ -498,14 +191,6 @@
 
     
       <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/Mysql/">
-                #Mysql
-              </a>
-            
-          </div>
         
 
         
@@ -655,7 +340,7 @@
             <span class="post-category">
               &nbsp; | &nbsp; 分类于
               
-                <a href="/categories/效率/">效率</a>
+                <a href="/categories/tool/">tool</a>
 
                 
                 
@@ -718,14 +403,6 @@
 
     
       <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/利器/">
-                #利器
-              </a>
-            
-          </div>
         
 
         
@@ -855,8 +532,8 @@
           
           
             
-              <a class="post-title-link" href="/2014/12/13/install-SqlServer-consideration/">
-                帮同学安装SqlServer感悟
+              <a class="post-title-link" href="/2014/12/12/duohuo-family-dinner/">
+                多火聚餐，掏心掏肺
               </a>
             
           
@@ -866,7 +543,7 @@
       <div class="post-meta">
         <span class="post-time">
           
-            发表于 2014-12-13
+            发表于 2014-12-12
           
         </span>
 
@@ -875,7 +552,7 @@
             <span class="post-category">
               &nbsp; | &nbsp; 分类于
               
-                <a href="/categories/数据库/">数据库</a>
+                <a href="/categories/writing/">writing</a>
 
                 
                 
@@ -889,8 +566,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2014/12/13/install-SqlServer-consideration/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/13/install-SqlServer-consideration/"></span>
+            <a href="/2014/12/12/duohuo-family-dinner/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/12/duohuo-family-dinner/"></span>
             </a>
           </span>
           
@@ -906,22 +583,20 @@
 
         
           
-            <h2 id="背景">背景</h2><ul>
-<li>安装vs2013之后卸载而且没卸载干净。</li>
-<li>安装vs2012，可以使用。</li>
-<li>安装sqlserver2008R2没成功，系统残留很多文件和没有清理的注册表。</li>
-<li>安装sqlserver2012失败，残留注册表等文件。</li>
+            <ul>
+<li><p>今天学长请多火大家庭吃饭，我们都很开心，吃吃喝喝的，学弟敬学长学姐，学长们之前相互灌酒，很是开心。</p>
+</li>
+<li><p>酒喝多了就开始掏心掏肺，说实话，现在大学能有这样的技术社团已经很少了，对于学技术的同学来说，大学里的课程和工作环境里的使用的技术相差甚远，而且感觉学不到什么。还好有多火社团，里面汇集了整个南信大几乎大部分的技术达人，各种大牛以及对技术感兴趣的人。还有往届已经工作的学长回来分享技术、工作方面的干货。每天讨论的都是当下最新的技术。</p>
+</li>
+<li><p>最后大家轮流发言，秘书、社长、男神、波神….大家都是掏心掏肺。尤其是波神，他关于学习、提高自己方面的分享对我的影响很大。<strong>“永远不要想着去依靠别人，一定要想着靠自己，有些事情没做好只是你没有用心去做，你只要用心去做，就没有什么过不去的坎。比如高数你看不懂，怎么办，那你就把高数书从头看到尾，你一定能学好，（我发现是我们自己努力的不够，而不是没有天赋什么的），你一定要相信自己，没有什么是做不到的！”</strong></p>
+</li>
+<li><p>我只能凭记忆把它记录下来，很喜欢波神这句话，强调独立，强调自立自强。没什么不可能，只是你没有好好努力罢了。别撕逼了，脚踏实地吧。</p>
+</li>
 </ul>
-<h2 id="我的做法">我的做法</h2><ul>
-<li>查找方法彻底删除sqlserver残留文件。<a href="http://www.hc400.com/zt19/067.htm">点击查看链接</a></li>
-<li>安装sqlserver2012<a href="http://wenku.baidu.com/link?url=kzOYHEZVZPT4hlYLf11HomWnCXtpMLv4btBUL1ho0JJjc6B0hmi9IBByIY9w9NoH63r2LJU-a4NMZakH9KbhtoJF1yT8dMwnq29r8VH6Fne">安装教程</a></li>
+<ul>
+<li><code>独立</code>、<code>自立</code>、<code>自强</code></li>
 </ul>
-<h2 id="遇到问题">遇到问题</h2><p><img src="http://7vihfm.com1.z0.glb.clouddn.com/sqlerror.png" alt="神奇的报错：没有权限读取注册表"><br>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2014/12/13/install-SqlServer-consideration/">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           
         
       </div>
@@ -930,13 +605,298 @@
     
       <div class="post-footer">
         
-          <div class="post-tags">
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
             
-              <a href="/tags/Mysql/">
-                #Mysql
+              <a class="post-title-link" href="/2014/12/11/Ubuntu-install-xpenguins-2-2-problem/">
+                Ubuntu安装xpenguins-2.2问题
               </a>
             
-          </div>
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-11
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/os/">os</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/11/Ubuntu-install-xpenguins-2-2-problem/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/11/Ubuntu-install-xpenguins-2-2-problem/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <p>今天做Linux实验，下载xpenguins-2.2源码包实现解压，make安装。</p>
+<p>下载没问题,<a href="http://xpenguins.seul.org/" target="_blank" rel="external">点击下载源码包</a>xpenguins-2.2.tar.gz</p>
+<p>下载文件夹下的情况</p>
+<pre><code>adolph@adolph-vm:~/下载$ ls -l
+总用量 <span class="number">272</span>
+-rw-rw-r-- <span class="number">1</span> adolph adolph <span class="number">275210</span> <span class="number">12</span>月 <span class="number">11</span> <span class="number">13</span>:<span class="number">01</span> xpenguins-<span class="number">2.2</span><span class="class">.tar</span><span class="class">.gz</span>
+</code></pre><p>解压命令</p>
+<pre><code>sudo tar -zxvf xpenguins-<span class="number">2.2</span><span class="class">.tar</span><span class="class">.gz</span> -C /usr/local/src
+</code></pre><p><strong>-C /usr/local/src</strong>表示解压到什么文件夹。<br>查看解压后的文件夹：</p>
+<pre><code>adolph<span class="annotation">@adolph</span>-<span class="string">vm:</span><span class="regexp">/usr/</span>local/src$ ls -l
+总用量 <span class="number">8</span>
+drwxrwsr-x <span class="number">23</span>   <span class="number">427</span>  <span class="number">6011</span> <span class="number">4096</span> <span class="number">12</span>月 <span class="number">11</span> <span class="number">12</span>:<span class="number">47</span> ntp-dev-<span class="number">4.2</span>.7p482
+drwxrwxrwx  <span class="number">4</span> <span class="number">13130</span> <span class="number">12824</span> <span class="number">4096</span> <span class="number">12</span>月 <span class="number">11</span> <span class="number">19</span>:<span class="number">16</span> xpenguins-<span class="number">2.2</span>
+</code></pre><p>进去文件夹，查看README文件，得出安装步骤：</p>
+<pre><code><span class="number">32</span> Do the followin<span class="variable">g:</span>
+<span class="number">33</span> 
+<span class="number">34</span>         ./configure
+<span class="number">35</span>         <span class="keyword">make</span>
+<span class="number">36</span>         <span class="keyword">make</span> install (<span class="keyword">as</span> root)
+</code></pre><p>根据步骤运行命令：</p>
+<pre><code><span class="title">sudo</span> ./configure
+</code></pre><p>结果报错：</p>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/linux3.jpg" alt="报错信息，重点在倒数第二行"></p>
+<p>根据提示需要安装扩展包，这个例子是《鸟哥的私房菜》里的，鸟哥用的是红帽，所以网上给的处理方法</p>
+<pre><code>yum -y <span class="keyword">install</span> libXpm-devel
+yum -y <span class="keyword">install</span> libXext-devel
+</code></pre><p><strong>yum是红帽的安装软件命令，在Linux下不适用，软件包的名称也有差异</strong></p>
+<p>linux下的处理方法是：</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install libxpm-<span class="built_in">dev</span> libxext-<span class="built_in">dev</span>
+</code></pre><p>一次安装两个扩展包就可以了。这时候再执行<strong>sudo ./configure</strong>就不会报错了^_^ 。</p>
+
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/10/2014-12-9-encourage/">
+                时常看看激励自己
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-09
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/writing/">writing</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/10/2014-12-9-encourage/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/10/2014-12-9-encourage/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <p><code>当下大部分人的努力程度，还远远没到拼天赋的时候</code></p>
+<p><code>要么孤独，要么庸俗</code></p>
+<p><code>当你觉得已经晚了的时候，那恰恰是最早的时候</code></p>
+<p><code>想要就要去争取，不要在事后埋怨自己</code></p>
+<p><code>很多人的生活都不如你，不要抱怨</code></p>
+<p><code>提高效率、节约时间、充实生活</code></p>
+<p>很激励人的视频，分享给大家，父母安好，友人珍重。</p>
+<iframe height="498" width="510" src="http://player.youku.com/embed/XODQ1MTUzNzAw" frameborder="0" allowfullscreen></iframe>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/12/08/2014-12-8-beautiful-sentences/">
+                很温暖的一句话
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-08
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/writing/">writing</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/08/2014-12-8-beautiful-sentences/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/08/2014-12-8-beautiful-sentences/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <p>昨晚都快睡觉了，突然看到一句很治愈的话：<strong>我一直相信释迦摩尼说一句话：“无论你遇见谁，他都是你生命该出出现的人，绝非偶然，他一定会教会你一些什么。”所以我也相信：“无论我走到哪里，那都是我该去的地方，经历一些我该经历的事，遇见我该遇见的人。”</strong></p>
+<p>大三狗总是各种感伤、纠结、迷茫，不知道考研还是工作，不知道自己该选择那个方向……看到这句话烦躁的内心总算安静了一点，就这样吧，好好生活，就像老黄说的：不要去想以后的事情，那都是不可预测的，先把眼前的事情做好再说。就像释迦摩尼说的那样，无论我们去哪儿，遇见谁，经历什么事情，哪些都是我们生命中必须经历的事情，我们只需要准备好心情，穿一件好看的衣服往前走就好了，眼前的事情做好，以后不会太差的。问题是我以及一些人，我们并没有把眼前的事情做好，所以才不能很好的去面对未来。</p>
+<p>好好利用每天的时间，不虚度，不浪费、要充实。就好了。</p>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/walk-my-way.jpg" alt="走好我们的路"></p>
+
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
         
 
         
@@ -983,11 +943,11 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
-            <span class="site-state-item-count">28</span>
+            <span class="site-state-item-count">18</span>
             <span class="site-state-item-name">标签</span>
         </div>
         <div class="site-state-item site-state-pages">
