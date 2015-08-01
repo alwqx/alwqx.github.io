@@ -124,6 +124,102 @@
           
           
             
+              <a class="post-title-link" href="/2014/12/31/Mysql-basic-sqls-3/">
+                Mysql基本操作(三)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-31
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/database/">database</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/31/Mysql-basic-sqls-3/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/31/Mysql-basic-sqls-3/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h1 id="基本增删查改">基本增删查改</h1><h2 id="数据查询">数据查询</h2><ul>
+<li>语句结构：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> [<span class="keyword">all</span>|<span class="keyword">distinct</span>]</span><br><span class="line"><span class="keyword">from</span> &lt;表名或视图名&gt;...</span><br><span class="line">[<span class="keyword">where</span> &lt;条件返回逻辑值&gt;]      <span class="comment">---指定查询条件</span></span><br><span class="line">[<span class="keyword">group</span> <span class="keyword">by</span>]                   <span class="comment">---分组</span></span><br><span class="line">[<span class="keyword">having</span> ]					<span class="comment">---	分组过滤条件</span></span><br><span class="line">[<span class="keyword">order</span> <span class="keyword">by</span>]  [<span class="keyword">asc</span>|<span class="keyword">desc</span>]		<span class="comment">---排序</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>e.g.1 as定义列名，limit限制行数</li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="header">mysql&gt; select 商品编号,单价*0.8 as 折扣价, 保质期 from spb limit 2;</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line"><span class="header">| 商品编号     | 折扣价    | 保质期              |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line">| 10010001     |        40 | 2013-12-31 00:00:00 |</span><br><span class="line"><span class="header">| 10010002     |      4.16 | 2013-06-03 00:00:00 |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br></pre></td></tr></table></figure>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2014/12/31/Mysql-basic-sqls-3/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/12/28/Mysql-basic-sqls-2/">
                 Mysql基本操作（二）
               </a>
@@ -823,94 +919,6 @@ yum -y <span class="keyword">install</span> libXext-devel
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/12/08/2014-12-8-beautiful-sentences/">
-                很温暖的一句话
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-12-08
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/writing/">writing</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/12/08/2014-12-8-beautiful-sentences/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/08/2014-12-8-beautiful-sentences/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <p>昨晚都快睡觉了，突然看到一句很治愈的话：<strong>我一直相信释迦摩尼说一句话：“无论你遇见谁，他都是你生命该出出现的人，绝非偶然，他一定会教会你一些什么。”所以我也相信：“无论我走到哪里，那都是我该去的地方，经历一些我该经历的事，遇见我该遇见的人。”</strong></p>
-<p>大三狗总是各种感伤、纠结、迷茫，不知道考研还是工作，不知道自己该选择那个方向……看到这句话烦躁的内心总算安静了一点，就这样吧，好好生活，就像老黄说的：不要去想以后的事情，那都是不可预测的，先把眼前的事情做好再说。就像释迦摩尼说的那样，无论我们去哪儿，遇见谁，经历什么事情，哪些都是我们生命中必须经历的事情，我们只需要准备好心情，穿一件好看的衣服往前走就好了，眼前的事情做好，以后不会太差的。问题是我以及一些人，我们并没有把眼前的事情做好，所以才不能很好的去面对未来。</p>
-<p>好好利用每天的时间，不虚度，不浪费、要充实。就好了。</p>
-<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/walk-my-way.jpg" alt="走好我们的路"></p>
-
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
@@ -943,7 +951,7 @@ yum -y <span class="keyword">install</span> libXext-devel
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
