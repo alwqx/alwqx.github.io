@@ -124,6 +124,98 @@
           
           
             
+              <a class="post-title-link" href="/2015/01/04/DB-course-design/">
+                数据库课设(一)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-01-03
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/Java/">Java</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/01/04/DB-course-design/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/04/DB-course-design/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="整理一">整理一</h2><ul>
+<li>先看出错的代码</li>
+</ul>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">List</span> getDeptInfo()&#123;</span><br><span class="line">	<span class="built_in">String</span> sql <span class="subst">=</span> <span class="string">"select * from department"</span>;</span><br><span class="line">	PreparedStatement psmt<span class="subst">=</span><span class="built_in">null</span>;</span><br><span class="line">	<span class="built_in">List</span> <span class="built_in">list</span> <span class="subst">=</span> <span class="literal">new</span> ArrayList();</span><br><span class="line">	try &#123;</span><br><span class="line">		psmt <span class="subst">=</span> conn<span class="built_in">.</span>prepareStatement(sql);</span><br><span class="line">		<span class="keyword">ResultSet</span> rs <span class="subst">=</span> psmt<span class="built_in">.</span>executeQuery();</span><br><span class="line">		Department dept <span class="subst">=</span> <span class="built_in">null</span>;</span><br><span class="line">		<span class="keyword">while</span>(rs<span class="built_in">.</span>next())&#123;</span><br><span class="line">			dept<span class="built_in">.</span>setDeptId(rs<span class="built_in">.</span>getInt(<span class="string">"DeptId"</span>));</span><br><span class="line">			dept<span class="built_in">.</span>setDeptName(rs<span class="built_in">.</span>getString(<span class="string">"DeptName"</span>));</span><br><span class="line">			<span class="built_in">list</span><span class="built_in">.</span>add(dept);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e<span class="built_in">.</span>printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/01/04/DB-course-design/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/12/31/Mysql-basic-sqls-3/">
                 Mysql基本操作(三)
               </a>
@@ -828,97 +920,6 @@ yum -y <span class="keyword">install</span> libXext-devel
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/12/10/2014-12-9-encourage/">
-                时常看看激励自己
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2014-12-09
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/writing/">writing</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/12/10/2014-12-9-encourage/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/10/2014-12-9-encourage/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <p><code>当下大部分人的努力程度，还远远没到拼天赋的时候</code></p>
-<p><code>要么孤独，要么庸俗</code></p>
-<p><code>当你觉得已经晚了的时候，那恰恰是最早的时候</code></p>
-<p><code>想要就要去争取，不要在事后埋怨自己</code></p>
-<p><code>很多人的生活都不如你，不要抱怨</code></p>
-<p><code>提高效率、节约时间、充实生活</code></p>
-<p>很激励人的视频，分享给大家，父母安好，友人珍重。</p>
-<iframe height="498" width="510" src="http://player.youku.com/embed/XODQ1MTUzNzAw" frameborder="0" allowfullscreen></iframe>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
@@ -951,7 +952,7 @@ yum -y <span class="keyword">install</span> libXext-devel
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
