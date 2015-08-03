@@ -169,7 +169,7 @@
         
 
         
-          <p><img src="" alt=""><br><a id="more"></a></p>
+          <p><img src="http://img35.ddimg.cn/22/18/1494565105-1_u_1.jpg" alt=""><br><a id="more"></a></p>
 <h2 id="入门须知">入门须知</h2><ul>
 <li>编程只是整个解决方案中极其微小的一个部分</li>
 <li>生命中最困难的,是想清楚你真正像要做的事情</li>
@@ -244,6 +244,59 @@
 <li><p>也不建议把所有的传统分页方法替换成无分页方法,要避免没头没脑地生成成千上万个列表.</p>
 </li>
 <li>第一个版本做得不好,照样发布,用来收集反馈改善</li>
+</ul>
+<h2 id="安全基础:保护用户的隐私">安全基础:保护用户的隐私</h2><ul>
+<li>所有的网络通信都应该加密吗?<ul>
+<li>在用户登录之前,使用的都是HTTP连接;而一旦登录,网络连接就自动切换到HTTPS.这么做听合理的.</li>
+<li>HTTPS意味着没人能在互联网上监视你</li>
+</ul>
+</li>
+<li>防范字典攻击<ul>
+<li>限制每个用户的登录尝试次数</li>
+<li>更好的做法是:每次登录失败后增加后续登录的延迟时间</li>
+</ul>
+</li>
+<li>安全哈希,快速哈希</li>
+<li>彩虹表:以存储空间换时间的权衡</li>
+<li>如果你只是用户:确保你的密码长度要超过12位,甚至还要长很多</li>
+<li>如果你是开发人员:哈希的话只考虑<code>bcrypt</code>或<code>PBKDF2</code></li>
+</ul>
+<h2 id="加强代码测试,别让他太差劲">加强代码测试,别让他太差劲</h2><ul>
+<li>软件开发人员应该与客户患难与共</li>
+<li>代码评审(code review)</li>
+<li>加大测试力度</li>
+<li>不写单元测试的程序员是愚蠢的</li>
+<li>用户是疯狂的,测试人员讨厌你的代码,有些bug是无关紧要的</li>
+</ul>
+<h2 id="创建并管理社区,同时从中受益">创建并管理社区,同时从中受益</h2><ul>
+<li>倾听社区的声音,但别被它牵着鼻子走</li>
+<li>参与并支持你的社区</li>
+<li>别盲目听从你的用户</li>
+<li>学习是有趣的</li>
+<li>游戏是学习的助手</li>
+</ul>
+<h2 id="程序员,你幸福吗?">程序员,你幸福吗?</h2><blockquote>
+<p>“……最难的是,要搞明白你没日没夜地拼命工作到底是为了什么.”</p>
+</blockquote>
+<ul>
+<li>情绪上的幸福感<ul>
+<li>一个人每天经历的情绪质量,包括快乐,压力,悲愤,愤怒以及其它让人开心或者不开心的感情的频率和强度</li>
+</ul>
+</li>
+<li>对生活的看法<ul>
+<li>指人们在审视他们生活所持的看法</li>
+</ul>
+</li>
+<li>如果收入的对数作为参考坐标,人们对生活的看法随着收入的提高在稳步提升,而情绪上的幸福也在提升.但是当收入到一定程度(如年收入7.5万美元)时幸福感就停滞不前</li>
+<li>钱本身能给你带来的幸福是有限的</li>
+<li><code>马斯洛需求层次理论</code></li>
+<li>关于幸福,其实大部分人不知道它的科学本质—什么能带来幸福?什么能维持幸福?<ul>
+<li>经历胜过物质:东西会变旧,东西会变得平淡无奇.东西就是东西,它还会磨损,很难拿来分享.</li>
+<li>但是经历完全不同,它是独特的,他在你的记忆力像钻石一样光芒四射,而且常常还会历久弥新.经历永远都可以拿来与人分享.只要可能的话,把钱花在经历上,而不是物质上.</li>
+<li>助人为乐</li>
+<li>为将来埋单:<code>为了幸福的最大化,给自己一个期待和念想,比如期待网购的物品寄到家的那种感觉是不是很幸福或难忘?</code></li>
+</ul>
+</li>
 </ul>
 
         
@@ -365,7 +418,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门须知"><span class="nav-number">1.</span> <span class="nav-text">入门须知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把一堆烂事搞定的艺术"><span class="nav-number">2.</span> <span class="nav-text">把一堆烂事搞定的艺术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高效编程之原则"><span class="nav-number">3.</span> <span class="nav-text">高效编程之原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#招聘程序员须得其法"><span class="nav-number">4.</span> <span class="nav-text">招聘程序员须得其法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使团队紧密合作"><span class="nav-number">5.</span> <span class="nav-text">使团队紧密合作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蝙蝠洞:程序员的高效工作场所"><span class="nav-number">6.</span> <span class="nav-text">蝙蝠洞:程序员的高效工作场所</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计时要把用户放在心上"><span class="nav-number">7.</span> <span class="nav-text">设计时要把用户放在心上</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门须知"><span class="nav-number">1.</span> <span class="nav-text">入门须知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把一堆烂事搞定的艺术"><span class="nav-number">2.</span> <span class="nav-text">把一堆烂事搞定的艺术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高效编程之原则"><span class="nav-number">3.</span> <span class="nav-text">高效编程之原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#招聘程序员须得其法"><span class="nav-number">4.</span> <span class="nav-text">招聘程序员须得其法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使团队紧密合作"><span class="nav-number">5.</span> <span class="nav-text">使团队紧密合作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蝙蝠洞:程序员的高效工作场所"><span class="nav-number">6.</span> <span class="nav-text">蝙蝠洞:程序员的高效工作场所</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计时要把用户放在心上"><span class="nav-number">7.</span> <span class="nav-text">设计时要把用户放在心上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全基础:保护用户的隐私"><span class="nav-number">8.</span> <span class="nav-text">安全基础:保护用户的隐私</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加强代码测试,别让他太差劲"><span class="nav-number">9.</span> <span class="nav-text">加强代码测试,别让他太差劲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建并管理社区,同时从中受益"><span class="nav-number">10.</span> <span class="nav-text">创建并管理社区,同时从中受益</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序员,你幸福吗?"><span class="nav-number">11.</span> <span class="nav-text">程序员,你幸福吗?</span></a></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>
