@@ -124,6 +124,120 @@
           
           
             
+              <a class="post-title-link" href="/2014/12/11/Ubuntu-install-xpenguins-2-2-problem/">
+                Ubuntu安装xpenguins-2.2问题
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2014-12-11
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/os/">os</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/12/11/Ubuntu-install-xpenguins-2-2-problem/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/11/Ubuntu-install-xpenguins-2-2-problem/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <p>今天做Linux实验，下载xpenguins-2.2源码包实现解压，make安装。</p>
+<p>下载没问题,<a href="http://xpenguins.seul.org/" target="_blank" rel="external">点击下载源码包</a>xpenguins-2.2.tar.gz</p>
+<p>下载文件夹下的情况</p>
+<pre><code>adolph@adolph-vm:~/下载$ ls -l
+总用量 <span class="number">272</span>
+-rw-rw-r-- <span class="number">1</span> adolph adolph <span class="number">275210</span> <span class="number">12</span>月 <span class="number">11</span> <span class="number">13</span>:<span class="number">01</span> xpenguins-<span class="number">2.2</span><span class="class">.tar</span><span class="class">.gz</span>
+</code></pre><p>解压命令</p>
+<pre><code>sudo tar -zxvf xpenguins-<span class="number">2.2</span><span class="class">.tar</span><span class="class">.gz</span> -C /usr/local/src
+</code></pre><p><strong>-C /usr/local/src</strong>表示解压到什么文件夹。<br>查看解压后的文件夹：</p>
+<pre><code>adolph<span class="annotation">@adolph</span>-<span class="string">vm:</span><span class="regexp">/usr/</span>local/src$ ls -l
+总用量 <span class="number">8</span>
+drwxrwsr-x <span class="number">23</span>   <span class="number">427</span>  <span class="number">6011</span> <span class="number">4096</span> <span class="number">12</span>月 <span class="number">11</span> <span class="number">12</span>:<span class="number">47</span> ntp-dev-<span class="number">4.2</span>.7p482
+drwxrwxrwx  <span class="number">4</span> <span class="number">13130</span> <span class="number">12824</span> <span class="number">4096</span> <span class="number">12</span>月 <span class="number">11</span> <span class="number">19</span>:<span class="number">16</span> xpenguins-<span class="number">2.2</span>
+</code></pre><p>进去文件夹，查看README文件，得出安装步骤：</p>
+<pre><code><span class="number">32</span> Do the followin<span class="variable">g:</span>
+<span class="number">33</span> 
+<span class="number">34</span>         ./configure
+<span class="number">35</span>         <span class="keyword">make</span>
+<span class="number">36</span>         <span class="keyword">make</span> install (<span class="keyword">as</span> root)
+</code></pre><p>根据步骤运行命令：</p>
+<pre><code><span class="title">sudo</span> ./configure
+</code></pre><p>结果报错：</p>
+<p><img src="http://7vihfm.com1.z0.glb.clouddn.com/linux3.jpg" alt="报错信息，重点在倒数第二行"></p>
+<p>根据提示需要安装扩展包，这个例子是《鸟哥的私房菜》里的，鸟哥用的是红帽，所以网上给的处理方法</p>
+<pre><code>yum -y <span class="keyword">install</span> libXpm-devel
+yum -y <span class="keyword">install</span> libXext-devel
+</code></pre><p><strong>yum是红帽的安装软件命令，在Linux下不适用，软件包的名称也有差异</strong></p>
+<p>linux下的处理方法是：</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install libxpm-<span class="built_in">dev</span> libxext-<span class="built_in">dev</span>
+</code></pre><p>一次安装两个扩展包就可以了。这时候再执行<strong>sudo ./configure</strong>就不会报错了^_^ 。</p>
+
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2014/12/10/2014-12-9-encourage/">
                 时常看看激励自己
               </a>
@@ -510,7 +624,7 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">

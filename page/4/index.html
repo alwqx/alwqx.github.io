@@ -124,6 +124,103 @@
           
           
             
+              <a class="post-title-link" href="/2015/02/19/2015-2-19-java-asymmetric-encrypt-and-decrypt/">
+                Java asymmetric encrypt and decrypt
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-02-19
+          
+        </span>
+
+        
+          
+            <span class="post-category">
+              &nbsp; | &nbsp; 分类于
+              
+                <a href="/categories/Java/">Java</a>
+
+                
+                
+
+              
+            </span>
+          
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/02/19/2015-2-19-java-asymmetric-encrypt-and-decrypt/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/19/2015-2-19-java-asymmetric-encrypt-and-decrypt/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <h2 id="Overview">Overview</h2><ul>
+<li>advanced</li>
+<li>double safety</li>
+<li>public key and private key</li>
+<li>Diffie-Hellman Key Exchange/Agreement Algorithm(complex)</li>
+<li>RSA Algorithm—Based on factorization</li>
+<li>ElGamal Algorithm—Based on the discrete logarithm</li>
+<li>ECC—Elliptical Curve Cryptography</li>
+</ul>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/02/19/2015-2-19-java-asymmetric-encrypt-and-decrypt/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/02/17/2015-2-17-java-symmetrical-encrypt-and-decrypt/">
                 Java symmetrical encrypt and decrypt
               </a>
@@ -806,101 +903,6 @@
 
 
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/01/06/sqlserver-sqls-1/">
-                sqlserver 增删查改练习(一)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2015-01-06
-          
-        </span>
-
-        
-          
-            <span class="post-category">
-              &nbsp; | &nbsp; 分类于
-              
-                <a href="/categories/database/">database</a>
-
-                
-                
-
-              
-            </span>
-          
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/01/06/sqlserver-sqls-1/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/06/sqlserver-sqls-1/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <ul>
-<li><p><a href="http://pan.baidu.com/s/1hqzj6o0">数据库文件下载</a></p>
-<h2 id="链接查询">链接查询</h2></li>
-<li><p>查询khb中姓名相同的人的信息<strong>可以使用自链接</strong></p>
-</li>
-</ul>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">select * </span><br><span class="line"><span class="built_in">from</span> khb <span class="operator">a</span></span><br><span class="line">where <span class="operator">a</span>.客户姓名 <span class="operator">in</span> (select b.客户姓名</span><br><span class="line">						<span class="built_in">from</span> khb b</span><br><span class="line">						where b.客户编号!=<span class="operator">a</span>.客户编号)</span><br><span class="line"></span><br><span class="line">select * </span><br><span class="line"><span class="built_in">from</span> khb <span class="operator">a</span>,khb b</span><br><span class="line">where <span class="operator">a</span>.客户姓名=b.客户姓名 <span class="operator">and</span> <span class="operator">a</span>.客户编号!=b.客户编号</span><br></pre></td></tr></table></figure>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2015/01/06/sqlserver-sqls-1/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
@@ -933,7 +935,7 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">

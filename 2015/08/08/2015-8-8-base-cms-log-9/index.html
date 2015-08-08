@@ -40,7 +40,7 @@
   </script>
 
 
-  <title> Mysql基本操作(三) // One Day One </title>
+  <title> base cms log 9 // One Day One </title>
 </head>
 
 <body>
@@ -121,7 +121,7 @@
           
           
             
-              Mysql基本操作(三)
+              base cms log 9
             
           
         </h1>
@@ -130,7 +130,7 @@
       <div class="post-meta">
         <span class="post-time">
           
-            发表于 2014-12-31
+            发表于 2015-08-08
           
         </span>
 
@@ -139,7 +139,7 @@
             <span class="post-category">
               &nbsp; | &nbsp; 分类于
               
-                <a href="/categories/database/">database</a>
+                <a href="/categories/projects/">projects</a>
 
                 
                 
@@ -153,8 +153,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2014/12/31/Mysql-basic-sqls-3/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/31/Mysql-basic-sqls-3/"></span>
+            <a href="/2015/08/08/2015-8-8-base-cms-log-9/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/08/2015-8-8-base-cms-log-9/"></span>
             </a>
           </span>
           
@@ -169,30 +169,25 @@
         
 
         
-          <h1 id="基本增删查改">基本增删查改</h1><h2 id="数据查询">数据查询</h2><ul>
-<li>语句结构：</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> [<span class="keyword">all</span>|<span class="keyword">distinct</span>]</span><br><span class="line"><span class="keyword">from</span> &lt;表名或视图名&gt;...</span><br><span class="line">[<span class="keyword">where</span> &lt;条件返回逻辑值&gt;]      <span class="comment">---指定查询条件</span></span><br><span class="line">[<span class="keyword">group</span> <span class="keyword">by</span>]                   <span class="comment">---分组</span></span><br><span class="line">[<span class="keyword">having</span> ]					<span class="comment">---	分组过滤条件</span></span><br><span class="line">[<span class="keyword">order</span> <span class="keyword">by</span>]  [<span class="keyword">asc</span>|<span class="keyword">desc</span>]		<span class="comment">---排序</span></span></span><br></pre></td></tr></table></figure>
+          <p><img src="https://static.pexels.com/photos/7063/man-notebook-notes-macbook-large.jpg" alt="有钱了，给自己配台Mac"><br><a id="more"></a></p>
+<h2 id="mybatis空间绑定异常">mybatis空间绑定异常</h2><p>报错：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.dh.youth.dao.PostMapper.insertSelective&#10;&#9;at org.apache.ibatis.binding.MapperMethod$SqlCommand.&#60;init&#62;(MapperMethod.java:196)&#10;&#9;at org.apache.ibatis.binding.MapperMethod.&#60;init&#62;(MapperMethod.java:44)&#10;&#9;at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:59)&#10;&#9;at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:52)&#10;&#9;at com.sun.proxy.$Proxy17.insertSelective(Unknown Source)&#10;&#9;at com.dh.youth.service.impl.PostServiceImpl.insertSelective(PostServiceImpl.java:25)&#10;&#9;at com.dh.youth.test.PostTest.insertPost(PostTest.java:30)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:497)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:73)&#10;`</span><br></pre></td></tr></table></figure></p>
+<p>重点在在这句<code>rg.apache.ibatis.binding.BindingException: Invalid bound statement (not found)</code><br>解决方案：<strong> 一般的原因是Mapper interface和xml文件的定义对应不上，需要检查包名，namespace，函数名称等能否对应上，需要比较细致的对比，我经常就是写错了一两个字母搞的很长时间找不到错误</strong>,仔细检查发现是自己的问题，xml的<code>namespace</code>写错了。</p>
+<h2 id="ckedit获取textarea的内容">ckedit获取<code>textarea</code>的内容</h2><blockquote>
+<p>我用<code>JQuery</code>的$(“#textareaId”).val()发现获取不到值，google后发现要用ckedit自带的js方法来获取。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"&lt;%=basePath%&gt;resources/javascripts/ckeditor/ckeditor.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">class</span>=<span class="value">"ckeditor"</span> <span class="attribute">id</span>=<span class="value">"content"</span> <span class="attribute">name</span>=<span class="value">"postContent"</span> &gt;</span><span class="tag">&lt;/<span class="title">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCKeditContent</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> CKEDITOR.instances.content.getData();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://zhidao.baidu.com/question/406470041.html?fr=iks&amp;word=jquery%BB%F1%C8%A1ckeditor%D6%B5&amp;ie=gbk" target="_blank" rel="external">参考链接1</a><br><a href="http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.editor.html#getData" target="_blank" rel="external">官方文档</a></p>
+<h2 id="ajax异步调用后端代码报错：400">ajax异步调用后端代码报错：400</h2><blockquote>
+<p>这个错误和第二条有着紧密的联系。</p>
+</blockquote>
+<p>背景：</p>
 <ul>
-<li>e.g.1 as定义列名，limit限制行数</li>
+<li>ajax传输表单数据<code>data</code>用<code>$(&quot;#formId&quot;).serialize()</code>表示</li>
+<li>因为$(“#formId”).serialize()获取不到<code>&lt;textarea class=&quot;ckeditor&quot; id=&quot;content&quot; name=&quot;postContent&quot; &gt;&lt;/textarea&gt;</code>里面的内容，所以的是这样写的：<br><code>data:$(&quot;#formId&quot;).serialize()+getCKeditContent()</code></li>
+<li>上面的data是可以拼接的，但是格式已经不符合<code>POST</code>要求传递的表单数据格式了，所以请求不允许，没办法我只能拼接表单数据了</li>
 </ul>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="header">mysql&gt; select 商品编号,单价*0.8 as 折扣价, 保质期 from spb limit 2;</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line"><span class="header">| 商品编号     | 折扣价    | 保质期              |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br><span class="line">| 10010001     |        40 | 2013-12-31 00:00:00 |</span><br><span class="line"><span class="header">| 10010002     |      4.16 | 2013-06-03 00:00:00 |</span><br><span class="line">+--------------+-----------+---------------------+</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<ul>
-<li><code>distinct</code>去重</li>
-<li><code>where+谓词</code>过滤（<strong>谓词</strong>指返回逻辑值的运算符或表达式）</li>
-<li><code>between ..and..</code>限制范围</li>
-</ul>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">mysql&gt; select * from spb where 单价&gt;20 and 单价&lt;=30;</span><br><span class="line">+--------------+--------------+--------------+--------+--------------------+---------------------+-----------+--------+</span></span><br><span class="line"><span class="header">| 商品编号     | 商品类别     | 商品名称     | 单价   | 生产商             | 保质期              | 库存量    | 备注   |</span><br><span class="line">+--------------+--------------+--------------+--------+--------------------+---------------------+-----------+--------+</span></span><br><span class="line"><span class="header">| 50020001     | 体育用品     | 羽毛球拍     |     30 | 美好体育用品       | 2000-01-01 00:00:00 |        30 | NULL   |</span><br><span class="line">+--------------+--------------+--------------+--------+--------------------+---------------------+-----------+--------+</span></span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"><span class="header">mysql&gt; select * from spb where 单价 between 20 and 30;</span><br><span class="line">+--------------+--------------+--------------+--------+--------------------+---------------------+-----------+--------+</span></span><br><span class="line"><span class="header">| 商品编号     | 商品类别     | 商品名称     | 单价   | 生产商             | 保质期              | 库存量    | 备注   |</span><br><span class="line">+--------------+--------------+--------------+--------+--------------------+---------------------+-----------+--------+</span></span><br><span class="line"><span class="header">| 50020001     | 体育用品     | 羽毛球拍     |     30 | 美好体育用品       | 2000-01-01 00:00:00 |        30 | NULL   |</span><br><span class="line">+--------------+--------------+--------------+--------+--------------------+---------------------+-----------+--------+</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>group by</code>分组，</li>
-</ul>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">select 商品编号,count(*) as '订购客户数'</span><br><span class="line">from spdgb</span><br><span class="line">group by 商品编号</span><br><span class="line">+--------------+--------------+</span><br><span class="line"><span class="string">| 商品编号     | 订购人数     |</span></span><br><span class="line">+--------------+--------------+</span><br><span class="line"><span class="string">| 10010001     |            2 |</span></span><br><span class="line"><span class="string">| 10020001     |            2 |</span></span><br><span class="line"><span class="string">| 20180002     |            1 |</span></span><br><span class="line"><span class="string">| 30010001     |            2 |</span></span><br><span class="line"><span class="string">| 30010002     |            1 |</span></span><br><span class="line"><span class="string">| 40010001     |            1 |</span></span><br><span class="line"><span class="string">| 40010002     |            1 |</span></span><br><span class="line"><span class="string">| 50020001     |            1 |</span></span><br><span class="line"><span class="string">| 50020002     |            2 |</span></span><br><span class="line">+--------------+--------------+</span><br><span class="line">**这条语句实现了分组并统计组内的数量**</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>having</code>分组后筛选</li>
-</ul>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="subst">&gt;</span> <span class="keyword">select</span> 商品编号,count(<span class="subst">*</span>) as <span class="string">'订购人数'</span> from spdgb</span><br><span class="line">   <span class="subst">-&gt; </span><span class="keyword">group</span> <span class="keyword">by</span> 商品编号</span><br><span class="line">   <span class="subst">-&gt; </span>having 商品编号 like <span class="string">'100%'</span>;</span><br><span class="line"><span class="subst">+--------------+--------------+</span></span><br><span class="line"><span class="subst">|</span> 商品编号     <span class="subst">|</span> 订购人数     <span class="subst">|</span></span><br><span class="line"><span class="subst">+--------------+--------------+</span></span><br><span class="line"><span class="subst">|</span> <span class="number">10010001</span>     <span class="subst">|</span>            <span class="number">2</span> <span class="subst">|</span></span><br><span class="line"><span class="subst">|</span> <span class="number">10020001</span>     <span class="subst">|</span>            <span class="number">2</span> <span class="subst">|</span></span><br><span class="line"><span class="subst">+--------------+--------------+</span></span><br></pre></td></tr></table></figure>
-<h2 id="数据更新">数据更新</h2><h3 id="insert">insert</h3><h3 id="update">update</h3><h3 id="delete">delete</h3>
+
         
       </div>
     
@@ -205,13 +200,11 @@
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2015/01/04/DB-course-design/">数据库课设(一)</a>
-              
             </div>
 
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2014/12/28/Mysql-basic-sqls-2/">Mysql基本操作（二）</a>
+                <a href="/2015/08/02/2015-8-2-base-cms-log-8/">base cms log 8-jquery</a>
               
             </div>
           </div>
@@ -228,8 +221,8 @@
   
     <div class="comments" id="comments">
       
-        <div class="ds-thread" data-thread-key="2014/12/31/Mysql-basic-sqls-3/"
-             data-title="Mysql基本操作(三)" data-url="http://yoursite.com/2014/12/31/Mysql-basic-sqls-3/">
+        <div class="ds-thread" data-thread-key="2015/08/08/2015-8-8-base-cms-log-9/"
+             data-title="base cms log 9" data-url="http://yoursite.com/2015/08/08/2015-8-8-base-cms-log-9/">
         </div>
 
       
@@ -312,7 +305,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本增删查改"><span class="nav-number">1.</span> <span class="nav-text">基本增删查改</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据查询"><span class="nav-number">1.1.</span> <span class="nav-text">数据查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据更新"><span class="nav-number">1.2.</span> <span class="nav-text">数据更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#insert"><span class="nav-number">1.2.1.</span> <span class="nav-text">insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#update"><span class="nav-number">1.2.2.</span> <span class="nav-text">update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete"><span class="nav-number">1.2.3.</span> <span class="nav-text">delete</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis空间绑定异常"><span class="nav-number">1.</span> <span class="nav-text">mybatis空间绑定异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ckedit获取textarea的内容"><span class="nav-number">2.</span> <span class="nav-text">ckedit获取textarea的内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax异步调用后端代码报错：400"><span class="nav-number">3.</span> <span class="nav-text">ajax异步调用后端代码报错：400</span></a></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>
