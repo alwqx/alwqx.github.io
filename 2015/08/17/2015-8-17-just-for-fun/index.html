@@ -18,9 +18,29 @@
 
 
 
-	<meta name="keywords" content="网页," />
 
-  <title> div+css布局初步 // One Day One </title>
+    <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+    <link rel="shorticon icon" type="image/x-icon" href="/head.ico?v=0.4.0" />
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3e10392c5712cd95c67114264a1df7f8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <title> 2015-8-17-just-for-fun // One Day One </title>
 </head>
 
 <body>
@@ -101,7 +121,7 @@
           
           
             
-              div+css布局初步
+              2015-8-17-just-for-fun
             
           
         </h1>
@@ -110,7 +130,7 @@
       <div class="post-meta">
         <span class="post-time">
           
-            发表于 2014-12-27
+            发表于 2015-08-17
           
         </span>
 
@@ -119,7 +139,7 @@
             <span class="post-category">
               &nbsp; | &nbsp; 分类于
               
-                <a href="/categories/前端/">前端</a>
+                <a href="/categories/book/">book</a>
 
                 
                 
@@ -133,8 +153,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2014/12/27/div-css-layout-1/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/27/div-css-layout-1/"></span>
+            <a href="/2015/08/17/2015-8-17-just-for-fun/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/17/2015-8-17-just-for-fun/"></span>
             </a>
           </span>
           
@@ -149,18 +169,23 @@
         
 
         
-          <h2 id="div+css列式布局">div+css列式布局</h2><ul>
-<li>二列布局、左右分布:利用左右浮动来实现二列横向布局</li>
-</ul>
-<p>1.首先需要一个盒子容器<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"html/css"</span>&gt;</span><span class="css"></span><br><span class="line">			<span class="class">.contain</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">400px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid blue</span></span>;&#125;</span></span><br><span class="line">			<span class="class">.left</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">180px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid red</span></span>;&#125;</span></span><br><span class="line">			<span class="class">.right</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">180px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">float</span>:<span class="value">right</span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid green</span></span>;&#125;</span></span><br><span class="line">		</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"contain"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>三列布局：左右绝对定位，设置好距离左右的margin值。</li>
-</ul>
-<h2 id="div+css高度自适应">div+css高度自适应</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.autohight</span><span class="rules">&#123;<span class="rule"><span class="attribute">min-height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value">auto <span class="important">!important</span></span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果在IE6下</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.autohight</span><span class="rules">&#123;<span class="rule"><span class="attribute">_height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">min-height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value">auto <span class="important">!important</span></span></span>;&#125;</span></span><br></pre></td></tr></table></figure>
+          <p><img src="http://www.iinuu.ru/userfiles/images/IT_guru/2011/goggles/justforfun.jpg" alt=""><br><a id="more"></a></p>
+<blockquote>
+<p>学习是为了兴趣，在学习中找到有趣的地方，学习有趣的东西，保持好奇心</p>
+</blockquote>
+<h2 id="生活的意义一">生活的意义一</h2><blockquote>
+<p>大卫：现在我正在思考一个最基本的问题，这个问题挺重要的。你想借这本书表达什么？<br>林纳斯：这个嘛，我想阐释生活的意义。<br>…<br>林纳斯：基本上这个答案既干脆有漂亮。答案本身不会阐释生活的意义，但会直接告诉你生活中会发生什么。有三件事对生活是有意义的，它们是生活中所有事情的动机—包括你做的所有事和任何一个生命体会做的事：第一是<code>生存</code>，第二是<code>社会秩序</code>，第三是<code>娱乐</code>。生活中的所有事情都会遵循着这个顺序，娱乐之后就再无其它。所以从某种意义上说，生活的意义就是要你达到第三个阶段。一旦到达了第三个阶段，这辈子你就算成功了。但是你得先超越前两个阶段。<br>…<br>林纳斯：归根结底，咱们只是为了好玩。</p>
+</blockquote>
+<p>林纳斯对生活意义的阐释：<code>生存--社会秩序--娱乐</code>，深思之下觉得很有道理的，生存和社会秩序相对于娱乐比较容易实现，那么<code>娱乐</code>该怎么实现呢？它更注重心灵上的享受。只能去修炼内心了。</p>
+<h2 id="生活的意义二">生活的意义二</h2><blockquote>
+<p>启发我去思考生活意义的，是一场伯克利大学举行的名叫“Webrush”的活动，他们邀请我去参加。…针对Webrush的听众，我更感兴趣的是<code>社会是如何进化的，以及人类是如何从工业社会进化到信息社会的，接下来会发生什么？为什么会这样？</code>我想让自己的演讲变得动听，要是能在一次座谈会的时间内说服在场的观众就更好了。每个人在那场活动中都有各自的议程安排，而那天我的安排是与两位著名的哲学家进行小组讨论，并且活着回来。</p>
+<p>那么，社会为什么会进步呢？其驱动因素是什么，真的是科技吗？</p>
+<p>我呢，作为一名技术专家，却认为科技其实什么也没驱动。<code>应该是社会改变了科技，而不是反过来</code>，科技只不过限制了我们做某件事能达到的程度，以及我们完成某件事的最低成本。</p>
+<p>科技唯一有意思的地方，<code>就是你能用它来干些什么，而且它背后的驱动因素实际上就是人类真正的需要和兴趣</code>。而人与人之间面对面沟通已经很少了，因为我们有了新的沟通方式。<br>…<br>因此我认为，要了解社会的进化，我们必须知道是什么在真正地驱动人类。是金钱，是成功，还是性？到底是什么动机从<strong> 从根本上</strong>驱使着人类做他们正在做的事？</p>
+<p>最明显的动机，大家应该都没有异议吧，就是：<code>生存</code>。<br>…<br>为了给其他动机排序，我们必须考虑一下它们和那个纯粹的生存动机相差有多远。问题不在于：“你会不会为了钱去杀人？”，而在于”你会不会为了钱去死？“。<br>…<br>人类愿意为之牺牲性命的事物不多，但是我敢打包票社会关系肯定是其中之一。</p>
+<p>第三个动机也就是最后一个，就是<code>娱乐</code>。这个听起来或许是陈词滥调，但它作为一个强有力的动机绝对是毋庸置疑的。每天都有一些人死在了他们仅仅是为了好玩才做的一些事情上。就比如说，坐在飞机里本来平安无事的，有些人非要跳出机舱玩滑翔，就是因为他们觉得有趣。</p>
+</blockquote>
+<p>—not ended.tomorrow again</p>
 
         
       </div>
@@ -169,26 +194,16 @@
     
       <div class="post-footer">
         
-          <div class="post-tags">
-            
-              <a href="/tags/网页/">
-                #网页
-              </a>
-            
-          </div>
-        
 
         
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2014/12/28/Mysql-basic-sqls-2/">Mysql基本操作（二）</a>
-              
             </div>
 
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2014/12/20/Zotero-1/">Zotero初步(1)</a>
+                <a href="/2015/08/11/2015-8-11-beijing-2/">2015-8-11-beijing-2</a>
               
             </div>
           </div>
@@ -205,8 +220,8 @@
   
     <div class="comments" id="comments">
       
-        <div class="ds-thread" data-thread-key="2014/12/27/div-css-layout-1/"
-             data-title="div+css布局初步" data-url="http://yoursite.com/2014/12/27/div-css-layout-1/">
+        <div class="ds-thread" data-thread-key="2015/08/17/2015-8-17-just-for-fun/"
+             data-title="2015-8-17-just-for-fun" data-url="http://yoursite.com/2015/08/17/2015-8-17-just-for-fun/">
         </div>
 
       
@@ -289,7 +304,7 @@
         <div class="post-toc">
           
           
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#div+css列式布局"><span class="nav-number">1.</span> <span class="nav-text">div+css列式布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div+css高度自适应"><span class="nav-number">2.</span> <span class="nav-text">div+css高度自适应</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生活的意义一"><span class="nav-number">1.</span> <span class="nav-text">生活的意义一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生活的意义二"><span class="nav-number">2.</span> <span class="nav-text">生活的意义二</span></a></li></ol></div>
           
         </div>
         <div class="post-toc-indicator-bottom post-toc-indicator"></div>
