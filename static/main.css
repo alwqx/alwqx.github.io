@@ -1,0 +1,55 @@
+* {text-decoration:none;}
+#matrix {
+		margin-left: 40px;
+}
+
+.media-base{
+	display:block;
+	width: 140px;
+	height: 140px;
+	border: 1px;
+	text-align: center;
+	line-height: 140px;
+	font-size: 20px;
+}
+
+.matrix-1{
+	margin-left: 280px;
+	color: white;
+	background-color: #1ABC9C;
+}
+.matrix-1:hover{
+	color: #1ABC9C;
+	background-color: white;
+}
+
+.matrix-2{
+	margin-left: 140px;
+	color: white;
+	background-color: #34495E;
+}
+.matrix-2:hover{
+	color: #34495E;
+	background-color: white;
+}
+
+.matrix-3{
+	margin-left: 0px;
+	color: white;
+	background-color: #2ECC71;
+}
+.matrix-3:hover{
+	color: #2ECC71;
+	background-color: white;
+}
+
+.matrix-4{
+	margin-left: 280px;
+	margin-top: -140px;
+	color: white;
+	background-color: #E74C3C;
+}
+.matrix-4:hover{
+	color: #E74C3C;
+	background-color: white;
+}
