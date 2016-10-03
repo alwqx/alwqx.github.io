@@ -2,7 +2,16 @@ var vm = new Vue({
 	el: '#msgSection',
 	data: {
 		newMsg:'',
-		msgs:[{text:'hello adolphlwq'}]
+		msgs:[{text:'hello adolphlwq'}],
+		btnObj: {
+			'btn': true,
+			'btn-default': false,
+			'btn-primary': true,
+			'btn-success': false,
+			'btn-info': false,
+			'btn-warning': false,
+			'btn-danger': false
+		}
 	},
 	methods: {
 		addMsg: function(){
