@@ -1,0 +1,8 @@
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+themes/next/*
+!themes/next/_config.yml
+package.json
