@@ -6,3 +6,4 @@ public/
 themes/next/*
 !themes/next/_config.yml
 package.json
+themes/apollo/
