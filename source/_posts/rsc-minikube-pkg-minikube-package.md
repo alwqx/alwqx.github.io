@@ -24,6 +24,9 @@ pkg constants defines default values minikube will use later:
 - MountProcessFileName
 - SupportedVMDrivers
 - config for vm
+
+<!-- more -->
+
 ```golang
 DefaultKeepContext  = false
 ShaSuffix           = ".sha256"
@@ -43,8 +46,6 @@ DefaultInterval            = 6
 DefaultClusterBootstrapper = "localkube"
 ```
 - ...
-
-<!-- more -->
 
 ## pkg/minikube/config
 This pkg is simple, it is mainly for MinikubeConfig `type MinikubeConfig map[string]interface{}`.
