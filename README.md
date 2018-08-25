@@ -13,4 +13,5 @@ Using Bootstrap and Vue.
 
 ## TODO
 - [X] Add Google Analytics
-- [X] Redesign index pageghome v0.2
+- [X] Redesign home page to v0.2
+- [X] v0.2 --> v0.2.1
