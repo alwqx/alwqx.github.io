@@ -1,14 +1,14 @@
-# qPage
+# Home Page
 
 <p align="center">
   <a href="https://adolphlwq.xyz" target="_blank">
-    <img src="http://og2hmb2p7.bkt.clouddn.com/adolph_qpage.png" width="700px">
+    <img src="static/home_page.png" width="700px">
     <br>
     Live Demo
   </a>
 </p>
 
-<p align="center">My personal home page website</p>
+<p align="center">my personal home page website</p>
 
 ## Change log
 ### v0.1
