@@ -1,7 +1,7 @@
 # Home Page
 
 <p align="center">
-  <a href="https://adolphlwq.xyz" target="_blank">
+  <a href="https://alwq.xyz" target="_blank">
     <img src="static/home_page.png" width="700px">
     <br>
     Live Demo
